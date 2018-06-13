@@ -12,9 +12,13 @@
 		B3C2E85620D1304E00251575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3C2E85420D1304E00251575 /* Main.storyboard */; };
 		B3C2E85820D1304F00251575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3C2E85720D1304F00251575 /* Assets.xcassets */; };
 		B3C2E85B20D1304F00251575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3C2E85920D1304F00251575 /* LaunchScreen.storyboard */; };
+		CA99DF6703C3274874B6A1B6 /* Pods_OutfitOfTheDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E54E41DAFC25B1E3CBB7EF /* Pods_OutfitOfTheDay.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15E54E41DAFC25B1E3CBB7EF /* Pods_OutfitOfTheDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OutfitOfTheDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EC52F87A86F174C4BC38428 /* Pods-OutfitOfTheDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OutfitOfTheDay.release.xcconfig"; path = "Pods/Target Support Files/Pods-OutfitOfTheDay/Pods-OutfitOfTheDay.release.xcconfig"; sourceTree = "<group>"; };
+		977F5C33CF9EFC147E3EA713 /* Pods-OutfitOfTheDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OutfitOfTheDay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OutfitOfTheDay/Pods-OutfitOfTheDay.debug.xcconfig"; sourceTree = "<group>"; };
 		B3C2E84D20D1304E00251575 /* OutfitOfTheDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OutfitOfTheDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C2E85020D1304E00251575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3C2E85220D1304E00251575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA99DF6703C3274874B6A1B6 /* Pods_OutfitOfTheDay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A3701B2CABEE982580C0CA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15E54E41DAFC25B1E3CBB7EF /* Pods_OutfitOfTheDay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1309620E6B09D4200BCEC723 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				977F5C33CF9EFC147E3EA713 /* Pods-OutfitOfTheDay.debug.xcconfig */,
+				6EC52F87A86F174C4BC38428 /* Pods-OutfitOfTheDay.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B3C2E84420D1304E00251575 = {
 			isa = PBXGroup;
 			children = (
 				B3C2E84F20D1304E00251575 /* OutfitOfTheDay */,
 				B3C2E84E20D1304E00251575 /* Products */,
+				1309620E6B09D4200BCEC723 /* Pods */,
+				0A3701B2CABEE982580C0CA0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,9 +119,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3C2E85F20D1304F00251575 /* Build configuration list for PBXNativeTarget "OutfitOfTheDay" */;
 			buildPhases = (
+				98CFF4CAD3365326CC81B67F /* [CP] Check Pods Manifest.lock */,
 				B3C2E84920D1304E00251575 /* Sources */,
 				B3C2E84A20D1304E00251575 /* Frameworks */,
 				B3C2E84B20D1304E00251575 /* Resources */,
+				A95E02A7AD158A2A0DABC58A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,6 +179,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		98CFF4CAD3365326CC81B67F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OutfitOfTheDay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A95E02A7AD158A2A0DABC58A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OutfitOfTheDay/Pods-OutfitOfTheDay-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OutfitOfTheDay/Pods-OutfitOfTheDay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B3C2E84920D1304E00251575 /* Sources */ = {
@@ -302,6 +373,7 @@
 		};
 		B3C2E86020D1304F00251575 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 977F5C33CF9EFC147E3EA713 /* Pods-OutfitOfTheDay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -320,6 +392,7 @@
 		};
 		B3C2E86120D1304F00251575 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EC52F87A86F174C4BC38428 /* Pods-OutfitOfTheDay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
