@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B3C2E85120D1304E00251575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C2E85020D1304E00251575 /* AppDelegate.swift */; };
-		B3C2E85320D1304E00251575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C2E85220D1304E00251575 /* ViewController.swift */; };
-		B3C2E85620D1304E00251575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3C2E85420D1304E00251575 /* Main.storyboard */; };
 		B3C2E85820D1304F00251575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3C2E85720D1304F00251575 /* Assets.xcassets */; };
 		B3C2E85B20D1304F00251575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3C2E85920D1304F00251575 /* LaunchScreen.storyboard */; };
 		CA99DF6703C3274874B6A1B6 /* Pods_OutfitOfTheDay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E54E41DAFC25B1E3CBB7EF /* Pods_OutfitOfTheDay.framework */; };
@@ -21,8 +19,6 @@
 		977F5C33CF9EFC147E3EA713 /* Pods-OutfitOfTheDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OutfitOfTheDay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OutfitOfTheDay/Pods-OutfitOfTheDay.debug.xcconfig"; sourceTree = "<group>"; };
 		B3C2E84D20D1304E00251575 /* OutfitOfTheDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OutfitOfTheDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C2E85020D1304E00251575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B3C2E85220D1304E00251575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B3C2E85520D1304E00251575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3C2E85720D1304F00251575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3C2E85A20D1304F00251575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3C2E85C20D1304F00251575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,11 +74,9 @@
 		B3C2E84F20D1304E00251575 /* OutfitOfTheDay */ = {
 			isa = PBXGroup;
 			children = (
-				B3C2E86420D1309200251575 /* SupportFile */,
 				B3C2E85020D1304E00251575 /* AppDelegate.swift */,
+				B3C2E86420D1309200251575 /* SupportFile */,
 				B3C2E86220D1307D00251575 /* Common */,
-				B3C2E85220D1304E00251575 /* ViewController.swift */,
-				B3C2E85420D1304E00251575 /* Main.storyboard */,
 			);
 			path = OutfitOfTheDay;
 			sourceTree = "<group>";
@@ -174,7 +168,6 @@
 			files = (
 				B3C2E85B20D1304F00251575 /* LaunchScreen.storyboard in Resources */,
 				B3C2E85820D1304F00251575 /* Assets.xcassets in Resources */,
-				B3C2E85620D1304E00251575 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,7 +223,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3C2E85320D1304E00251575 /* ViewController.swift in Sources */,
 				B3C2E85120D1304E00251575 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,14 +230,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B3C2E85420D1304E00251575 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B3C2E85520D1304E00251575 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B3C2E85920D1304F00251575 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -378,7 +362,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 524TVTU6B9;
-				INFOPLIST_FILE = OutfitOfTheDay/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/OutfitOfTheDay/SupportFile/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,7 +382,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 524TVTU6B9;
-				INFOPLIST_FILE = OutfitOfTheDay/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/OutfitOfTheDay/SupportFile/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
