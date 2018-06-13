@@ -54,14 +54,38 @@
 		B3C2E84F20D1304E00251575 /* OutfitOfTheDay */ = {
 			isa = PBXGroup;
 			children = (
+				B3C2E86420D1309200251575 /* SupportFile */,
 				B3C2E85020D1304E00251575 /* AppDelegate.swift */,
+				B3C2E86220D1307D00251575 /* Common */,
 				B3C2E85220D1304E00251575 /* ViewController.swift */,
 				B3C2E85420D1304E00251575 /* Main.storyboard */,
+			);
+			path = OutfitOfTheDay;
+			sourceTree = "<group>";
+		};
+		B3C2E86220D1307D00251575 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B3C2E86320D1308700251575 /* Setting */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B3C2E86320D1308700251575 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		B3C2E86420D1309200251575 /* SupportFile */ = {
+			isa = PBXGroup;
+			children = (
 				B3C2E85720D1304F00251575 /* Assets.xcassets */,
 				B3C2E85920D1304F00251575 /* LaunchScreen.storyboard */,
 				B3C2E85C20D1304F00251575 /* Info.plist */,
 			);
-			path = OutfitOfTheDay;
+			path = SupportFile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
