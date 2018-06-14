@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B340495220D136E800371E3C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340495120D136E800371E3C /* Network.swift */; };
+		B38815DD20D13560000B9C25 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38815DC20D13560000B9C25 /* BaseView.swift */; };
+		B38815DF20D1357E000B9C25 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38815DE20D1357E000B9C25 /* BaseVC.swift */; };
+		B38815E320D135AD000B9C25 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38815E220D135AD000B9C25 /* MainView.swift */; };
+		B38815E520D135B7000B9C25 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38815E420D135B7000B9C25 /* MainVC.swift */; };
+		B393828F20D1F99C0021A981 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393828E20D1F99C0021A981 /* View+.swift */; };
+		B393829120D1FB270021A981 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393829020D1FB270021A981 /* Strings.swift */; };
 		B3C2E85120D1304E00251575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C2E85020D1304E00251575 /* AppDelegate.swift */; };
 		B3C2E85820D1304F00251575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3C2E85720D1304F00251575 /* Assets.xcassets */; };
 		B3C2E85B20D1304F00251575 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3C2E85920D1304F00251575 /* LaunchScreen.storyboard */; };
@@ -17,6 +24,13 @@
 		15E54E41DAFC25B1E3CBB7EF /* Pods_OutfitOfTheDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OutfitOfTheDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EC52F87A86F174C4BC38428 /* Pods-OutfitOfTheDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OutfitOfTheDay.release.xcconfig"; path = "Pods/Target Support Files/Pods-OutfitOfTheDay/Pods-OutfitOfTheDay.release.xcconfig"; sourceTree = "<group>"; };
 		977F5C33CF9EFC147E3EA713 /* Pods-OutfitOfTheDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OutfitOfTheDay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OutfitOfTheDay/Pods-OutfitOfTheDay.debug.xcconfig"; sourceTree = "<group>"; };
+		B340495120D136E800371E3C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		B38815DC20D13560000B9C25 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		B38815DE20D1357E000B9C25 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		B38815E220D135AD000B9C25 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B38815E420D135B7000B9C25 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		B393828E20D1F99C0021A981 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		B393829020D1FB270021A981 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		B3C2E84D20D1304E00251575 /* OutfitOfTheDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OutfitOfTheDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C2E85020D1304E00251575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3C2E85720D1304F00251575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +67,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B38815E020D13586000B9C25 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				B38815E420D135B7000B9C25 /* MainVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		B38815E120D13596000B9C25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B38815E220D135AD000B9C25 /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B393828D20D1F9940021A981 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B393828E20D1F99C0021A981 /* View+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		B3C2E84420D1304E00251575 = {
 			isa = PBXGroup;
 			children = (
@@ -75,8 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				B3C2E85020D1304E00251575 /* AppDelegate.swift */,
-				B3C2E86420D1309200251575 /* SupportFile */,
 				B3C2E86220D1307D00251575 /* Common */,
+				B38815E020D13586000B9C25 /* VC */,
+				B38815E120D13596000B9C25 /* View */,
+				B3C2E86420D1309200251575 /* SupportFile */,
 			);
 			path = OutfitOfTheDay;
 			sourceTree = "<group>";
@@ -84,6 +124,9 @@
 		B3C2E86220D1307D00251575 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B393829020D1FB270021A981 /* Strings.swift */,
+				B340495120D136E800371E3C /* Network.swift */,
+				B393828D20D1F9940021A981 /* Extension */,
 				B3C2E86320D1308700251575 /* Setting */,
 			);
 			path = Common;
@@ -92,6 +135,8 @@
 		B3C2E86320D1308700251575 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				B38815DC20D13560000B9C25 /* BaseView.swift */,
+				B38815DE20D1357E000B9C25 /* BaseVC.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -224,6 +269,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3C2E85120D1304E00251575 /* AppDelegate.swift in Sources */,
+				B38815E520D135B7000B9C25 /* MainVC.swift in Sources */,
+				B393829120D1FB270021A981 /* Strings.swift in Sources */,
+				B340495220D136E800371E3C /* Network.swift in Sources */,
+				B38815E320D135AD000B9C25 /* MainView.swift in Sources */,
+				B393828F20D1F99C0021A981 /* View+.swift in Sources */,
+				B38815DF20D1357E000B9C25 /* BaseVC.swift in Sources */,
+				B38815DD20D13560000B9C25 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
