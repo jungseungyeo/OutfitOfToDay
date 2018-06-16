@@ -11,7 +11,7 @@ DEPENDENCIES:
   - Then
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - SnapKit
     - SwiftyJSON
@@ -25,4 +25,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f32a8d437229de9a47826f69364ceb343b1c843f
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
