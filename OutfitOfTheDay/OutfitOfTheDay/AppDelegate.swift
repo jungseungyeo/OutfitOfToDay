@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
         let mainCollectionView = MainCollectionView(collectionViewLayout: layout)
         window?.rootViewController = mainCollectionView
         return true

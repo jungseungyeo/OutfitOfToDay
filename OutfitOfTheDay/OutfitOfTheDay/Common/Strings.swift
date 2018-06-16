@@ -17,4 +17,8 @@ enum OOTD {
             }
         }
     }
+    
+    enum ViewPage: Int {
+        case count = 4
+    }
 }
