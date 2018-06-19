@@ -18,4 +18,15 @@ class NetWork {
             }
         }
     }
+    
+    static func requestGetAPI(_ urlPath: String, parameters: [String: Any] = [:]) {
+        Alamofire.request(urlPath, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: ["content-Type":"application/json"]).responseJSON{ (resposeData) -> Void in
+            if ((resposeData.result.value) != nil) {
+                let swiftJsonVar = JSON(resposeData.result.value!)
+                
+                print(swiftJsonVar)
+            }
+            
+        }
+    }
 }
