@@ -9,9 +9,10 @@ import UIKit
 
 class MainCollectionView: UICollectionViewController {
     
+    var refresher:UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         collectionView?.backgroundColor = .white
         collectionView?.register(MainCollectionViewCell.self
             , forCellWithReuseIdentifier: "cellId")
@@ -19,7 +20,24 @@ class MainCollectionView: UICollectionViewController {
         collectionView?.isPagingEnabled = true
         collectionView?.showsVerticalScrollIndicator = false
         
+    
+        self.refresher = UIRefreshControl()
+        self.collectionView!.alwaysBounceVertical = true
+        self.refresher.tintColor = UIColor.red
+        self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        self.collectionView!.addSubview(refresher)
+        
         requestData()
+    }
+    
+    @objc func loadData() {
+        //code to execute during refresher
+        print("123123")
+        stopRefresher()         //Call this to stop refresher
+    }
+    
+    func stopRefresher() {
+        self.refresher.endRefreshing()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -40,8 +58,6 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! MainCollectionViewCell
-        
-        
         return cell
     }
 }
@@ -49,7 +65,7 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
 extension MainCollectionView {
     
     func requestData() {
-        NetWork.requestGetAPI(OOT.NETWORK.URLPATH.description)
+        NetWork.requestGetAPI(OOT.NETWORK.dusts.description)
     }
 }
 

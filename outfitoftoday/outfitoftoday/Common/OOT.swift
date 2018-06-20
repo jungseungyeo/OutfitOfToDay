@@ -11,11 +11,13 @@ import UIKit
 enum OOT {
     enum NETWORK: CustomStringConvertible {
         case URLPATH
-        
+        case dusts
         var description: String {
             switch self {
                 case .URLPATH:
-                    return "http://www.mocky.io/v2/5b21008a3000004e005c72ad"
+                    return "http://13.125.232.55:8080/v2/api-docs/"
+                case .dusts:
+                    return "\(NETWORK.URLPATH)dusts"
             }
         }
     }

@@ -70,8 +70,14 @@ class MainCollectionViewCell: BaseCollectionViewCell {
         $0.textColor = UIColor(red: 29/255, green: 29/255, blue: 29/255, alpha: 1.0)
     }
     
+    @objc private func tapGesture() {
+        print("123123")
+    }
+    
     override func setupView() {
         super.setupView()
+        
+        profileBG.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapGesture)))
         
         addSubViews(mainBG, locationTitle, profileBG, mainWeather, outdoorTemperature, moningTemperature, divisionMoningWithAfternoon, afternoonTemperature, recommendationMSG)
         
