@@ -84,7 +84,7 @@ class MainCollectionViewCell: BaseCollectionViewCell {
         mainBG.snp.remakeConstraints{
             $0.height.equalTo(384)
             $0.width.equalTo(self)
-            $0.top.left.right.equalTo(self)
+            $0.top.equalTo(0)
         }
         
         locationTitle.snp.makeConstraints{

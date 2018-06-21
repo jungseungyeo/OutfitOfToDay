@@ -11,24 +11,42 @@ class MainCollectionView: UICollectionViewController {
     
     var refresher:UIRefreshControl!
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        collectionview?.statu
+//        collectionView?.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = false
+//        collectionView?.topAnchor.anchorWithOffset(to: self.view.topAnchor)
+        
+//        if #available(iOS 11, *) {
+//            collectionView?.frame = CGRect(x: 0.0, y: 44.0, width: self.view.frame.width, height: self.view.frame.height)
+//        }
+        
+//        collectionView?.frame = CGRect(x: 0.0, y: -44.0, width: self.view.frame.width, height: self.view.frame.height)
+        
         collectionView?.backgroundColor = .white
         collectionView?.register(MainCollectionViewCell.self
             , forCellWithReuseIdentifier: "cellId")
-        
+
         collectionView?.isPagingEnabled = true
-        collectionView?.showsVerticalScrollIndicator = false
+        
+//        collectionView?.showsVerticalScrollIndicator = false
         
     
-        self.refresher = UIRefreshControl()
-        self.collectionView!.alwaysBounceVertical = true
-        self.refresher.tintColor = UIColor.red
-        self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        self.collectionView!.addSubview(refresher)
+//        self.refresher = UIRefreshControl()
+//        self.collectionView!.alwaysBounceVertical = true
+//        self.refresher.tintColor = UIColor.red
+//        self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
+//        self.collectionView!.addSubview(refresher)
         
         requestData()
     }
+    
+    
     
     @objc func loadData() {
         //code to execute during refresher
@@ -45,7 +63,7 @@ class MainCollectionView: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
 }
@@ -61,11 +79,21 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
         return cell
     }
 }
+//
+//extension MainCollectionView: UICollectionViewDelegate {
+//    func selectItem(at indexPath: IndexPath?,
+//                    animated: Bool,
+//                    scrollPosition: UICollectionView.ScrollPosition) {
+//
+//    }
+//}
+
 
 extension MainCollectionView {
     
     func requestData() {
         NetWork.requestGetAPI(OOT.NETWORK.dusts.description)
+        NetWork.requestGetAPI(OOT.NETWORK.temperatures.description)
     }
 }
 
