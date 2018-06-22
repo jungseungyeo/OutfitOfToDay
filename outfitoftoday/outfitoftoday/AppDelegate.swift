@@ -17,17 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
         window?.makeKeyAndVisible()
-        application.isStatusBarHidden = true
-        
+//        application.isStatusBarHidden = true
         let layout = UICollectionViewFlowLayout()
-//        layout.headerReferenceSize = CGSize(width: 0, height: 0)
-//        layout.footerReferenceSize = CGSize(width: 0, height: 0)
-//        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
-//        layout.minimumInteritemSpacing = 0
-//        layout.minimumLineSpacing = 0
         layout.scrollDirection = .vertical
         let mainCollectionView = MainCollectionView(collectionViewLayout: layout)
-        window?.rootViewController = MainTableViewController()
+        window?.rootViewController = mainCollectionView
         
         return true
     }

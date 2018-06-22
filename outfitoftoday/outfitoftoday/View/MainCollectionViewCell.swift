@@ -88,7 +88,7 @@ class MainCollectionViewCell: BaseCollectionViewCell {
         }
         
         locationTitle.snp.makeConstraints{
-            $0.top.equalTo(safeAreaLayoutGuide).offset(44)
+            $0.top.equalTo(0).offset(44)
             $0.centerX.equalTo(self)
         }
         
