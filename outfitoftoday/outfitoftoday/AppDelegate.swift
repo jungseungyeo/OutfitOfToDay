@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
         window?.makeKeyAndVisible()
-//        application.isStatusBarHidden = true
+        application.isStatusBarHidden = false
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let mainCollectionView = MainCollectionView(collectionViewLayout: layout)

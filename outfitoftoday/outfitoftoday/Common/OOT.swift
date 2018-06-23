@@ -34,7 +34,7 @@ enum OOT {
         case page
         case profile
         
-        var rawValue: UIColor {
+        var color: UIColor {
             switch self {
             case .page:
                 return UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 1)

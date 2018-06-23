@@ -11,26 +11,26 @@ class MainCollectionView: UICollectionViewController {
     
     var refresher:UIRefreshControl!
     
-    override var prefersStatusBarHidden: Bool {
-        return true
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView?.backgroundColor = .white
+        collectionView?.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView?.isPagingEnabled = true
+        collectionView?.showsVerticalScrollIndicator = true
+        
+        self.refresher = UIRefreshControl() //0.0, 0.0, 320.0, 60.0
+        
+        self.collectionView!.alwaysBounceVertical = true
+        self.refresher.tintColor = .gray
+        self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        self.collectionView!.addSubview(refresher)
+        setupView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        collectionView?.backgroundColor = .white
-        collectionView?.register(MainCollectionViewCell.self
-            , forCellWithReuseIdentifier: "cellId")
-
-        collectionView?.isPagingEnabled = true
-        
-        if #available(iOS 11.0, *) {
-            collectionView?.contentInsetAdjustmentBehavior = .never
-        } else {
-            automaticallyAdjustsScrollViewInsets = false
-        }
-        
         requestData()
+        edgeInSetSetting()
     }
     
     
@@ -43,6 +43,7 @@ class MainCollectionView: UICollectionViewController {
     
     func stopRefresher() {
         self.refresher.endRefreshing()
+        print("345345")
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -72,6 +73,21 @@ extension MainCollectionView {
     func requestData() {
         NetWork.requestGetAPI(OOT.NETWORK.dusts.description)
         NetWork.requestGetAPI(OOT.NETWORK.temperatures.description)
+    }
+    
+    func edgeInSetSetting() {
+        if #available(iOS 11.0, *) {
+            collectionView?.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+    }
+    
+    func setupView() {
+        self.refresher.snp.makeConstraints {
+            $0.top.equalTo(-20)
+            $0.centerX.equalTo(view.snp.centerX)
+        }
     }
 }
 

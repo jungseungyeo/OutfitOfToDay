@@ -8,8 +8,8 @@
 
 import UIKit
 
-//extension UIColor {
-//    static func setColor(_ red: CGFloat, _ green: CGFloat, _ bule: CGFloat, _ alpha: CGFloat = 1) -> UIColor{
-//        return UIColor(red: red, green: green, blue: bule, alpha: alpha)
-//    }
-//}
+extension UIColor {
+    static func setColor(_ red: CGFloat, _ green: CGFloat, _ bule: CGFloat, _ alpha: CGFloat = 1) -> UIColor{
+        return UIColor(red: red/255, green: green/255, blue: bule/255, alpha: alpha)
+    }
+}

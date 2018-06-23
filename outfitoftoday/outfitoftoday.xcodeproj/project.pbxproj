@@ -15,11 +15,16 @@
 		B32B285D20D691800088AA23 /* BaseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B285C20D691800088AA23 /* BaseCollectionCell.swift */; };
 		B32B285F20D69AAD0088AA23 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B285E20D69AAD0088AA23 /* UIColor+.swift */; };
 		B337604C20DBFEE20081AAEA /* MainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B337604B20DBFEE10081AAEA /* MainCollectionView.swift */; };
+		B347CF6020DCE3030081DD4F /* OOTLabelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B347CF5F20DCE3030081DD4F /* OOTLabelable.swift */; };
+		B347CF6220DCE7770081DD4F /* ConCreateOOTLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B347CF6120DCE7770081DD4F /* ConCreateOOTLabel.swift */; };
 		B359BDD220D566AF0032E187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B359BDD120D566AF0032E187 /* AppDelegate.swift */; };
 		B359BDD920D566B10032E187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B359BDD820D566B10032E187 /* Assets.xcassets */; };
 		B359BDDC20D566B10032E187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B359BDDA20D566B10032E187 /* LaunchScreen.storyboard */; };
 		B3C7BBA620D568E9003D7CB2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7BBA420D568E9003D7CB2 /* Network.swift */; };
 		B3C7BBA720D568E9003D7CB2 /* OOT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7BBA520D568E9003D7CB2 /* OOT.swift */; };
+		B3F1096F20DCDB2600F1629C /* MainBackgroudable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1096E20DCDB2600F1629C /* MainBackgroudable.swift */; };
+		B3F1097320DCDBA600F1629C /* Director.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1097220DCDBA600F1629C /* Director.swift */; };
+		B3F1097620DCDC4D00F1629C /* ConCreateMainbackgound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1097520DCDC4D00F1629C /* ConCreateMainbackgound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +38,8 @@
 		B32B285C20D691800088AA23 /* BaseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionCell.swift; sourceTree = "<group>"; };
 		B32B285E20D69AAD0088AA23 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		B337604B20DBFEE10081AAEA /* MainCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionView.swift; sourceTree = "<group>"; };
+		B347CF5F20DCE3030081DD4F /* OOTLabelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTLabelable.swift; sourceTree = "<group>"; };
+		B347CF6120DCE7770081DD4F /* ConCreateOOTLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConCreateOOTLabel.swift; sourceTree = "<group>"; };
 		B359BDCE20D566AF0032E187 /* outfitoftoday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = outfitoftoday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B359BDD120D566AF0032E187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B359BDD820D566B10032E187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,6 +47,9 @@
 		B359BDDD20D566B10032E187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3C7BBA420D568E9003D7CB2 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B3C7BBA520D568E9003D7CB2 /* OOT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOT.swift; sourceTree = "<group>"; };
+		B3F1096E20DCDB2600F1629C /* MainBackgroudable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackgroudable.swift; sourceTree = "<group>"; };
+		B3F1097220DCDBA600F1629C /* Director.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Director.swift; sourceTree = "<group>"; };
+		B3F1097520DCDC4D00F1629C /* ConCreateMainbackgound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConCreateMainbackgound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,8 @@
 		B32A98CD20D5691F003EBA31 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				B3F1097420DCDC2D00F1629C /* ConCreateBuilder */,
+				B3F1097120DCDB8E00F1629C /* Director */,
 				B32A98D020D56937003EBA31 /* BaseVC.swift */,
 				B32A98D120D56937003EBA31 /* BaseView.swift */,
 				B32B285C20D691800088AA23 /* BaseCollectionCell.swift */,
@@ -95,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				B359BDD120D566AF0032E187 /* AppDelegate.swift */,
-				B3C7BBA220D56874003D7CB2 /* VC */,
+				B3C7BBA220D56874003D7CB2 /* Controller */,
 				B3C7BBA120D56870003D7CB2 /* View */,
 				B3C7BBA020D56862003D7CB2 /* Common */,
 				B3C7BBA320D5687A003D7CB2 /* SurpportFile */,
@@ -122,12 +134,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		B3C7BBA220D56874003D7CB2 /* VC */ = {
+		B3C7BBA220D56874003D7CB2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				B337604B20DBFEE10081AAEA /* MainCollectionView.swift */,
 			);
-			path = VC;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B3C7BBA320D5687A003D7CB2 /* SurpportFile */ = {
@@ -143,10 +155,37 @@
 		B3C7BBA820D568EC003D7CB2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				B3F1097020DCDB2C00F1629C /* Builder */,
 				B32A98CE20D56930003EBA31 /* View+.swift */,
 				B32B285E20D69AAD0088AA23 /* UIColor+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		B3F1097020DCDB2C00F1629C /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				B3F1096E20DCDB2600F1629C /* MainBackgroudable.swift */,
+				B347CF5F20DCE3030081DD4F /* OOTLabelable.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		B3F1097120DCDB8E00F1629C /* Director */ = {
+			isa = PBXGroup;
+			children = (
+				B3F1097220DCDBA600F1629C /* Director.swift */,
+			);
+			path = Director;
+			sourceTree = "<group>";
+		};
+		B3F1097420DCDC2D00F1629C /* ConCreateBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				B3F1097520DCDC4D00F1629C /* ConCreateMainbackgound.swift */,
+				B347CF6120DCE7770081DD4F /* ConCreateOOTLabel.swift */,
+			);
+			path = ConCreateBuilder;
 			sourceTree = "<group>";
 		};
 		F4BB7F4976E680E0AD567C04 /* Frameworks */ = {
@@ -275,10 +314,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B32B285D20D691800088AA23 /* BaseCollectionCell.swift in Sources */,
+				B3F1097320DCDBA600F1629C /* Director.swift in Sources */,
 				B32A98CF20D56930003EBA31 /* View+.swift in Sources */,
 				B3C7BBA620D568E9003D7CB2 /* Network.swift in Sources */,
 				B32A98D720D56947003EBA31 /* MainCollectionViewCell.swift in Sources */,
+				B347CF6020DCE3030081DD4F /* OOTLabelable.swift in Sources */,
+				B3F1096F20DCDB2600F1629C /* MainBackgroudable.swift in Sources */,
 				B3C7BBA720D568E9003D7CB2 /* OOT.swift in Sources */,
+				B3F1097620DCDC4D00F1629C /* ConCreateMainbackgound.swift in Sources */,
+				B347CF6220DCE7770081DD4F /* ConCreateOOTLabel.swift in Sources */,
 				B32A98D320D56937003EBA31 /* BaseView.swift in Sources */,
 				B359BDD220D566AF0032E187 /* AppDelegate.swift in Sources */,
 				B337604C20DBFEE20081AAEA /* MainCollectionView.swift in Sources */,
