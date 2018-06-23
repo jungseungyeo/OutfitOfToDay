@@ -65,7 +65,13 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
 extension MainCollectionView {
     
     func requestData() {
-        NetWork.requestGetAPI(OOT.NETWORK.dusts.description)
+        NetWork.shared.request(for: .ootRequest) { (result) in
+            guard let responseObject = result as? OOTDustData else {
+                // Alert 창
+                return
+            }
+            // 데이터 사용 responseObject.pm10Value ...
+        }
     }
 }
 

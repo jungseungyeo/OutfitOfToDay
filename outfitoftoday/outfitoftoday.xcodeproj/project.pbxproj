@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52BE9C79F9BF6C885298CF89 /* Pods_outfitoftoday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */; };
+		8C2CC88B20DA697500DEF248 /* Pods_outfitoftoday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2CC88A20DA697500DEF248 /* Pods_outfitoftoday.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		8C2CC89520DBD84800DEF248 /* OOTURLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2CC89420DBD84800DEF248 /* OOTURLString.swift */; };
+		8CB3ACDB20DE08B600741FB4 /* OOTDustData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB3ACDA20DE08B600741FB4 /* OOTDustData.swift */; };
 		B32A98CF20D56930003EBA31 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32A98CE20D56930003EBA31 /* View+.swift */; };
 		B32A98D220D56937003EBA31 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32A98D020D56937003EBA31 /* BaseVC.swift */; };
 		B32A98D320D56937003EBA31 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32A98D120D56937003EBA31 /* BaseView.swift */; };
@@ -22,10 +24,25 @@
 		B3C7BBA720D568E9003D7CB2 /* OOT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7BBA520D568E9003D7CB2 /* OOT.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8C2CC89320DA6A0F00DEF248 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1AFA2A638707CB78F55C25C0 /* Pods-outfitoftoday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-outfitoftoday.release.xcconfig"; path = "Pods/Target Support Files/Pods-outfitoftoday/Pods-outfitoftoday.release.xcconfig"; sourceTree = "<group>"; };
-		38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_outfitoftoday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		582B9068E764BA7F495C82E3 /* Pods-outfitoftoday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-outfitoftoday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-outfitoftoday/Pods-outfitoftoday.debug.xcconfig"; sourceTree = "<group>"; };
+		8C2CC88A20DA697500DEF248 /* Pods_outfitoftoday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_outfitoftoday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C2CC89420DBD84800DEF248 /* OOTURLString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTURLString.swift; sourceTree = "<group>"; };
+		8CB3ACDA20DE08B600741FB4 /* OOTDustData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDustData.swift; sourceTree = "<group>"; };
 		B32A98CE20D56930003EBA31 /* View+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		B32A98D020D56937003EBA31 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		B32A98D120D56937003EBA31 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -47,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52BE9C79F9BF6C885298CF89 /* Pods_outfitoftoday.framework in Frameworks */,
+				8C2CC88B20DA697500DEF248 /* Pods_outfitoftoday.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +78,14 @@
 				1AFA2A638707CB78F55C25C0 /* Pods-outfitoftoday.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8CB3ACD920DE086100741FB4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8CB3ACDA20DE08B600741FB4 /* OOTDustData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B32A98CD20D5691F003EBA31 /* Setting */ = {
@@ -95,8 +120,9 @@
 			isa = PBXGroup;
 			children = (
 				B359BDD120D566AF0032E187 /* AppDelegate.swift */,
-				B3C7BBA220D56874003D7CB2 /* VC */,
+				8CB3ACD920DE086100741FB4 /* Model */,
 				B3C7BBA120D56870003D7CB2 /* View */,
+				B3C7BBA220D56874003D7CB2 /* VC */,
 				B3C7BBA020D56862003D7CB2 /* Common */,
 				B3C7BBA320D5687A003D7CB2 /* SurpportFile */,
 			);
@@ -108,6 +134,7 @@
 			children = (
 				B3C7BBA520D568E9003D7CB2 /* OOT.swift */,
 				B3C7BBA420D568E9003D7CB2 /* Network.swift */,
+				8C2CC89420DBD84800DEF248 /* OOTURLString.swift */,
 				B32A98CD20D5691F003EBA31 /* Setting */,
 				B3C7BBA820D568EC003D7CB2 /* Extension */,
 			);
@@ -152,7 +179,7 @@
 		F4BB7F4976E680E0AD567C04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */,
+				8C2CC88A20DA697500DEF248 /* Pods_outfitoftoday.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -169,6 +196,7 @@
 				B359BDCB20D566AF0032E187 /* Frameworks */,
 				B359BDCC20D566AF0032E187 /* Resources */,
 				7D66DC26D9EDD4D18DF2A776 /* [CP] Embed Pods Frameworks */,
+				8C2CC89320DA6A0F00DEF248 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,6 +279,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-outfitoftoday/Pods-outfitoftoday-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
@@ -258,6 +287,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
@@ -274,12 +304,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C2CC89520DBD84800DEF248 /* OOTURLString.swift in Sources */,
 				B32A98D520D56941003EBA31 /* MainCollectionView.swift in Sources */,
 				B32B285D20D691800088AA23 /* BaseCollectionCell.swift in Sources */,
 				B32A98CF20D56930003EBA31 /* View+.swift in Sources */,
 				B3C7BBA620D568E9003D7CB2 /* Network.swift in Sources */,
 				B32A98D720D56947003EBA31 /* MainCollectionViewCell.swift in Sources */,
 				B3C7BBA720D568E9003D7CB2 /* OOT.swift in Sources */,
+				8CB3ACDB20DE08B600741FB4 /* OOTDustData.swift in Sources */,
 				B32A98D320D56937003EBA31 /* BaseView.swift in Sources */,
 				B359BDD220D566AF0032E187 /* AppDelegate.swift in Sources */,
 				B32A98D220D56937003EBA31 /* BaseVC.swift in Sources */,
@@ -420,8 +452,8 @@
 			baseConfigurationReference = 582B9068E764BA7F495C82E3 /* Pods-outfitoftoday.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 524TVTU6B9;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/outfitoftoday/SurpportFile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -430,6 +462,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bulepaprika.outfitoftoday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -440,8 +473,8 @@
 			baseConfigurationReference = 1AFA2A638707CB78F55C25C0 /* Pods-outfitoftoday.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 524TVTU6B9;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/outfitoftoday/SurpportFile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -450,6 +483,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bulepaprika.outfitoftoday;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
