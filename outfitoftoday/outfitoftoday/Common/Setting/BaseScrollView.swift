@@ -1,15 +1,15 @@
 //
-//  BaseCollectionCell.swift
+//  BaseScrollView.swift
 //  outfitoftoday
 //
-//  Created by Jung seoung Yeo on 2018. 6. 17..
+//  Created by Jung seoung Yeo on 2018. 6. 24..
 //  Copyright © 2018년 LinSaeng. All rights reserved.
 //
 
 import UIKit
 
-class BaseCollectionViewCell: UICollectionViewCell {
-
+class BaseScrollView: UIScrollView {
+    
     func setupView() {
         
     }
@@ -23,4 +23,6 @@ class BaseCollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
         setupView()
     }
+    
+    
 }
