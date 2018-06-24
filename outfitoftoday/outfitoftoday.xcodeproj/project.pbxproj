@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52BE9C79F9BF6C885298CF89 /* Pods_outfitoftoday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */; };
+		B31DC2EC20DF9FEA00141B9A /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31DC2EB20DF9FEA00141B9A /* BackgroundView.swift */; };
 		B32A98CF20D56930003EBA31 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32A98CE20D56930003EBA31 /* View+.swift */; };
 		B32A98D220D56937003EBA31 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32A98D020D56937003EBA31 /* BaseVC.swift */; };
 		B32A98D320D56937003EBA31 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32A98D120D56937003EBA31 /* BaseView.swift */; };
@@ -22,15 +23,18 @@
 		B359BDDC20D566B10032E187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B359BDDA20D566B10032E187 /* LaunchScreen.storyboard */; };
 		B3C7BBA620D568E9003D7CB2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7BBA420D568E9003D7CB2 /* Network.swift */; };
 		B3C7BBA720D568E9003D7CB2 /* OOT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7BBA520D568E9003D7CB2 /* OOT.swift */; };
-		B3F1096F20DCDB2600F1629C /* MainBackgroudable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1096E20DCDB2600F1629C /* MainBackgroudable.swift */; };
+		B3DAF5CE20DF1DAC0030B529 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DAF5CD20DF1DAC0030B529 /* BaseScrollView.swift */; };
+		B3DAF5D020DF218F0030B529 /* ScrollviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DAF5CF20DF218F0030B529 /* ScrollviewController.swift */; };
+		B3F1096F20DCDB2600F1629C /* ConCreateOOTImgable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1096E20DCDB2600F1629C /* ConCreateOOTImgable.swift */; };
 		B3F1097320DCDBA600F1629C /* Director.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1097220DCDBA600F1629C /* Director.swift */; };
-		B3F1097620DCDC4D00F1629C /* ConCreateMainbackgound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1097520DCDC4D00F1629C /* ConCreateMainbackgound.swift */; };
+		B3F1097620DCDC4D00F1629C /* ConCreateOOTImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1097520DCDC4D00F1629C /* ConCreateOOTImg.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1AFA2A638707CB78F55C25C0 /* Pods-outfitoftoday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-outfitoftoday.release.xcconfig"; path = "Pods/Target Support Files/Pods-outfitoftoday/Pods-outfitoftoday.release.xcconfig"; sourceTree = "<group>"; };
 		38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_outfitoftoday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		582B9068E764BA7F495C82E3 /* Pods-outfitoftoday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-outfitoftoday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-outfitoftoday/Pods-outfitoftoday.debug.xcconfig"; sourceTree = "<group>"; };
+		B31DC2EB20DF9FEA00141B9A /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		B32A98CE20D56930003EBA31 /* View+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		B32A98D020D56937003EBA31 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		B32A98D120D56937003EBA31 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -47,9 +51,11 @@
 		B359BDDD20D566B10032E187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3C7BBA420D568E9003D7CB2 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B3C7BBA520D568E9003D7CB2 /* OOT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOT.swift; sourceTree = "<group>"; };
-		B3F1096E20DCDB2600F1629C /* MainBackgroudable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackgroudable.swift; sourceTree = "<group>"; };
+		B3DAF5CD20DF1DAC0030B529 /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
+		B3DAF5CF20DF218F0030B529 /* ScrollviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollviewController.swift; sourceTree = "<group>"; };
+		B3F1096E20DCDB2600F1629C /* ConCreateOOTImgable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConCreateOOTImgable.swift; sourceTree = "<group>"; };
 		B3F1097220DCDBA600F1629C /* Director.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Director.swift; sourceTree = "<group>"; };
-		B3F1097520DCDC4D00F1629C /* ConCreateMainbackgound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConCreateMainbackgound.swift; sourceTree = "<group>"; };
+		B3F1097520DCDC4D00F1629C /* ConCreateOOTImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConCreateOOTImg.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +82,13 @@
 		B32A98CD20D5691F003EBA31 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				B3DAF5D120DF24CE0030B529 /* Protocol */,
 				B3F1097420DCDC2D00F1629C /* ConCreateBuilder */,
 				B3F1097120DCDB8E00F1629C /* Director */,
 				B32A98D020D56937003EBA31 /* BaseVC.swift */,
 				B32A98D120D56937003EBA31 /* BaseView.swift */,
 				B32B285C20D691800088AA23 /* BaseCollectionCell.swift */,
+				B3DAF5CD20DF1DAC0030B529 /* BaseScrollView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -130,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				B32A98D620D56947003EBA31 /* MainCollectionViewCell.swift */,
+				B3DAF5CF20DF218F0030B529 /* ScrollviewController.swift */,
+				B31DC2EB20DF9FEA00141B9A /* BackgroundView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -155,17 +165,24 @@
 		B3C7BBA820D568EC003D7CB2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B3F1097020DCDB2C00F1629C /* Builder */,
 				B32A98CE20D56930003EBA31 /* View+.swift */,
 				B32B285E20D69AAD0088AA23 /* UIColor+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		B3DAF5D120DF24CE0030B529 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B3F1097020DCDB2C00F1629C /* Builder */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		B3F1097020DCDB2C00F1629C /* Builder */ = {
 			isa = PBXGroup;
 			children = (
-				B3F1096E20DCDB2600F1629C /* MainBackgroudable.swift */,
+				B3F1096E20DCDB2600F1629C /* ConCreateOOTImgable.swift */,
 				B347CF5F20DCE3030081DD4F /* OOTLabelable.swift */,
 			);
 			path = Builder;
@@ -182,7 +199,7 @@
 		B3F1097420DCDC2D00F1629C /* ConCreateBuilder */ = {
 			isa = PBXGroup;
 			children = (
-				B3F1097520DCDC4D00F1629C /* ConCreateMainbackgound.swift */,
+				B3F1097520DCDC4D00F1629C /* ConCreateOOTImg.swift */,
 				B347CF6120DCE7770081DD4F /* ConCreateOOTLabel.swift */,
 			);
 			path = ConCreateBuilder;
@@ -290,6 +307,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-outfitoftoday/Pods-outfitoftoday-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
@@ -297,6 +315,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
@@ -313,15 +332,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B31DC2EC20DF9FEA00141B9A /* BackgroundView.swift in Sources */,
+				B3DAF5CE20DF1DAC0030B529 /* BaseScrollView.swift in Sources */,
 				B32B285D20D691800088AA23 /* BaseCollectionCell.swift in Sources */,
 				B3F1097320DCDBA600F1629C /* Director.swift in Sources */,
 				B32A98CF20D56930003EBA31 /* View+.swift in Sources */,
+				B3DAF5D020DF218F0030B529 /* ScrollviewController.swift in Sources */,
 				B3C7BBA620D568E9003D7CB2 /* Network.swift in Sources */,
 				B32A98D720D56947003EBA31 /* MainCollectionViewCell.swift in Sources */,
 				B347CF6020DCE3030081DD4F /* OOTLabelable.swift in Sources */,
-				B3F1096F20DCDB2600F1629C /* MainBackgroudable.swift in Sources */,
+				B3F1096F20DCDB2600F1629C /* ConCreateOOTImgable.swift in Sources */,
 				B3C7BBA720D568E9003D7CB2 /* OOT.swift in Sources */,
-				B3F1097620DCDC4D00F1629C /* ConCreateMainbackgound.swift in Sources */,
+				B3F1097620DCDC4D00F1629C /* ConCreateOOTImg.swift in Sources */,
 				B347CF6220DCE7770081DD4F /* ConCreateOOTLabel.swift in Sources */,
 				B32A98D320D56937003EBA31 /* BaseView.swift in Sources */,
 				B359BDD220D566AF0032E187 /* AppDelegate.swift in Sources */,

@@ -1,11 +1,13 @@
 PODS:
   - Alamofire (4.7.2)
+  - SideMenu (2.3.4)
   - SnapKit (4.0.0)
   - SwiftyJSON (4.1.0)
   - Then (2.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - SideMenu (~> 2.3.4)
   - SnapKit (~> 4.0.0)
   - SwiftyJSON (~> 4.0)
   - Then
@@ -13,16 +15,18 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - SideMenu
     - SnapKit
     - SwiftyJSON
     - Then
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  SideMenu: 2ea1a015d14ffb96110af43fe3232d995943e726
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
 
-PODFILE CHECKSUM: 0768d9818dcd66f426f9bd73c3f0eb9247334b72
+PODFILE CHECKSUM: 2af535081b50b8c51c0f7d1a3f32d1030e4e1257
 
 COCOAPODS: 1.5.3

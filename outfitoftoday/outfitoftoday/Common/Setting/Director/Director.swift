@@ -9,9 +9,9 @@
 import UIKit
 
 class Director {
-    static func createMainbackground(builder: MainBackGourndable) -> UIImageView {
+    static func createMainbackground(builder: ConCreateOOTImgable) -> UIImageView {
         let build = builder.instance()
         build.setUIBackgoundColor(with: OOT.Bg.page.color)
-        return build.mainBackground
+        return build.ootImg
     }
 }
