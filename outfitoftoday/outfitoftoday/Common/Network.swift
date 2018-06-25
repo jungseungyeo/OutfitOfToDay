@@ -29,7 +29,7 @@ final class NetWork {
             // 응답 처리
             if let statusCode = (response.response)?.statusCode {
                 if let data = response.data, let jsonString: String = String(data: data, encoding: .utf8) {
-                    
+
                     // 서버 에러
                     if statusCode < 200 || statusCode >= 300 {
                         if let responseObject = requestInfo.returnClass.init(JSONString: "") {
@@ -58,6 +58,7 @@ enum OOTRequestName: String {
             
         case .ootRequest:
             return (OOT.NETWORK.dusts.description, .get, OOTDustData.self)
+
         }
     }
 }

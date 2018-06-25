@@ -2,7 +2,11 @@
 //  OOTDustData.swift
 //  outfitoftoday
 //
+<<<<<<< HEAD
 //  Created by Jung seoung Yeo on 2018. 6. 26..
+=======
+//  Created by 이광용 on 2018. 6. 23..
+>>>>>>> c10ed2f78c8636f795f6189c52129e9c3eb6f42a
 //  Copyright © 2018년 LinSaeng. All rights reserved.
 //
 

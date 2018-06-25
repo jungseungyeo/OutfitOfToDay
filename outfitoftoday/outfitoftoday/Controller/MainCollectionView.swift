@@ -79,6 +79,7 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
 extension MainCollectionView {
     
     func requestData() {
+<<<<<<< HEAD
 //        NetWork.request(String(OOT.NETWORK.dusts))
 //        NetWork.request(OOT.NETWORK.temperatures.description)
         NetWork.shared.request(for: .ootRequest) { (result) in
@@ -89,6 +90,11 @@ extension MainCollectionView {
             }
             print(responseObject)
         }
+=======
+<<<<<<< HEAD:outfitoftoday/outfitoftoday/Controller/MainCollectionView.swift
+        NetWork.requestGetAPI(OOT.NETWORK.dusts.description)
+        NetWork.requestGetAPI(OOT.NETWORK.temperatures.description)
+>>>>>>> c10ed2f78c8636f795f6189c52129e9c3eb6f42a
     }
     
     func edgeInSetSetting() {
@@ -103,6 +109,14 @@ extension MainCollectionView {
         self.refresher.snp.makeConstraints {
             $0.top.equalTo(-20)
             $0.centerX.equalTo(view.snp.centerX)
+=======
+        NetWork.shared.request(for: .ootRequest) { (result) in
+            guard let responseObject = result as? OOTDustData else {
+                // Alert 창
+                return
+            }
+            // 데이터 사용 responseObject.pm10Value ...
+>>>>>>> c8bc11b1d2e1fbb4b6e0d23b27f6a3514219d677:outfitoftoday/outfitoftoday/VC/MainCollectionView.swift
         }
     }
     
