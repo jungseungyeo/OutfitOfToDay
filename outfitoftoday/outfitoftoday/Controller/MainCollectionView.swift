@@ -6,6 +6,7 @@
 //  Copyright © 2018년 LinSaeng. All rights reserved.
 //
 import UIKit
+import SnapKit
 
 class MainCollectionView: UICollectionViewController {
     
@@ -14,7 +15,7 @@ class MainCollectionView: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView?.backgroundColor = .white
-        collectionView?.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView?.register(MainCell.self, forCellWithReuseIdentifier: "cellId")
         collectionView?.isPagingEnabled = true
         collectionView?.showsVerticalScrollIndicator = true
         
@@ -63,7 +64,14 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! MainCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! MainCell
+        
+        if indexPath.item == 0 {
+            cell.addView(OOTClothView())
+        }else if indexPath.item == 1 {
+            cell.addView(WeatherViewCell())
+        }
+        
         return cell
     }
 }
@@ -71,8 +79,16 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
 extension MainCollectionView {
     
     func requestData() {
-        NetWork.requestGetAPI(OOT.NETWORK.dusts.description)
-        NetWork.requestGetAPI(OOT.NETWORK.temperatures.description)
+//        NetWork.request(String(OOT.NETWORK.dusts))
+//        NetWork.request(OOT.NETWORK.temperatures.description)
+        NetWork.shared.request(for: .ootRequest) { (result) in
+            guard let responseObject = result as? OOTDustData else {
+                // Alert 창
+                print(result as Any)
+                return
+            }
+            print(responseObject)
+        }
     }
     
     func edgeInSetSetting() {
@@ -89,5 +105,6 @@ extension MainCollectionView {
             $0.centerX.equalTo(view.snp.centerX)
         }
     }
+    
 }
 

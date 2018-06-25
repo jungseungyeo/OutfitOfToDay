@@ -11,9 +11,11 @@ import UIKit
 protocol OOTLabelable {
     var ootLabel: UILabel { get }
     func instance() -> OOTLabelable
-    func setText(with text: String) -> OOTLabelable
+    func setText(with text: OOT.mainCustomString) -> OOTLabelable
     func setNuberOfLine(with numberOfLine: Int) -> OOTLabelable
     func setFontSize(with fontSize: CGFloat) -> OOTLabelable
+    func setFontType(with fontType: OOT.mainCustomString) -> OOTLabelable
     func setTextColor(with textColor: UIColor) -> OOTLabelable
     func setTextAlignment(with textAlignment: NSTextAlignment) -> OOTLabelable
+    func setTextSpacing(spacing: CGFloat) -> OOTLabelable
 }

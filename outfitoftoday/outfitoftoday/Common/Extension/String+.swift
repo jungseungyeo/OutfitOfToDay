@@ -6,4 +6,8 @@
 //  Copyright © 2018년 LinSaeng. All rights reserved.
 //
 
-import Foundation
+extension String {
+    init(_ ootText: OOT.mainCustomString) {
+        self.init(describing: ootText)
+    }
+}
