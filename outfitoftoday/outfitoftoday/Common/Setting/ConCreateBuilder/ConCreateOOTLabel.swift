@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ConCreateOOTLabel: OOTLabelable {
     
@@ -16,8 +17,8 @@ class ConCreateOOTLabel: OOTLabelable {
         return self
     }
     
-    func setText(with text: String) -> OOTLabelable {
-        self.ootLabel.text = text
+    func setText(with text: OOT.mainCustomString) -> OOTLabelable {
+        self.ootLabel.text = String(text)
         return self
     }
     
@@ -31,6 +32,11 @@ class ConCreateOOTLabel: OOTLabelable {
         return self
     }
     
+    func setFontType(with fontType: OOT.mainCustomString) -> OOTLabelable {
+        self.ootLabel.font = UIFont(name: fontType.fontType, size: self.ootLabel.font.pointSize)
+        return self
+    }
+    
     func setTextColor(with textColor: UIColor) -> OOTLabelable {
         self.ootLabel.textColor = textColor
         return self
@@ -38,6 +44,15 @@ class ConCreateOOTLabel: OOTLabelable {
     
     func setTextAlignment(with textAlignment: NSTextAlignment) -> OOTLabelable {
         self.ootLabel.textAlignment = textAlignment
+        return self
+    }
+    
+    func setTextSpacing(spacing: CGFloat) -> OOTLabelable{
+        let attributedString = NSMutableAttributedString(string: self.ootLabel.text ?? "", attributes: [
+            .kern: spacing
+            ])
+        self.ootLabel.attributedText = attributedString
+
         return self
     }
     

@@ -9,21 +9,10 @@ import Foundation
 import UIKit
 
 enum OOT {
-    enum NETWORK: CustomStringConvertible {
+    enum NETWORK {
         case URLPATH
         case dusts
         case temperatures
-        
-        var description: String {
-            switch self {
-                case .URLPATH:
-                    return "http://13.125.232.55:8080/"
-                case .dusts:
-                    return "\(NETWORK.URLPATH)dusts"
-                case .temperatures:
-                    return "\(NETWORK.URLPATH)temperatures"
-            }
-        }
     }
     
     enum ViewPage: Int {
@@ -44,37 +33,84 @@ enum OOT {
         }
     }
     
-    enum Main: String, CustomStringConvertible {
-        case location
-        case weatherTitle
-        case outdoorTemperature
-        case moningTemperature
-        case afternoonTemperature
-        case recommendationMSG
-        
-        var description: String {
-            switch self {
-                case .location:
-                    return "현재위치"
-                case .weatherTitle:
-                    return "-23˚"
-                case .outdoorTemperature:
-                    return """
-                비 온 후 갬,
-                어제보다 14˚낮아요.
-                """
-                case .moningTemperature:
-                    return "-18"
-                case .afternoonTemperature:
-                    return "-23"
-                case .recommendationMSG:
-                    return """
-                비가 오니 외출할 때 우산은 필수!
-                어제보다 좀 더 추워요.
-                오늘은 긴팔, 긴바지를 추천합니다 : )
-                """
-            }
+    enum mainCustomString {
+        case location           // 현재 위치
+        case nowTime            // 현재 날짜
+        case nowTemperature     // 현재 온도
+        case lowTemperature     // 오늘 최저 온도
+        case hightTemperature   // 오늘 최고 온도
+        case hightTemperatureText
+        case lowTemperatureText
+        case halfTemperature
+        case Recommend
         }
-        
+}
+
+
+extension OOT.mainCustomString: CustomStringConvertible {
+    var description: String {
+        switch self {
+            case .location:
+                return "서울 강남구"
+            case .nowTime:
+                return "오후 00시 00 분"
+            case .nowTemperature:
+                return "-23˚"
+            case .lowTemperature:
+                return "28˚"
+            case .hightTemperature:
+                return "16˚"
+            case .hightTemperatureText:
+                return "최고"
+            case .lowTemperatureText:
+                return "최저"
+            case .halfTemperature:
+                return "/"
+            case .Recommend:
+                return
+            """
+            비가 오니 외출할 때 우산은
+            필수! 어제보다 좀 더 추워요.
+            오늘은 긴팔, 긴바지를
+            추천합니다 :)
+            """
+        }
+    }
+    
+    var fontType: String {
+        switch self {
+            case .location:
+                return "HelveticaNeue-Bold"
+            case .nowTime:
+                return "SpoqaHanSans-Light"
+            case .nowTemperature:
+                return "SpoqaHanSans-Bold"
+            case .lowTemperature:
+                return "SpoqaHanSans-Bold"
+            case .hightTemperature:
+                return "SpoqaHanSans-Bold"
+            case .hightTemperatureText:
+                return "SpoqaHanSans-Regular"
+            case .lowTemperatureText:
+                return "SpoqaHanSans-Regular"
+            case .halfTemperature:
+                return "SF Pro Display-Regular"
+            case .Recommend:
+                return "SpoqaHanSans-Light"
+        }
     }
 }
+
+extension OOT.NETWORK: CustomStringConvertible {
+    var description: String {
+        switch self {
+            case .URLPATH:
+                return "http://13.125.232.55:8080/"
+            case .dusts:
+                return "\(OOT.NETWORK.URLPATH)dusts"
+            case .temperatures:
+                return "\(OOT.NETWORK.URLPATH)temperatures"
+        }
+    }
+}
+

@@ -12,6 +12,19 @@ import Then
 
 class BackgoundView: BaseView {
     
+    private let backgound: UIImageView = ConCreateOOTImg().instance()
+        .setUIImge(with: "MainBack")
+        .ootImg
     
     
+    override func setupView() {
+        super.setupView()
+        
+        addSubViews(backgound)
+        
+        backgound.snp.remakeConstraints { make -> Void in
+            make.size.equalTo(self)
+        }
+
+    }
 }
