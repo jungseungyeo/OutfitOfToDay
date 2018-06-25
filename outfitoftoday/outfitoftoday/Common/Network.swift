@@ -26,6 +26,8 @@ final class NetWork {
         
         // 요청 시작
         self.alamoFireManager.request(requestInfo.urlString , method: requestInfo.method, parameters: parameters, headers: ["content-Type":"application/json"]).validate().response { (response) in
+           
+            
             // 응답 처리
             if let statusCode = (response.response)?.statusCode {
                 if let data = response.data, let jsonString: String = String(data: data, encoding: .utf8) {
@@ -44,6 +46,10 @@ final class NetWork {
                     }
                 }
             }
+            
+            
+            
+            
         }
     }
 }

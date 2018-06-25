@@ -82,6 +82,7 @@ extension MainCollectionView {
 //        NetWork.request(String(OOT.NETWORK.dusts))
 //        NetWork.request(OOT.NETWORK.temperatures.description)
         NetWork.shared.request(for: .ootRequest) { (result) in
+            
             guard let responseObject = result as? OOTDustData else {
                 // Alert 창
                 print(result as Any)
