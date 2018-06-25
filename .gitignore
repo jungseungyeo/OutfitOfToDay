@@ -36,5 +36,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Xcode
+*.xcuserstate
+xcuserdata/
+
 
 # End of https://www.gitignore.io/api/macos,cocoapods
