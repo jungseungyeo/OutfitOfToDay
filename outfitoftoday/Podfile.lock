@@ -1,0 +1,36 @@
+PODS:
+  - Alamofire (4.7.2)
+  - ObjectMapper (3.2.0)
+  - SideMenu (2.3.4)
+  - SnapKit (4.0.0)
+  - SwiftyJSON (4.1.0)
+  - Then (2.3.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - ObjectMapper
+  - SideMenu (~> 2.3.4)
+  - SnapKit (~> 4.0.0)
+  - SwiftyJSON (~> 4.0)
+  - Then
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - ObjectMapper
+    - SideMenu
+    - SnapKit
+    - SwiftyJSON
+    - Then
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  ObjectMapper: 5cccd2de6f253eda859df8116a5a554d9769e859
+  SideMenu: 2ea1a015d14ffb96110af43fe3232d995943e726
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
+
+PODFILE CHECKSUM: f9c2aaea49885a1650a4b02288df920c289187df
+
+COCOAPODS: 1.5.3
