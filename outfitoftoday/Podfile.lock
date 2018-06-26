@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.7.2)
-  - ObjectMapper (3.2.0)
+  - ObjectMapper (3.3.0)
   - SideMenu (2.3.4)
   - SnapKit (4.0.0)
   - SwiftyJSON (4.1.0)
@@ -25,7 +25,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  ObjectMapper: 5cccd2de6f253eda859df8116a5a554d9769e859
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   SideMenu: 2ea1a015d14ffb96110af43fe3232d995943e726
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
