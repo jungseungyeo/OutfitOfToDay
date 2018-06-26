@@ -7,17 +7,34 @@
 //
 import UIKit
 import SnapKit
+import Then
 
 class MainCollectionView: UICollectionViewController {
     
     var refresher:UIRefreshControl!
+    
+    private let downButton: UIButton = UIButton().then{
+        $0.setTitle("Down Button", for: .normal)
+        $0.translatesAutoresizingMaskIntoConstraints = true
+        $0.titleLabel?.font = .systemFont(ofSize: 20)
+        $0.setTitleColor(.black, for: .normal)
+        $0.addTarget(self, action: #selector(handleDown), for: .touchUpInside)
+    }
+    
+    private let upBuuton: UIButton = UIButton().then{
+        $0.setTitle("up Button", for: .normal)
+        $0.translatesAutoresizingMaskIntoConstraints = true
+        $0.titleLabel?.font = .systemFont(ofSize: 50)
+        $0.setTitleColor(.black, for: .normal)
+        $0.addTarget(self, action: #selector(handleUp), for: .touchUpInside)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView?.backgroundColor = .white
         collectionView?.register(MainCell.self, forCellWithReuseIdentifier: "cellId")
         collectionView?.isPagingEnabled = true
-        collectionView?.showsVerticalScrollIndicator = true
+        collectionView?.showsVerticalScrollIndicator = false
         
         self.refresher = UIRefreshControl() //0.0, 0.0, 320.0, 60.0
         
@@ -32,19 +49,27 @@ class MainCollectionView: UICollectionViewController {
         super.viewDidLoad()
         requestData()
         edgeInSetSetting()
+//        addTapGesture()
     }
     
+    private func addTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapped(sender:)))
+        self.collectionView?.isUserInteractionEnabled = true
+        self.collectionView?.addGestureRecognizer(tap)
+    }
     
+    @objc private func tapped(sender: UITapGestureRecognizer) {
+        let indexPath = IndexPath(item: 1, section: 0)
+        collectionView?.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
+    }
     
     @objc func loadData() {
         //code to execute during refresher
-        print("123123")
         stopRefresher()         //Call this to stop refresher
     }
     
     func stopRefresher() {
         self.refresher.endRefreshing()
-        print("345345")
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -67,9 +92,15 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! MainCell
         
         if indexPath.item == 0 {
-            cell.addView(OOTClothView())
+            collectionView.bounces = true
+            let ootClothView = OOTClothView()
+            ootClothView.addDownButton(downButton)
+            cell.addView(ootClothView)
         }else if indexPath.item == 1 {
-            cell.addView(WeatherViewCell())
+            collectionView.bounces = false
+            let weatherViewCell = WeatherViewCell()
+            weatherViewCell.addUpBuuton(upBuuton)
+            cell.addView(weatherViewCell)
         }
         
         return cell
@@ -81,30 +112,43 @@ extension MainCollectionView {
     func requestData() {
 //        NetWork.request(String(OOT.NETWORK.dusts))
 //        NetWork.request(OOT.NETWORK.temperatures.description)
-        NetWork.shared.request(for: .ootRequest) { (result) in
-            
-            guard let responseObject = result as? OOTDustData else {
-                // Alert 창
-                print(result as Any)
-                return
-            }
-            print(responseObject)
-        }
+//        NetWork.shared.request(for: .ootRequest) { (result) in
+//            
+//            guard let responseObject = result as? OOTDustData else {
+//                // Alert 창
+//                print(result as Any)
+//                return
+//            }
+//            print(responseObject)
+//        }
     }
     
     func edgeInSetSetting() {
         if #available(iOS 11.0, *) {
             collectionView?.contentInsetAdjustmentBehavior = .never
-        } else {
-            automaticallyAdjustsScrollViewInsets = false
+            return
         }
+        automaticallyAdjustsScrollViewInsets = false
     }
     
     func setupView() {
+        
         self.refresher.snp.makeConstraints {
             $0.top.equalTo(-20)
             $0.centerX.equalTo(view.snp.centerX)
         }
+        
+
+    }
+    
+    @objc private func handleDown() {
+        let index = IndexPath(item: 1, section: 0)
+        collectionView?.scrollToItem(at: index, at: .centeredVertically, animated: true)
+    }
+    
+    @objc private func handleUp() {
+        let index = IndexPath(item: 0, section: 0)
+        collectionView?.scrollToItem(at: index, at: .centeredVertically, animated: true)
     }
     
 }

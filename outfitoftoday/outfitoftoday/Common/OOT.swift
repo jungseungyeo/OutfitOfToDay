@@ -32,20 +32,28 @@ enum OOT {
             }
         }
     }
-    
+
     enum mainCustomString {
         case location           // 현재 위치
         case nowTime            // 현재 날짜
         case nowTemperature     // 현재 온도
-        case lowTemperature     // 오늘 최저 온도
-        case hightTemperature   // 오늘 최고 온도
-        case hightTemperatureText
+        case lowTemperature     // 오늘 최저 온도 숫자
+        case hightTemperature   // 오늘 최고 온도 숫자
+        case hightTemperatureText   // 오늘 최고 온도 Text
         case lowTemperatureText
         case halfTemperature
         case Recommend
+        
+        case baseWeatherTitle
+        case detailWeatherTitle
+        case weekWeatherTitle
+        
+        case gotoTop
+        case time00
         }
 }
 
+// MAKR : 첫번째 화면 글자 및 폰트 저장
 
 extension OOT.mainCustomString: CustomStringConvertible {
     var description: String {
@@ -74,6 +82,16 @@ extension OOT.mainCustomString: CustomStringConvertible {
             오늘은 긴팔, 긴바지를
             추천합니다 :)
             """
+            case .baseWeatherTitle:
+                return "기본날씨"
+            case .detailWeatherTitle:
+                return "상세날씨"
+            case .weekWeatherTitle:
+                return "주간날씨"
+            case .gotoTop:
+                return "GO TO TOP"
+            case .time00:
+                return "00"
         }
     }
     
@@ -97,10 +115,21 @@ extension OOT.mainCustomString: CustomStringConvertible {
                 return "SF Pro Display-Regular"
             case .Recommend:
                 return "SpoqaHanSans-Light"
+            case .baseWeatherTitle:
+                return "SpoqaHanSans-Regular"
+            case .detailWeatherTitle:
+                return "SpoqaHanSans-Regular"
+            case .weekWeatherTitle:
+                return "SpoqaHanSans-Regular"
+            case .gotoTop:
+                return "SpoqaHanSans-Regular"
+            case .time00:
+                return "SpoqaHanSans-Regular"
         }
     }
 }
 
+// MARK : Network url
 extension OOT.NETWORK: CustomStringConvertible {
     var description: String {
         switch self {

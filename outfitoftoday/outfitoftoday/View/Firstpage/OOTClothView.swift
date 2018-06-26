@@ -11,6 +11,7 @@ import UIKit
 import Then
 
 class OOTClothView: BaseView {
+    
     private let locationTitle: UILabel = ConCreateOOTLabel().instance()
         .setText(with:OOT.mainCustomString.location)
         .setTextColor(with: .setColor(49, 56, 62))
@@ -72,12 +73,10 @@ class OOTClothView: BaseView {
         .setNuberOfLine(with: 4)
         .ootLabel
     
-    let backImg = BackgoundView()
+    private let backImg = BackgoundView()
     
     override func setupView() {
         super.setupView()
-        
-        
         
         addSubViews(backImg, locationTitle, nowTimeTitle, nowTemperature, halfTemperature, lowTemperature, hightTemperature, textField, ottRecommend)
         
@@ -130,7 +129,15 @@ class OOTClothView: BaseView {
         
     }
     
-    func ratio() -> CGFloat {
+    private func ratio() -> CGFloat {
         return UIScreen.main.bounds.height / 3.13
+    }
+    
+    func addDownButton(_ downButton: UIButton) {
+        addSubViews(downButton)
+        downButton.snp.makeConstraints{ make -> Void in
+            make.bottom.equalTo(-20)
+            make.centerX.equalTo(self)
+        }
     }
 }
