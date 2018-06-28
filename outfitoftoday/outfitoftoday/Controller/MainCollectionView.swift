@@ -149,7 +149,6 @@ extension MainCollectionView {
             collectionView?.contentInsetAdjustmentBehavior = .never
             return
         }
-        automaticallyAdjustsScrollViewInsets = false
     }
     
     func setupView() {

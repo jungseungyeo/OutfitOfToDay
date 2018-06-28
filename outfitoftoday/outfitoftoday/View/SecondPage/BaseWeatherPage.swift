@@ -49,4 +49,17 @@ class BaseWeatherPage: BaseView {
         }
         
     }
+    
+    func makeDustStackView(_ dustStackView: DustStackView) {
+        
+        addSubViews(dustStackView)
+        
+        dustStackView.snp.makeConstraints { make -> Void in
+            make.height.equalTo(92)
+            make.width.equalTo(320)
+            
+            make.bottom.equalTo(-11)
+            make.centerX.equalTo(self)
+        }
+    }
 }

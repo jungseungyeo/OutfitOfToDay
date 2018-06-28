@@ -165,15 +165,21 @@ class WeatherViewCell: BaseScrollView {
             make.centerX.equalTo(self)
         }
         
+        baseWeatherPage.makeDustStackView(makeDustView(4))
+        
         detailWeathterpage.snp.makeConstraints{ make -> Void in
             make.top.equalTo(baseWeatherPage.snp.bottom).offset(2)
             make.centerX.equalTo(self)
         }
         
+        detailWeathterpage.makeDustStackView(makeDustView(4))
+        
         weekWeatherPage.snp.makeConstraints{ make -> Void in
             make.top.equalTo(detailWeathterpage.snp.bottom).offset(21)
             make.centerX.equalTo(self)
         }
+        
+        weekWeatherPage.makeDustStackView(makeDustView(4))
 
         weatherGraph.scrollsToTop = true
     }
@@ -193,6 +199,18 @@ class WeatherViewCell: BaseScrollView {
         if #available(iOS 11.0, *) {
             self.contentInsetAdjustmentBehavior = .never
         }
+    }
+    
+    private func makeDustView(_ count: Int) -> DustStackView {
+        let dustStackView = DustStackView()
+        var dustArray: [UIView] = []
+        for _ in 1 ... count {
+            dustArray.append(DustView())
+        }
+        
+        dustStackView.setStacks(dustArray, dustArray.count)
+        
+        return dustStackView
     }
     
 
