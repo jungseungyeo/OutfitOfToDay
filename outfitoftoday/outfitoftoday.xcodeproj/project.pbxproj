@@ -35,6 +35,7 @@
 		B3C7BBA620D568E9003D7CB2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7BBA420D568E9003D7CB2 /* Network.swift */; };
 		B3C7BBA720D568E9003D7CB2 /* OOT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7BBA520D568E9003D7CB2 /* OOT.swift */; };
 		B3DAF5CE20DF1DAC0030B529 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DAF5CD20DF1DAC0030B529 /* BaseScrollView.swift */; };
+		B3DD704520E4A63A0009D0E6 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DD704420E4A63A0009D0E6 /* SettingTableViewCell.swift */; };
 		B3F1096F20DCDB2600F1629C /* ConCreateOOTImgable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1096E20DCDB2600F1629C /* ConCreateOOTImgable.swift */; };
 		B3F1097320DCDBA600F1629C /* Director.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1097220DCDBA600F1629C /* Director.swift */; };
 		B3F1097620DCDC4D00F1629C /* ConCreateOOTImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1097520DCDC4D00F1629C /* ConCreateOOTImg.swift */; };
@@ -73,6 +74,7 @@
 		B3C7BBA420D568E9003D7CB2 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B3C7BBA520D568E9003D7CB2 /* OOT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOT.swift; sourceTree = "<group>"; };
 		B3DAF5CD20DF1DAC0030B529 /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
+		B3DD704420E4A63A0009D0E6 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		B3F1096E20DCDB2600F1629C /* ConCreateOOTImgable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConCreateOOTImgable.swift; sourceTree = "<group>"; };
 		B3F1097220DCDBA600F1629C /* Director.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Director.swift; sourceTree = "<group>"; };
 		B3F1097520DCDC4D00F1629C /* ConCreateOOTImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConCreateOOTImg.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				B317DE7320E478C100D779E8 /* SideMenuNavigationView.swift */,
 				B317DE7520E47F5D00D779E8 /* SettingTableViewController.swift */,
+				B3DD704420E4A63A0009D0E6 /* SettingTableViewCell.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				B3DAF5CE20DF1DAC0030B529 /* BaseScrollView.swift in Sources */,
 				B32B285D20D691800088AA23 /* BaseCollectionCell.swift in Sources */,
 				B317DE7620E47F5D00D779E8 /* SettingTableViewController.swift in Sources */,
+				B3DD704520E4A63A0009D0E6 /* SettingTableViewCell.swift in Sources */,
 				B396CFEF20E0E37D00EC57D3 /* MainCollectionViewCell.swift in Sources */,
 				B3F1097320DCDBA600F1629C /* Director.swift in Sources */,
 				B33CB1AC20E079D900BD3D38 /* WeatherViewCell.swift in Sources */,

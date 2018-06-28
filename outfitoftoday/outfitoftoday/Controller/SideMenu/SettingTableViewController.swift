@@ -10,10 +10,13 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
 
+    private let testArray: [String] = ["OOT SETTINGS","action","action","action","action","action","action","action"]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        self.tableView.isScrollEnabled = false
+        self.tableView.register(SettingTableViewCell.self, forCellReuseIdentifier: "tableCellId")
     }
     
     override func viewDidLoad() {
@@ -29,7 +32,7 @@ class SettingTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,16 +41,26 @@ class SettingTableViewController: UITableViewController {
     }
 
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.item == 0 {
+            return 142
+        }
+        return 40
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        let cell = UITableViewCell()
+//        var cell = tableView.dequeueReusableCell(withIdentifier: "tableCellId", for: indexPath) as! SettingTableViewCell
+//
+//       cell = SettingTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "tableCellId")
+//
+//        cell.labelText.text = testArray[indexPath.item]
         
-        // Configure the cell...
-
+        let cell = UITableViewCell()
+//        cell.backgroundColor = indexPath.item % 2 == 0 ? .red : .green
+        cell.textLabel?.text = testArray[indexPath.item]
         return cell
     }
- 
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

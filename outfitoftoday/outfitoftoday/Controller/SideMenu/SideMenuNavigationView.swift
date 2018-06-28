@@ -8,12 +8,12 @@
 
 import UIKit
 import SideMenu
+import Then
 
 class SideMenuNavigationView: UISideMenuNavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         menuWidth = 200
         // Do any additional setup after loading the view.
     }
@@ -22,7 +22,6 @@ class SideMenuNavigationView: UISideMenuNavigationController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
