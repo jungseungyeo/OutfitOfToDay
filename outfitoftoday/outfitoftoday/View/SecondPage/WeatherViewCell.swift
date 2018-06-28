@@ -12,7 +12,6 @@ import Then
 
 class WeatherViewCell: BaseScrollView {
     
-//    private let scrollView = UIScrollView()
     private let contentView = UIView()
     
     private let locationTitle: UILabel = ConCreateOOTLabel().instance()

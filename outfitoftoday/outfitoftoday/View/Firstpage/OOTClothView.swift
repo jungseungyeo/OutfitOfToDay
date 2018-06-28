@@ -140,4 +140,14 @@ class OOTClothView: BaseView {
             make.centerX.equalTo(self)
         }
     }
+    
+    func addSideButton(_ sideButton: UIButton) {
+        addSubViews(sideButton)
+        
+        sideButton.snp.makeConstraints{ make -> Void in
+            make.top.equalTo(350)
+            make.right.equalTo(self.snp.right).offset(-41)
+            make.size.equalTo(200)
+        }
+    }
 }

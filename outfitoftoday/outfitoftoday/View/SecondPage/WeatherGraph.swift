@@ -17,12 +17,13 @@ class WeatherGraph: BaseScrollView {
     
     override func setupView() {
         super.setupView()
-//        contentSize = CGSize(width: 10000, height: self.frame.height)
+
         addSubview(contentView)
         
         contentView.snp.makeConstraints { make -> Void in
             make.top.bottom.equalTo(self).offset(0)
-            make.left.right.equalTo(self).offset(0)
+            make.left.equalTo(self.snp.left).offset(0)
+            make.right.equalTo(self.snp.right).offset(0)
         }
         
         makeTimeArray()
@@ -49,19 +50,6 @@ class WeatherGraph: BaseScrollView {
         }
     }
     
-//    private let test1 = UILabel().then {
-//        $0.text = "timeText"
-//        $0.textColor = .black
-//        $0.font = .systemFont(ofSize: 11)
-//        $0.textAlignment = .center
-//    }
-//
-//    private let test2 = UILabel().then {
-//        $0.text = "timeText"
-//        $0.textColor = .black
-//        $0.font = .systemFont(ofSize: 11)
-//        $0.textAlignment = .center
-//    }
     private func makeTimes() {
         for (index, view) in timeArray.enumerated() {
             contentView.addSubview(view)

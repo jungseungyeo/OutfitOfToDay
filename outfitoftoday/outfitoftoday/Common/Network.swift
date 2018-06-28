@@ -29,27 +29,21 @@ final class NetWork {
            
             
             // 응답 처리
-            if let statusCode = (response.response)?.statusCode {
-                if let data = response.data, let jsonString: String = String(data: data, encoding: .utf8) {
-                    
-                    // 서버 에러
-                    if statusCode < 200 || statusCode >= 300 {
-                        if let responseObject = requestInfo.returnClass.init(JSONString: "") {
-                            completion(responseObject)
-                        }
-                        
-                    }
-                    else {
-                        if let responseObject = requestInfo.returnClass.init(JSONString: jsonString) {
-                            completion(responseObject)
-                        }
-                    }
-                }
+            let statusCode = (response.response)?.statusCode ?? 0
+            
+            guard let data = response.data, let jsonString: String = String(data: data, encoding: .utf8), statusCode != 0 || statusCode > 200 || statusCode < 300 else {
+                // 알람
+                print("error : \(statusCode)")
+                return
             }
             
+            if let responseObject = requestInfo.returnClass.init(JSONString: jsonString) {
+                completion(responseObject)
+                return
+            }
             
-            
-            
+            //  알람
+            print("error : \(statusCode)")
         }
     }
 }

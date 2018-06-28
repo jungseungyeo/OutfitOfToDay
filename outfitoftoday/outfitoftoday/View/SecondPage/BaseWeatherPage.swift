@@ -11,6 +11,8 @@ import SnapKit
 
 class BaseWeatherPage: BaseView {
    
+//    private let findDustView: UIImage = 
+    
     convenience init(_ title: OOT.mainCustomString) {
         self.init()
         setupTitle(title)
@@ -25,6 +27,7 @@ class BaseWeatherPage: BaseView {
             make.height.equalTo(144)
             make.width.equalTo(338)
         }
+        
     }
     
     private func setupTitle(_ title: OOT.mainCustomString) {
@@ -44,5 +47,6 @@ class BaseWeatherPage: BaseView {
             make.top.equalTo(16)
             make.centerX.equalTo(self)
         }
+        
     }
 }

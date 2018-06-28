@@ -50,6 +50,8 @@ enum OOT {
         
         case gotoTop
         case time00
+        
+        case finddust
         }
 }
 
@@ -92,6 +94,8 @@ extension OOT.mainCustomString: CustomStringConvertible {
                 return "GO TO TOP"
             case .time00:
                 return "00"
+            case .finddust:
+                return "미세먼지"
         }
     }
     
@@ -124,6 +128,8 @@ extension OOT.mainCustomString: CustomStringConvertible {
             case .gotoTop:
                 return "SpoqaHanSans-Regular"
             case .time00:
+                return "SpoqaHanSans-Regular"
+            case .finddust:
                 return "SpoqaHanSans-Regular"
         }
     }
