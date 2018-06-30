@@ -86,9 +86,11 @@ class WeatherViewCell: BaseScrollView {
         .setText(with: OOT.mainCustomString.gotoTop)
         .setFontType(with: OOT.mainCustomString.gotoTop)
         .setTextColor(with: .black)
-        .setFontSize(with: 50)
+        .setFontSize(with: 12)
         .setTextAlignment(with: .center)
         .ootLabel
+    
+    
     
     override func setupView() {
         super.setupView()
@@ -100,13 +102,14 @@ class WeatherViewCell: BaseScrollView {
         bounces = false
         
         addSubview(contentView)
+        addSubview(weatherGraph)
         
         contentView.snp.makeConstraints { make -> Void in
             make.top.bottom.equalTo(self).offset(0)
             make.left.right.equalTo(self).offset(0)
         }
         
-        contentView.addSubViews(locationTitle, nowTimeTitle, nowTemperature, hightTemperatureText, lowTemperatureText, hightTemperature, lowTemperature, weatherGraph, baseWeatherPage, detailWeathterpage, weekWeatherPage, horizonScrollview)
+        contentView.addSubViews(locationTitle, nowTimeTitle, nowTemperature, hightTemperatureText, lowTemperatureText, hightTemperature, lowTemperature, baseWeatherPage, detailWeathterpage, weekWeatherPage, gototopButton)
         
         locationTitle.snp.makeConstraints{ make -> Void in
             make.top.equalTo(contentView).offset(46)
@@ -147,17 +150,10 @@ class WeatherViewCell: BaseScrollView {
             make.leftMargin.equalTo(nowTemperature.snp.right).offset(40)
         }
         
-        horizonScrollview.snp.makeConstraints{ make -> Void in
+        weatherGraph.snp.makeConstraints { make -> Void in
             make.top.equalTo(nowTemperature.snp.bottom).offset(0)
             make.centerX.equalTo(self)
-            
             make.height.equalTo(144)
-            make.width.equalTo(338)
-        }
-        horizonScrollview.addSubview(weatherGraph)
-        
-        weatherGraph.snp.makeConstraints{ make -> Void in
-            make.edges.equalTo(horizonScrollview)
         }
         
         baseWeatherPage.snp.makeConstraints{ make -> Void in
@@ -179,20 +175,24 @@ class WeatherViewCell: BaseScrollView {
             make.centerX.equalTo(self)
         }
         
-        weekWeatherPage.makeDustStackView(makeDustView(4))
+        weekWeatherPage.makeWeekDustStackView(makeWeekDustView(7))
 
-        weatherGraph.scrollsToTop = true
     }
     
     func addUpBuuton(_ upButton: UIButton) {
         addSubViews(upButton)
         
         upButton.snp.makeConstraints{ make -> Void in
+            make.size.equalTo(24)
             make.top.equalTo(weekWeatherPage.snp.bottom).offset(90)
-            make.bottom.equalTo(contentView).offset(-20)
             make.centerX.equalTo(self)
         }
         
+        gototopButton.snp.makeConstraints{ make -> Void in
+            make.top.equalTo(upButton.snp.bottom).offset(6.9)
+            make.centerX.equalTo(self).offset(0)
+            make.bottom.equalTo(contentView).offset(-20)
+        }
     }
     
     private func viewInsetDelete() {
@@ -206,6 +206,18 @@ class WeatherViewCell: BaseScrollView {
         var dustArray: [UIView] = []
         for _ in 1 ... count {
             dustArray.append(DustView())
+        }
+        
+        dustStackView.setStacks(dustArray, dustArray.count)
+        
+        return dustStackView
+    }
+    
+    private func makeWeekDustView(_ count: Int) -> WeekDustStackView {
+        let dustStackView = WeekDustStackView()
+        var dustArray: [UIView] = []
+        for _ in 1 ... count {
+            dustArray.append(WeekDustView())
         }
         
         dustStackView.setStacks(dustArray, dustArray.count)

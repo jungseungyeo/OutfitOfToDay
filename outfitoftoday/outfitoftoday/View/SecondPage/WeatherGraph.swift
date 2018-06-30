@@ -2,75 +2,73 @@
 //  WeatherGraph.swift
 //  outfitoftoday
 //
-//  Created by Jung seoung Yeo on 2018. 6. 26..
+//  Created by Jung seoung Yeo on 2018. 6. 30..
 //  Copyright © 2018년 LinSaeng. All rights reserved.
 //
 
 import UIKit
 import SnapKit
-import Then
 
-class WeatherGraph: BaseScrollView {
+class WeatherGraph: BaseView {
     
-    private var timeArray: [UILabel] = []
-    private let contentView = UIView()
+    private var timeText = UILabel().then {
+        $0.text = ""
+        $0.textColor = .black
+        $0.font = .systemFont(ofSize: 10)
+    }
+    
+    private let scrollView = UIScrollView()
+    private let wrapper = UIView()
+    
     
     override func setupView() {
         super.setupView()
-
-        addSubview(contentView)
         
-        contentView.snp.makeConstraints { make -> Void in
-            make.top.bottom.equalTo(self).offset(0)
-            make.left.equalTo(self.snp.left).offset(0)
-            make.right.equalTo(self.snp.right).offset(0)
+        self.snp.makeConstraints { make -> Void in
+            make.height.equalTo(144)
+            make.width.equalTo(338)
+        }
+        makeTimeText()
+        addSubview(scrollView)
+        
+        scrollView.addSubview(wrapper)
+        wrapper.addSubview(timeText)
+        
+        scrollView.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.top.equalTo(100)
+            make.width.equalToSuperview()
         }
         
-        makeTimeArray()
-        makeTimes()
+        wrapper.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.height.equalToSuperview()
+            make.left.equalToSuperview()
+        }
+        
+        timeText.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
     }
     
-    private func makeTimeArray() {
+    private func makeTimeText() {
+        
         for index in 0 ... 24 {
-            var timeText = ""
-            if index < 10 {
-                timeText = "0\(index)시"
-            }else {
-                timeText = "\(index)시"
-            }
-            
-            let time = UILabel().then {
-                $0.text = timeText
-                $0.textColor = .black
-                $0.font = .systemFont(ofSize: 11)
-                $0.textAlignment = .center
-            }
-            timeArray.append(time)
-            
-        }
-    }
-    
-    private func makeTimes() {
-        for (index, view) in timeArray.enumerated() {
-            contentView.addSubview(view)
+            var text = ""
             if index == 0 {
-                view.snp.makeConstraints{ make -> Void in
-                    make.top.equalTo(73)
-                    make.left.equalTo(contentView).offset(0)
-                }
-            }else if index == 24 {
-                view.snp.makeConstraints{ make -> Void in
-                    make.top.equalTo(73)
-                    make.left.equalTo(timeArray[23].snp.right).offset(28)
-                    make.right.equalTo(contentView).offset(-28)
-                }
+                text = timeText.text! + "0\(index)시"
+                timeText.text = text
             }else {
-                view.snp.makeConstraints{ make -> Void in
-                    make.top.equalTo(73)
-                    make.left.equalTo(timeArray[index - 1].snp.right).offset(28)
-                }
+                text = timeText.text! + "\(index)시"
+                timeText.text = text
             }
-
+            
+            if 24 != index {
+                text = timeText.text! + "       "
+                timeText.text = text
+                
+            }
         }
     }
     

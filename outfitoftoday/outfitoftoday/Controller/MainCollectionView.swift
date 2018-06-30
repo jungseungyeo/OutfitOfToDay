@@ -14,15 +14,15 @@ class MainCollectionView: UICollectionViewController {
     var refresher:UIRefreshControl!
     
     private let downButton: UIButton = UIButton().then{
-        $0.setTitle("Down Button", for: .normal)
+        $0.setImage(UIImage(named: "downButton"), for: .normal)
         $0.translatesAutoresizingMaskIntoConstraints = true
         $0.titleLabel?.font = .systemFont(ofSize: 20)
         $0.setTitleColor(.black, for: .normal)
         $0.addTarget(self, action: #selector(handleDown), for: .touchUpInside)
     }
     
-    private let upBuuton: UIButton = UIButton().then{
-        $0.setTitle("up Button", for: .normal)
+    private let upButton: UIButton = UIButton().then{
+        $0.setImage(UIImage(named: "upButton"), for: .normal)
         $0.translatesAutoresizingMaskIntoConstraints = true
         $0.titleLabel?.font = .systemFont(ofSize: 50)
         $0.setTitleColor(.black, for: .normal)
@@ -120,7 +120,7 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
         }else if indexPath.item == 1 {
             collectionView.bounces = false
             let weatherViewCell = WeatherViewCell()
-            weatherViewCell.addUpBuuton(upBuuton)
+            weatherViewCell.addUpBuuton(upButton)
             cell.addView(weatherViewCell)
         }
         

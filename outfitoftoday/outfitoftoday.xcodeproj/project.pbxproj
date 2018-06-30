@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		52BE9C79F9BF6C885298CF89 /* Pods_outfitoftoday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */; };
+		B30E0AA120E6DB1F00CD836A /* WeatherGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E0AA020E6DB1F00CD836A /* WeatherGraph.swift */; };
 		B317DE7420E478C100D779E8 /* SideMenuNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317DE7320E478C100D779E8 /* SideMenuNavigationView.swift */; };
 		B317DE7620E47F5D00D779E8 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317DE7520E47F5D00D779E8 /* SettingTableViewController.swift */; };
 		B31DC2EC20DF9FEA00141B9A /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31DC2EB20DF9FEA00141B9A /* BackgroundView.swift */; };
@@ -20,15 +21,17 @@
 		B33CB1AA20E0790500BD3D38 /* OOTClothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33CB1A920E0790500BD3D38 /* OOTClothView.swift */; };
 		B33CB1AC20E079D900BD3D38 /* WeatherViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33CB1AB20E079D900BD3D38 /* WeatherViewCell.swift */; };
 		B33D1C7220E1D11800A0035B /* BaseWeatherPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D1C7120E1D11800A0035B /* BaseWeatherPage.swift */; };
-		B33D1C7420E1F6E700A0035B /* WeatherGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D1C7320E1F6E700A0035B /* WeatherGraph.swift */; };
 		B342932020E29A730081D764 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342931F20E29A720081D764 /* BaseCollectionView.swift */; };
 		B347CF6020DCE3030081DD4F /* OOTLabelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B347CF5F20DCE3030081DD4F /* OOTLabelable.swift */; };
 		B347CF6220DCE7770081DD4F /* ConCreateOOTLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B347CF6120DCE7770081DD4F /* ConCreateOOTLabel.swift */; };
 		B359BDD220D566AF0032E187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B359BDD120D566AF0032E187 /* AppDelegate.swift */; };
 		B359BDD920D566B10032E187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B359BDD820D566B10032E187 /* Assets.xcassets */; };
 		B359BDDC20D566B10032E187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B359BDDA20D566B10032E187 /* LaunchScreen.storyboard */; };
+		B37D6E4620E7608600E0AE88 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B37D6E4520E7608600E0AE88 /* Localizable.strings */; };
 		B386F6A320DFD61700C08512 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F6A220DFD61700C08512 /* String+.swift */; };
 		B396CFEF20E0E37D00EC57D3 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B396CFEE20E0E37D00EC57D3 /* MainCollectionViewCell.swift */; };
+		B399B40C20E5F313004204D7 /* WeekDustStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399B40B20E5F313004204D7 /* WeekDustStackView.swift */; };
+		B399B40E20E5F39F004204D7 /* WeekDustView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399B40D20E5F39F004204D7 /* WeekDustView.swift */; };
 		B39E811120E1883200006A0C /* OOTDustData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E811020E1883200006A0C /* OOTDustData.swift */; };
 		B3AF271120E4C3830098767D /* DustView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AF271020E4C3830098767D /* DustView.swift */; };
 		B3C7BBA620D568E9003D7CB2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7BBA420D568E9003D7CB2 /* Network.swift */; };
@@ -46,6 +49,7 @@
 		1AFA2A638707CB78F55C25C0 /* Pods-outfitoftoday.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-outfitoftoday.release.xcconfig"; path = "Pods/Target Support Files/Pods-outfitoftoday/Pods-outfitoftoday.release.xcconfig"; sourceTree = "<group>"; };
 		38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_outfitoftoday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		582B9068E764BA7F495C82E3 /* Pods-outfitoftoday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-outfitoftoday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-outfitoftoday/Pods-outfitoftoday.debug.xcconfig"; sourceTree = "<group>"; };
+		B30E0AA020E6DB1F00CD836A /* WeatherGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherGraph.swift; sourceTree = "<group>"; };
 		B317DE7320E478C100D779E8 /* SideMenuNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationView.swift; sourceTree = "<group>"; };
 		B317DE7520E47F5D00D779E8 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		B31DC2EB20DF9FEA00141B9A /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
@@ -58,7 +62,6 @@
 		B33CB1A920E0790500BD3D38 /* OOTClothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTClothView.swift; sourceTree = "<group>"; };
 		B33CB1AB20E079D900BD3D38 /* WeatherViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewCell.swift; sourceTree = "<group>"; };
 		B33D1C7120E1D11800A0035B /* BaseWeatherPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWeatherPage.swift; sourceTree = "<group>"; };
-		B33D1C7320E1F6E700A0035B /* WeatherGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherGraph.swift; sourceTree = "<group>"; };
 		B342931F20E29A720081D764 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		B347CF5F20DCE3030081DD4F /* OOTLabelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTLabelable.swift; sourceTree = "<group>"; };
 		B347CF6120DCE7770081DD4F /* ConCreateOOTLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConCreateOOTLabel.swift; sourceTree = "<group>"; };
@@ -67,8 +70,11 @@
 		B359BDD820D566B10032E187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B359BDDB20D566B10032E187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B359BDDD20D566B10032E187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B37D6E4520E7608600E0AE88 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		B386F6A220DFD61700C08512 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		B396CFEE20E0E37D00EC57D3 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		B399B40B20E5F313004204D7 /* WeekDustStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDustStackView.swift; sourceTree = "<group>"; };
+		B399B40D20E5F39F004204D7 /* WeekDustView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDustView.swift; sourceTree = "<group>"; };
 		B39E811020E1883200006A0C /* OOTDustData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDustData.swift; sourceTree = "<group>"; };
 		B3AF271020E4C3830098767D /* DustView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustView.swift; sourceTree = "<group>"; };
 		B3C7BBA420D568E9003D7CB2 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -142,9 +148,9 @@
 			children = (
 				B33CB1AB20E079D900BD3D38 /* WeatherViewCell.swift */,
 				B33D1C7120E1D11800A0035B /* BaseWeatherPage.swift */,
-				B33D1C7320E1F6E700A0035B /* WeatherGraph.swift */,
-				B3DD704820E4BC220009D0E6 /* DustStackView.swift */,
-				B3AF271020E4C3830098767D /* DustView.swift */,
+				B399B40920E5F2D7004204D7 /* DustStack */,
+				B399B40A20E5F2EE004204D7 /* WeekDust */,
+				B30E0AA020E6DB1F00CD836A /* WeatherGraph.swift */,
 			);
 			path = SecondPage;
 			sourceTree = "<group>";
@@ -188,6 +194,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B399B40920E5F2D7004204D7 /* DustStack */ = {
+			isa = PBXGroup;
+			children = (
+				B3DD704820E4BC220009D0E6 /* DustStackView.swift */,
+				B3AF271020E4C3830098767D /* DustView.swift */,
+			);
+			path = DustStack;
+			sourceTree = "<group>";
+		};
+		B399B40A20E5F2EE004204D7 /* WeekDust */ = {
+			isa = PBXGroup;
+			children = (
+				B399B40B20E5F313004204D7 /* WeekDustStackView.swift */,
+				B399B40D20E5F39F004204D7 /* WeekDustView.swift */,
+			);
+			path = WeekDust;
+			sourceTree = "<group>";
+		};
 		B3C7BBA020D56862003D7CB2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +249,7 @@
 				B359BDD820D566B10032E187 /* Assets.xcassets */,
 				B359BDDA20D566B10032E187 /* LaunchScreen.storyboard */,
 				B359BDDD20D566B10032E187 /* Info.plist */,
+				B37D6E4520E7608600E0AE88 /* Localizable.strings */,
 			);
 			path = SurpportFile;
 			sourceTree = "<group>";
@@ -341,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B37D6E4620E7608600E0AE88 /* Localizable.strings in Resources */,
 				B359BDDC20D566B10032E187 /* LaunchScreen.storyboard in Resources */,
 				B359BDD920D566B10032E187 /* Assets.xcassets in Resources */,
 			);
@@ -414,13 +440,15 @@
 				B3DD704920E4BC220009D0E6 /* DustStackView.swift in Sources */,
 				B32A98CF20D56930003EBA31 /* View+.swift in Sources */,
 				B386F6A320DFD61700C08512 /* String+.swift in Sources */,
-				B33D1C7420E1F6E700A0035B /* WeatherGraph.swift in Sources */,
+				B399B40C20E5F313004204D7 /* WeekDustStackView.swift in Sources */,
 				B342932020E29A730081D764 /* BaseCollectionView.swift in Sources */,
 				B3C7BBA620D568E9003D7CB2 /* Network.swift in Sources */,
+				B30E0AA120E6DB1F00CD836A /* WeatherGraph.swift in Sources */,
 				B347CF6020DCE3030081DD4F /* OOTLabelable.swift in Sources */,
 				B3F1096F20DCDB2600F1629C /* ConCreateOOTImgable.swift in Sources */,
 				B3C7BBA720D568E9003D7CB2 /* OOT.swift in Sources */,
 				B3F1097620DCDC4D00F1629C /* ConCreateOOTImg.swift in Sources */,
+				B399B40E20E5F39F004204D7 /* WeekDustView.swift in Sources */,
 				B347CF6220DCE7770081DD4F /* ConCreateOOTLabel.swift in Sources */,
 				B33D1C7220E1D11800A0035B /* BaseWeatherPage.swift in Sources */,
 				B32A98D320D56937003EBA31 /* BaseView.swift in Sources */,

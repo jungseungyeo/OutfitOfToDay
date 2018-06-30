@@ -136,6 +136,7 @@ class OOTClothView: BaseView {
     func addDownButton(_ downButton: UIButton) {
         addSubViews(downButton)
         downButton.snp.makeConstraints{ make -> Void in
+            make.size.equalTo(24)
             make.bottom.equalTo(-20)
             make.centerX.equalTo(self)
         }
@@ -149,5 +150,16 @@ class OOTClothView: BaseView {
             make.right.equalTo(self.snp.right).offset(-41)
             make.size.equalTo(200)
         }
+    }
+
+    
+    private func upAnmation(_ downButton: UIView) {
+        UIView.animate(withDuration: 0.5, delay: 1, options: [], animations: {
+            downButton.center.y += 10
+            }, completion: nil)
+    }
+    
+    private func downAnimation(_ downButton: UIView) {
+        
     }
 }

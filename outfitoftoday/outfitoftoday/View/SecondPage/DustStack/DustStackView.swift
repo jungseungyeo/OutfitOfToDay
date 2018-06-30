@@ -38,9 +38,9 @@ class DustStackView: BaseStackView {
         
             oneStack.snp.makeConstraints{ make -> Void in
                 make.height.equalTo(self).offset(0)
-                make.width.equalTo(width - 5)
+                make.width.equalTo(width - 4)
                 make.top.equalTo(0)
-                make.left.equalTo(index * width)
+                make.left.equalTo(index * width + 2)
             }
         }
     }
