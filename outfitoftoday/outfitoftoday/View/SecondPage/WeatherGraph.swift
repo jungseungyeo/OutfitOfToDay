@@ -60,7 +60,7 @@ class WeatherGraph: BaseView {
                 text = timeText.text! + "0\(index)시"
                 timeText.text = text
             }else {
-                text = timeText.text! + "\(index)시"
+                 text = timeText.text! + "\(index)시"
                 timeText.text = text
             }
             
