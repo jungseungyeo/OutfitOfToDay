@@ -22,7 +22,7 @@ class outfitoftodayTests: XCTestCase {
    
     func test_makeAnimationObject() {
         let animationObject = WeatherAnimationViewController()
-        XCTAssertNotNil(animationView)
+        XCTAssertNotNil(animationObject)
     }
     
 }
