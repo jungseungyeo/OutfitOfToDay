@@ -60,8 +60,6 @@ class WeatherAnimationViewController: BaseVC {
     @objc func animationTimerHandler() {
         
         
-        
-        
     }
     
 }
