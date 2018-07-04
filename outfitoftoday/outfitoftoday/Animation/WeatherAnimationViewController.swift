@@ -57,9 +57,14 @@ class WeatherAnimationViewController: BaseVC {
         Timer.scheduledTimer(timeInterval: duration, target: self, selector: #selector(animationTimerHandler), userInfo: nil, repeats: true)
     }
     
+    func getRandomStartX() -> Int {
+        return Int(arc4random_uniform(UInt32(UIScreen.main.bounds.maxX)))
+    }
+    
     @objc func animationTimerHandler() {
         
         
     }
     
 }
+
