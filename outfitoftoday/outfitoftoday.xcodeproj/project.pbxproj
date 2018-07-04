@@ -28,6 +28,7 @@
 		B359BDD920D566B10032E187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B359BDD820D566B10032E187 /* Assets.xcassets */; };
 		B359BDDC20D566B10032E187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B359BDDA20D566B10032E187 /* LaunchScreen.storyboard */; };
 		B37D6E4620E7608600E0AE88 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B37D6E4520E7608600E0AE88 /* Localizable.strings */; };
+		B381526120EC9CF500C5F708 /* RainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B381526020EC9CF500C5F708 /* RainVC.swift */; };
 		B386F6A320DFD61700C08512 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F6A220DFD61700C08512 /* String+.swift */; };
 		B396CFEF20E0E37D00EC57D3 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B396CFEE20E0E37D00EC57D3 /* MainCollectionViewCell.swift */; };
 		B399B40C20E5F313004204D7 /* WeekDustStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B399B40B20E5F313004204D7 /* WeekDustStackView.swift */; };
@@ -71,6 +72,7 @@
 		B359BDDB20D566B10032E187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B359BDDD20D566B10032E187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B37D6E4520E7608600E0AE88 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		B381526020EC9CF500C5F708 /* RainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainVC.swift; sourceTree = "<group>"; };
 		B386F6A220DFD61700C08512 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		B396CFEE20E0E37D00EC57D3 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		B399B40B20E5F313004204D7 /* WeekDustStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDustStackView.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				B359BDD120D566AF0032E187 /* AppDelegate.swift */,
+				B381525F20EC9C5E00C5F708 /* Animation */,
 				B3C7BBA220D56874003D7CB2 /* Controller */,
 				B386F6A420DFDCC300C08512 /* Model */,
 				B3C7BBA120D56870003D7CB2 /* View */,
@@ -184,6 +187,14 @@
 				B3C7BBA320D5687A003D7CB2 /* SurpportFile */,
 			);
 			path = outfitoftoday;
+			sourceTree = "<group>";
+		};
+		B381525F20EC9C5E00C5F708 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				B381526020EC9CF500C5F708 /* RainVC.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		B386F6A420DFDCC300C08512 /* Model */ = {
@@ -446,6 +457,7 @@
 				B30E0AA120E6DB1F00CD836A /* WeatherGraph.swift in Sources */,
 				B347CF6020DCE3030081DD4F /* OOTLabelable.swift in Sources */,
 				B3F1096F20DCDB2600F1629C /* ConCreateOOTImgable.swift in Sources */,
+				B381526120EC9CF500C5F708 /* RainVC.swift in Sources */,
 				B3C7BBA720D568E9003D7CB2 /* OOT.swift in Sources */,
 				B3F1097620DCDC4D00F1629C /* ConCreateOOTImg.swift in Sources */,
 				B399B40E20E5F39F004204D7 /* WeekDustView.swift in Sources */,
