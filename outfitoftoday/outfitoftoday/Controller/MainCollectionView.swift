@@ -29,20 +29,6 @@ class MainCollectionView: UICollectionViewController {
         $0.addTarget(self, action: #selector(handleUp), for: .touchUpInside)
     }
     
-    private let sideMenuButton = UIButton().then {
-        $0.setTitle("sideMenu", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
-        $0.backgroundColor = .clear
-        $0.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
-    }
-    
-    @objc func touchButton(sender: UIButton) {
-        present(SideMenuNavigationView(rootViewController: SettingTableViewController()), animated: true, completion: nil)
-        UIView.animate(withDuration: 0.5) {
-            self.moveLeft(view: self.sideMenuButton)
-        }
-    }
-    
     func moveLeft(view: UIView) {
 //        view.center.x += 30
 //        view.bounds.size.width -= 40
@@ -115,7 +101,6 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
             collectionView.bounces = true
             let ootClothView = OOTClothView()
             ootClothView.addDownButton(downButton)
-            ootClothView.addSideButton(sideMenuButton)
             cell.addView(ootClothView)
         }else if indexPath.item == 1 {
             collectionView.bounces = false

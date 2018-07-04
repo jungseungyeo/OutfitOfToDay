@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		52BE9C79F9BF6C885298CF89 /* Pods_outfitoftoday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */; };
 		B30E0AA120E6DB1F00CD836A /* WeatherGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E0AA020E6DB1F00CD836A /* WeatherGraph.swift */; };
-		B317DE7420E478C100D779E8 /* SideMenuNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317DE7320E478C100D779E8 /* SideMenuNavigationView.swift */; };
-		B317DE7620E47F5D00D779E8 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317DE7520E47F5D00D779E8 /* SettingTableViewController.swift */; };
 		B31DC2EC20DF9FEA00141B9A /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31DC2EB20DF9FEA00141B9A /* BackgroundView.swift */; };
 		B32A98CF20D56930003EBA31 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32A98CE20D56930003EBA31 /* View+.swift */; };
 		B32A98D220D56937003EBA31 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32A98D020D56937003EBA31 /* BaseVC.swift */; };
@@ -34,9 +32,6 @@
 		B381527220ECAA3100C5F708 /* WeatherAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B381526020EC9CF500C5F708 /* WeatherAnimationViewController.swift */; };
 		B381527320ECAAEC00C5F708 /* RainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B381526220ECA11300C5F708 /* RainView.swift */; };
 		B381527420ECAAEC00C5F708 /* MainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B337604B20DBFEE10081AAEA /* MainCollectionView.swift */; };
-		B381527520ECAAEC00C5F708 /* SideMenuNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317DE7320E478C100D779E8 /* SideMenuNavigationView.swift */; };
-		B381527620ECAAEC00C5F708 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317DE7520E47F5D00D779E8 /* SettingTableViewController.swift */; };
-		B381527720ECAAEC00C5F708 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DD704420E4A63A0009D0E6 /* SettingTableViewCell.swift */; };
 		B381527820ECAAEC00C5F708 /* OOTDustData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E811020E1883200006A0C /* OOTDustData.swift */; };
 		B381527920ECAAEC00C5F708 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31DC2EB20DF9FEA00141B9A /* BackgroundView.swift */; };
 		B381527A20ECAAEC00C5F708 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B396CFEE20E0E37D00EC57D3 /* MainCollectionViewCell.swift */; };
@@ -79,7 +74,6 @@
 		B3C7BBA620D568E9003D7CB2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7BBA420D568E9003D7CB2 /* Network.swift */; };
 		B3C7BBA720D568E9003D7CB2 /* OOT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7BBA520D568E9003D7CB2 /* OOT.swift */; };
 		B3DAF5CE20DF1DAC0030B529 /* BaseScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DAF5CD20DF1DAC0030B529 /* BaseScrollView.swift */; };
-		B3DD704520E4A63A0009D0E6 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DD704420E4A63A0009D0E6 /* SettingTableViewCell.swift */; };
 		B3DD704920E4BC220009D0E6 /* DustStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DD704820E4BC220009D0E6 /* DustStackView.swift */; };
 		B3DD704B20E4BC360009D0E6 /* BaseStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DD704A20E4BC360009D0E6 /* BaseStackView.swift */; };
 		B3F1096F20DCDB2600F1629C /* ConCreateOOTImgable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1096E20DCDB2600F1629C /* ConCreateOOTImgable.swift */; };
@@ -103,8 +97,6 @@
 		38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_outfitoftoday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		582B9068E764BA7F495C82E3 /* Pods-outfitoftoday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-outfitoftoday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-outfitoftoday/Pods-outfitoftoday.debug.xcconfig"; sourceTree = "<group>"; };
 		B30E0AA020E6DB1F00CD836A /* WeatherGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherGraph.swift; sourceTree = "<group>"; };
-		B317DE7320E478C100D779E8 /* SideMenuNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationView.swift; sourceTree = "<group>"; };
-		B317DE7520E47F5D00D779E8 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		B31DC2EB20DF9FEA00141B9A /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		B32A98CE20D56930003EBA31 /* View+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		B32A98D020D56937003EBA31 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
@@ -145,7 +137,6 @@
 		B3C7BBA420D568E9003D7CB2 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B3C7BBA520D568E9003D7CB2 /* OOT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOT.swift; sourceTree = "<group>"; };
 		B3DAF5CD20DF1DAC0030B529 /* BaseScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollView.swift; sourceTree = "<group>"; };
-		B3DD704420E4A63A0009D0E6 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		B3DD704820E4BC220009D0E6 /* DustStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStackView.swift; sourceTree = "<group>"; };
 		B3DD704A20E4BC360009D0E6 /* BaseStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStackView.swift; sourceTree = "<group>"; };
 		B3F1096E20DCDB2600F1629C /* ConCreateOOTImgable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConCreateOOTImgable.swift; sourceTree = "<group>"; };
@@ -186,16 +177,6 @@
 				1AFA2A638707CB78F55C25C0 /* Pods-outfitoftoday.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		B317DE7220E4789F00D779E8 /* SideMenu */ = {
-			isa = PBXGroup;
-			children = (
-				B317DE7320E478C100D779E8 /* SideMenuNavigationView.swift */,
-				B317DE7520E47F5D00D779E8 /* SettingTableViewController.swift */,
-				B3DD704420E4A63A0009D0E6 /* SettingTableViewCell.swift */,
-			);
-			path = SideMenu;
 			sourceTree = "<group>";
 		};
 		B32A98CD20D5691F003EBA31 /* Setting */ = {
@@ -338,7 +319,6 @@
 			isa = PBXGroup;
 			children = (
 				B337604B20DBFEE10081AAEA /* MainCollectionView.swift */,
-				B317DE7220E4789F00D779E8 /* SideMenu */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -568,8 +548,6 @@
 				B31DC2EC20DF9FEA00141B9A /* BackgroundView.swift in Sources */,
 				B3DAF5CE20DF1DAC0030B529 /* BaseScrollView.swift in Sources */,
 				B32B285D20D691800088AA23 /* BaseCollectionCell.swift in Sources */,
-				B317DE7620E47F5D00D779E8 /* SettingTableViewController.swift in Sources */,
-				B3DD704520E4A63A0009D0E6 /* SettingTableViewCell.swift in Sources */,
 				B396CFEF20E0E37D00EC57D3 /* MainCollectionViewCell.swift in Sources */,
 				B3F1097320DCDBA600F1629C /* Director.swift in Sources */,
 				B33CB1AC20E079D900BD3D38 /* WeatherViewCell.swift in Sources */,
@@ -593,7 +571,6 @@
 				B337604C20DBFEE20081AAEA /* MainCollectionView.swift in Sources */,
 				B33CB1AA20E0790500BD3D38 /* OOTClothView.swift in Sources */,
 				B32A98D220D56937003EBA31 /* BaseVC.swift in Sources */,
-				B317DE7420E478C100D779E8 /* SideMenuNavigationView.swift in Sources */,
 				B32B285F20D69AAD0088AA23 /* UIColor+.swift in Sources */,
 				B39E811120E1883200006A0C /* OOTDustData.swift in Sources */,
 				B3DD704B20E4BC360009D0E6 /* BaseStackView.swift in Sources */,
@@ -606,9 +583,6 @@
 			files = (
 				B381527320ECAAEC00C5F708 /* RainView.swift in Sources */,
 				B381527420ECAAEC00C5F708 /* MainCollectionView.swift in Sources */,
-				B381527520ECAAEC00C5F708 /* SideMenuNavigationView.swift in Sources */,
-				B381527620ECAAEC00C5F708 /* SettingTableViewController.swift in Sources */,
-				B381527720ECAAEC00C5F708 /* SettingTableViewCell.swift in Sources */,
 				B381527820ECAAEC00C5F708 /* OOTDustData.swift in Sources */,
 				B381527920ECAAEC00C5F708 /* BackgroundView.swift in Sources */,
 				B381527A20ECAAEC00C5F708 /* MainCollectionViewCell.swift in Sources */,
