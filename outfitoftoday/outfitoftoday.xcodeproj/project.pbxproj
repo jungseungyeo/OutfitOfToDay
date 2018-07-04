@@ -66,7 +66,6 @@
 		B381529220ECAAEC00C5F708 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B386F6A220DFD61700C08512 /* String+.swift */; };
 		B381529420ECAB3400C5F708 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B381529320ECAB3400C5F708 /* Alamofire.framework */; };
 		B381529620ECAB3400C5F708 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B381529520ECAB3400C5F708 /* ObjectMapper.framework */; };
-		B381529820ECAB3400C5F708 /* Pods_outfitoftoday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B381529720ECAB3400C5F708 /* Pods_outfitoftoday.framework */; };
 		B381529A20ECAB3400C5F708 /* SideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B381529920ECAB3400C5F708 /* SideMenu.framework */; };
 		B381529C20ECAB3400C5F708 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B381529B20ECAB3400C5F708 /* SnapKit.framework */; };
 		B381529E20ECAB3400C5F708 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B381529D20ECAB3400C5F708 /* SwiftyJSON.framework */; };
@@ -86,6 +85,7 @@
 		B3F1096F20DCDB2600F1629C /* ConCreateOOTImgable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1096E20DCDB2600F1629C /* ConCreateOOTImgable.swift */; };
 		B3F1097320DCDBA600F1629C /* Director.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1097220DCDBA600F1629C /* Director.swift */; };
 		B3F1097620DCDC4D00F1629C /* ConCreateOOTImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F1097520DCDC4D00F1629C /* ConCreateOOTImg.swift */; };
+		BFC8E013CBDAF7863D27648F /* Pods_outfitoftoday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B381529720ECAB3400C5F708 /* Pods_outfitoftoday.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52BE9C79F9BF6C885298CF89 /* Pods_outfitoftoday.framework in Frameworks */,
+				BFC8E013CBDAF7863D27648F /* Pods_outfitoftoday.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +169,6 @@
 			files = (
 				B381529420ECAB3400C5F708 /* Alamofire.framework in Frameworks */,
 				B381529620ECAB3400C5F708 /* ObjectMapper.framework in Frameworks */,
-				B381529820ECAB3400C5F708 /* Pods_outfitoftoday.framework in Frameworks */,
 				B381529A20ECAB3400C5F708 /* SideMenu.framework in Frameworks */,
 				B381529C20ECAB3400C5F708 /* SnapKit.framework in Frameworks */,
 				B381529E20ECAB3400C5F708 /* SwiftyJSON.framework in Frameworks */,
@@ -539,7 +539,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-outfitoftoday/Pods-outfitoftoday-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
@@ -548,7 +547,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
