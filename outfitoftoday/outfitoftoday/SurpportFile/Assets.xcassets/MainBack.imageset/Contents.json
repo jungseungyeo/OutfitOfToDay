@@ -1,6 +1,20 @@
 {
   "images" : [
     {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 1,
+          "height" : 1
+        },
+        "cap-insets" : {
+          "bottom" : 1168,
+          "top" : 263,
+          "right" : 621,
+          "left" : 620
+        }
+      },
       "idiom" : "universal",
       "filename" : "MainBack.jpeg",
       "scale" : "1x"
