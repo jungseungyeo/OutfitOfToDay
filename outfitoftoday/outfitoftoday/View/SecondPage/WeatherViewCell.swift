@@ -102,14 +102,16 @@ class WeatherViewCell: BaseScrollView {
         bounces = false
         
         addSubview(contentView)
-        addSubview(weatherGraph)
+//        addSubview(weatherGraph)
         
         contentView.snp.makeConstraints { make -> Void in
             make.top.bottom.equalTo(self).offset(0)
             make.left.right.equalTo(self).offset(0)
         }
         
-        contentView.addSubViews(locationTitle, nowTimeTitle, nowTemperature, hightTemperatureText, lowTemperatureText, hightTemperature, lowTemperature, baseWeatherPage, detailWeathterpage, weekWeatherPage, gototopButton)
+        contentView.addSubViews(locationTitle, nowTimeTitle, nowTemperature, hightTemperatureText, lowTemperatureText, hightTemperature, lowTemperature, baseWeatherPage, detailWeathterpage, weekWeatherPage, gototopButton
+            , weatherGraph
+        )
         
         locationTitle.snp.makeConstraints{ make -> Void in
             make.top.equalTo(contentView).offset(46)
@@ -153,7 +155,6 @@ class WeatherViewCell: BaseScrollView {
         weatherGraph.snp.makeConstraints { make -> Void in
             make.top.equalTo(nowTemperature.snp.bottom).offset(0)
             make.centerX.equalTo(self)
-            make.height.equalTo(144)
         }
         
         baseWeatherPage.snp.makeConstraints{ make -> Void in
