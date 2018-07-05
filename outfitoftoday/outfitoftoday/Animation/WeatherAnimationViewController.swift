@@ -15,7 +15,7 @@ class WeatherAnimationViewController: BaseVC {
         case snow
     }
     
-    private enum statuc {
+    enum status {
         
         enum amount {
             case many
@@ -23,10 +23,30 @@ class WeatherAnimationViewController: BaseVC {
             case low
         }
         
-        enum wind {
-            case many
-            case middle
-            case low
+        enum wind: Int {
+            case step1 = 100
+            case step2
+            case step3
+            case step4
+            case step5
+            case step6
+            
+            var ratio: Int {
+                switch self {
+                    case .step1:
+                        return 100
+                    case .step2:
+                        return Int(status.wind.step1.ratio * 2)
+                    case .step3:
+                        return Int(status.wind.step1.ratio * 3)
+                    case .step4:
+                        return Int(status.wind.step1.ratio * 4)
+                    case .step5:
+                        return Int(status.wind.step1.ratio * 5)
+                    case .step6:
+                        return Int(status.wind.step1.ratio * 6)
+                }
+            }
         }
         
     }
@@ -61,8 +81,37 @@ class WeatherAnimationViewController: BaseVC {
         return Int(arc4random_uniform(UInt32(UIScreen.main.bounds.maxX)))
     }
     
-    @objc func animationTimerHandler() {
+    func isEndX(to startX: Int, from endX: Int) -> Bool{
+        if startX > endX {
+            return false
+        }
+        return true
+    }
+    
+    func getXpoint(to step: status.wind) -> (Int, Int) {
+        let startX = getRandomStartX()
+        let endX = startX
         
+        switch step {
+            case .step1:
+                return (0, 0)
+            case .step2:
+                return (0, 0)
+            case .step3:
+                return (0, 0)
+            case .step4:
+                return (0, 0)
+            case .step5:
+                return (0, 0)
+            case .step6:
+                return (0, 0)
+        }
+        
+        
+        return (startX, endX)
+    }
+    
+    @objc func animationTimerHandler() {
         
     }
     
