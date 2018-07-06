@@ -18,6 +18,7 @@ class ConCreateOOTImg: ConCreateOOTImgable {
     
     func setUIImge(with imgeName: String) -> ConCreateOOTImgable {
         self.ootImg.image = UIImage(named: imgeName)
+        self.ootImg.contentMode = .scaleAspectFill
         return self
     }
     
