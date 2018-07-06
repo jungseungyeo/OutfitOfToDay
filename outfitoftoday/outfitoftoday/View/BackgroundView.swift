@@ -13,9 +13,9 @@ import Then
 class BackgoundView: BaseView {
     
     private let backgound: UIImageView = ConCreateOOTImg().instance()
-        .setUIImge(with: "MainBack")
+        .setUIImge(with: "background_winter")
         .ootImg
-    
+
     
     override func setupView() {
         super.setupView()

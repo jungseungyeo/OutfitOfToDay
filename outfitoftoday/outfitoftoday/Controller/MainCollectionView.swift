@@ -55,6 +55,7 @@ class MainCollectionView: UICollectionViewController {
         super.viewDidLoad()
         requestData()
         edgeInSetSetting()
+        
 //        addTapGesture()
     }
     
@@ -102,6 +103,7 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
             let ootClothView = OOTClothView()
             ootClothView.addDownButton(downButton)
             cell.addView(ootClothView)
+            
         }else if indexPath.item == 1 {
             collectionView.bounces = false
             let weatherViewCell = WeatherViewCell()

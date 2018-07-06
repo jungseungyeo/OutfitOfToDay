@@ -38,13 +38,13 @@ class WeatherAnimationViewController: BaseVC {
                     case .step2:
                         return Int(status.wind.step1.ratio * 2)
                     case .step3:
-                        return Int(status.wind.step1.ratio * 3)
-                    case .step4:
                         return Int(status.wind.step1.ratio * 4)
+                    case .step4:
+                        return Int(status.wind.step1.ratio * 8)
                     case .step5:
-                        return Int(status.wind.step1.ratio * 5)
+                        return Int(status.wind.step1.ratio * 9)
                     case .step6:
-                        return Int(status.wind.step1.ratio * 6)
+                        return Int(status.wind.step1.ratio * 10)
                 }
             }
         }
@@ -53,6 +53,8 @@ class WeatherAnimationViewController: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .clear
+        startSnowAnimation(at: 0.05)
     }
     
     private func mkaeView(to weatherSytle: weather) -> UIImageView {
@@ -77,16 +79,10 @@ class WeatherAnimationViewController: BaseVC {
         Timer.scheduledTimer(timeInterval: duration, target: self, selector: #selector(animationTimerHandler), userInfo: nil, repeats: true)
     }
     
-    func getRandomStartX() -> Int {
-        return Int(arc4random_uniform(UInt32(UIScreen.main.bounds.maxX)))
+    private func getRandomStartX() -> Int {
+        return Int(arc4random_uniform(UInt32(UIScreen.main.bounds.maxX))) * 2
     }
-    
-    func isEndX(to startX: Int, from endX: Int) -> Bool{
-        if startX > endX {
-            return false
-        }
-        return true
-    }
+
     
     func getXpoint(to step: status.wind) -> (Int, Int) {
         let startX = getRandomStartX()
@@ -94,25 +90,36 @@ class WeatherAnimationViewController: BaseVC {
         
         switch step {
             case .step1:
-                return (0, 0)
+                return (startX, endX - status.wind.step1.ratio)
             case .step2:
-                return (0, 0)
+                return (startX, endX - status.wind.step2.ratio)
             case .step3:
-                return (0, 0)
+                return (startX, endX - status.wind.step3.ratio)
             case .step4:
-                return (0, 0)
+                return (startX, endX - status.wind.step4.ratio)
             case .step5:
-                return (0, 0)
+                return (startX, endX - status.wind.step5.ratio)
             case .step6:
-                return (0, 0)
+                return (startX, endX - status.wind.step6.ratio)
         }
-        
-        
-        return (startX, endX)
     }
     
     @objc func animationTimerHandler() {
+        let downWeather = mkaeView(to: weather.snow)
+        let (startx, endx) = getXpoint(to: status.wind.step4)
         
+        self.view.addSubview(downWeather)
+        
+        downWeather.frame = CGRect(x: startx, y: 0, width: 10, height: 10)
+        downWeather.tag = startx + endx
+        UIImageView.animate(withDuration: 4.0, animations: {
+            downWeather.frame = CGRect(x: endx, y: Int(UIScreen.main.bounds.height) + 10, width: 10, height: 10)
+        }, completion: { finished in
+            if downWeather.tag == (startx + endx) {
+                downWeather.removeFromSuperview()
+            }
+        }
+        )
     }
     
 }
