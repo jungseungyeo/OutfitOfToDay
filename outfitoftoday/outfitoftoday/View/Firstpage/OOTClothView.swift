@@ -73,14 +73,20 @@ class OOTClothView: BaseView {
         .setNuberOfLine(with: 4)
         .ootLabel
     
+    private let weatherView = WeatherAnimationViewController().view
+    
     private let backImg = BackgoundView()
     
     override func setupView() {
         super.setupView()
         
-        addSubViews(backImg, locationTitle, nowTimeTitle, nowTemperature, halfTemperature, lowTemperature, hightTemperature, textField, ottRecommend)
+        addSubViews(backImg, weatherView!,locationTitle, nowTimeTitle, nowTemperature, halfTemperature, lowTemperature, hightTemperature, textField, ottRecommend)
         
         backImg.snp.makeConstraints{ make -> Void in
+            make.top.bottom.left.right.equalTo(self)
+        }
+        
+        weatherView?.snp.makeConstraints { make -> Void in
             make.top.bottom.left.right.equalTo(self)
         }
         
