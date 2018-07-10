@@ -49,14 +49,17 @@ final class NetWork {
 }
 
 enum OOTRequestName: String {
-    
-    case ootRequest
+
+    case temperature
+    case dust
     
     // 요청 보낼 URL, HTTP 메소드, 응답으로 받을 데이터를 맵핑할 클래스
     func getRequestInfo() -> (urlString: String, method: HTTPMethod, returnClass: Mappable.Type) {
         switch self {
+        case .temperature:
+            return (OOT.NETWORK.temperatures.description, .get, OOTTemperatureData.self)
             
-        case .ootRequest:
+        case .dust:
             return (OOT.NETWORK.dusts.description, .get, OOTDustData.self)
         }
     }

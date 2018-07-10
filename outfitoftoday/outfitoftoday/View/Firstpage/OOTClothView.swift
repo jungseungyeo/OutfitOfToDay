@@ -133,6 +133,7 @@ class OOTClothView: BaseView {
             make.left.equalTo(21)
         }
         
+        requestGetTemperature()
     }
     
     private func ratio() -> CGFloat {
@@ -167,5 +168,17 @@ class OOTClothView: BaseView {
     
     private func downAnimation(_ downButton: UIView) {
         
+    }
+    
+    private func requestGetTemperature() {
+        NetWork.shared.request(for: .temperature) { (result) in
+            if let responseObject = result as? OOTTemperatureData {
+                DispatchQueue.main.async {
+                    self.nowTemperature.text = responseObject.current
+                    self.lowTemperature.text = responseObject.minimum
+                    self.hightTemperature.text = responseObject.maximum
+                }
+            }
+        }
     }
 }
