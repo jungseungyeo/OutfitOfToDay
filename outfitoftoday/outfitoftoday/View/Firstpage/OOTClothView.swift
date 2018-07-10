@@ -9,6 +9,7 @@
 import SnapKit
 import UIKit
 import Then
+import CoreLocation
 
 class OOTClothView: BaseView {
     
@@ -134,6 +135,7 @@ class OOTClothView: BaseView {
         }
         
         requestGetTemperature()
+        getLocation() 
     }
     
     private func ratio() -> CGFloat {
@@ -170,6 +172,7 @@ class OOTClothView: BaseView {
         
     }
     
+    // 온도 정보 받아오기
     private func requestGetTemperature() {
         NetWork.shared.request(for: .temperature) { (result) in
             if let responseObject = result as? OOTTemperatureData {
@@ -181,4 +184,11 @@ class OOTClothView: BaseView {
             }
         }
     }
+    
+    // 위치 정보 받아오기
+    private func getLocation() {
+        LocationManager.shared.setup()
+    }
 }
+
+
