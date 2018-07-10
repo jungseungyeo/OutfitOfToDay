@@ -1,0 +1,46 @@
+//
+//  LocationManager.swift
+//  outfitoftoday
+//
+//  Created by 이광용 on 2018. 7. 10..
+//  Copyright © 2018년 LinSaeng. All rights reserved.
+//
+
+import CoreLocation
+
+final class LocationManager: NSObject {
+    
+    static let shared = LocationManager()
+    private override init() { super.init() }
+    
+    var locationManager = CLLocationManager()
+    
+    func setup() {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+    }
+    
+    func convertToAddressWith(coordinate: CLLocation) {
+        let geoCoder = CLGeocoder()
+        let locale = Locale(identifier: "Ko-kr")
+        geoCoder.reverseGeocodeLocation(coordinate, preferredLocale: locale) { (placemarks, error) in
+            if let address: [CLPlacemark] = placemarks {
+                if let city = address.first?.locality {
+                    print(city)
+                }
+            }
+        }
+    }
+}
+
+extension LocationManager: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let coor = manager.location?.coordinate{
+            print("latitude" + String(coor.latitude) + "/ longitude" + String(coor.longitude))
+            convertToAddressWith(coordinate: manager.location!)
+        }
+    }
+}

@@ -53,7 +53,7 @@ class MainCollectionView: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestData()
+        
         edgeInSetSetting()
         
 //        addTapGesture()
@@ -117,20 +117,7 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
 
 extension MainCollectionView {
     
-    func requestData() {
-//        NetWork.request(String(OOT.NETWORK.dusts))
-//        NetWork.request(OOT.NETWORK.temperatures.description)
-//        NetWork.shared.request(for: .ootRequest) { (result) in
-//            
-//            guard let responseObject = result as? OOTDustData else {
-//                // Alert 창
-//                print(result as Any)
-//                return
-//            }
-//            print(responseObject)
-//        }
-    }
-    
+   
     func edgeInSetSetting() {
         if #available(iOS 11.0, *) {
             collectionView?.contentInsetAdjustmentBehavior = .never
