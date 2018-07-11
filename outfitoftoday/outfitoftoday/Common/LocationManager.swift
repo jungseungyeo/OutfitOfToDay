@@ -22,16 +22,19 @@ final class LocationManager: NSObject {
         locationManager.startUpdatingLocation()
     }
     
+    var updateLocationSuccessClosure: ((String, String) -> ())?
+    
     func convertToAddressWith(coordinate: CLLocation) {
         let geoCoder = CLGeocoder()
         let locale = Locale(identifier: "Ko-kr")
         geoCoder.reverseGeocodeLocation(coordinate, preferredLocale: locale) { (placemarks, error) in
             if let address: [CLPlacemark] = placemarks {
-                if let city = address.first?.locality {
-                    print(city)
+                if let locality = address.first?.locality, let subLocality = address.first?.subLocality {
+                    self.updateLocationSuccessClosure?(locality, subLocality)
                 }
             }
         }
+        locationManager.stopUpdatingLocation()
     }
 }
 

@@ -135,7 +135,8 @@ class OOTClothView: BaseView {
         }
         
         requestGetTemperature()
-        getLocation() 
+        getLocation()
+        getNowTime()
     }
     
     private func ratio() -> CGFloat {
@@ -188,6 +189,20 @@ class OOTClothView: BaseView {
     // 위치 정보 받아오기
     private func getLocation() {
         LocationManager.shared.setup()
+        LocationManager.shared.updateLocationSuccessClosure = { locality, subLocality in
+            self.locationTitle.text = "\(locality) \(subLocality)"
+        }
+    }
+    
+    // 현재 시간 받아오기
+    private func getNowTime() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "a hh시 mm분"
+        dateFormatter.amSymbol = "오전"
+        dateFormatter.pmSymbol = "오후"
+        
+        let stringDate = dateFormatter.string(from: Date())
+        nowTimeTitle.text = stringDate
     }
 }
 
