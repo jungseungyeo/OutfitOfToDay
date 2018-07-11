@@ -10,17 +10,54 @@ import UIKit
 
 class WeatherAnimationViewController: BaseVC {
     
-    private enum weather {
+    private var wind: status.wind = .step1
+    private var speed: status.speed = .nomal
+    
+    private let model = WeaetherModel(
+                              .snow,
+                              .step3,
+                              .middle,
+                              .slow)
+    
+    enum weather {
         case rain
         case snow
     }
     
     enum status {
         
+        enum speed {
+            case fast
+            case nomal
+            case slow
+            
+            var ratio: Double {
+                switch self {
+                case .fast:
+                    return 2.0
+                case .nomal:
+                    return 3.0
+                case .slow:
+                    return 7.0
+                }
+            }
+        }
+        
         enum amount {
             case many
             case middle
             case low
+            
+            var ratio: Double {
+                switch self {
+                case .many:
+                    return 0.01
+                case .middle:
+                    return 0.05
+                case .low:
+                    return 0.1
+                }
+            }
         }
         
         enum wind: Int {
@@ -54,7 +91,14 @@ class WeatherAnimationViewController: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .clear
-        startSnowAnimation(at: 0.05)
+        
+        setting(model)
+        startSnowAnimation(to: model.amount)
+    }
+    
+    private func setting(_ model: WeaetherModel) {
+        wind = model.wind
+        speed = model.speed
     }
     
     private func mkaeView(to weatherSytle: weather) -> UIImageView {
@@ -67,7 +111,7 @@ class WeatherAnimationViewController: BaseVC {
         
         switch weatherSytle {
             case .rain:
-                weatherView.image = weatherImg
+                weatherView.image = UIImage(named: "downButton.png")
                 return weatherView
             case .snow:
                 weatherView.image = weatherImg
@@ -75,8 +119,9 @@ class WeatherAnimationViewController: BaseVC {
         }
     }
     
-    private func startSnowAnimation(at duration: TimeInterval) {
-        Timer.scheduledTimer(timeInterval: duration, target: self, selector: #selector(animationTimerHandler), userInfo: nil, repeats: true)
+    private func startSnowAnimation(to amount: status.amount) {
+        
+        Timer.scheduledTimer(timeInterval: amount.ratio, target: self, selector: #selector(animationTimerHandler), userInfo: nil, repeats: true)
     }
     
     private func getRandomStartX() -> Int {
@@ -105,14 +150,14 @@ class WeatherAnimationViewController: BaseVC {
     }
     
     @objc func animationTimerHandler() {
-        let downWeather = mkaeView(to: weather.snow)
-        let (startx, endx) = getXpoint(to: status.wind.step4)
+        let downWeather = mkaeView(to: model.weatherType)
+        let (startx, endx) = getXpoint(to: wind)
         
         self.view.addSubview(downWeather)
         
         downWeather.frame = CGRect(x: startx, y: 0, width: 10, height: 10)
         downWeather.tag = startx + endx
-        UIImageView.animate(withDuration: 4.0, animations: {
+        UIImageView.animate(withDuration: speed.ratio, animations: {
             downWeather.frame = CGRect(x: endx, y: Int(UIScreen.main.bounds.height) + 10, width: 10, height: 10)
         }, completion: { finished in
             if downWeather.tag == (startx + endx) {

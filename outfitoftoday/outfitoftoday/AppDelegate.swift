@@ -22,8 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         layout.scrollDirection = .vertical
         let mainCollectionView = MainCollectionView(collectionViewLayout: layout)
         window?.rootViewController = mainCollectionView
-
-//        window?.rootViewController = WeatherAnimationViewController()
         return true
     }
 
