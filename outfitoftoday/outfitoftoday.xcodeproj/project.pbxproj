@@ -10,6 +10,8 @@
 		52BE9C79F9BF6C885298CF89 /* Pods_outfitoftoday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */; };
 		B301284220F08DEF00F0C4FD /* WeatherAnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3202EE220EF77B900B9624C /* WeatherAnimationModel.swift */; };
 		B30E0AA120E6DB1F00CD836A /* WeatherGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E0AA020E6DB1F00CD836A /* WeatherGraph.swift */; };
+		B3135F8120F72B8A00BA4CA9 /* OOTTemperatureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3135F8020F72B8A00BA4CA9 /* OOTTemperatureData.swift */; };
+		B3135F8320F72E5600BA4CA9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3135F8220F72E5600BA4CA9 /* LocationManager.swift */; };
 		B31DC2EC20DF9FEA00141B9A /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31DC2EB20DF9FEA00141B9A /* BackgroundView.swift */; };
 		B3202EE320EF77B900B9624C /* WeatherAnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3202EE220EF77B900B9624C /* WeatherAnimationModel.swift */; };
 		B32A98CF20D56930003EBA31 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32A98CE20D56930003EBA31 /* View+.swift */; };
@@ -65,6 +67,8 @@
 		38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_outfitoftoday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		582B9068E764BA7F495C82E3 /* Pods-outfitoftoday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-outfitoftoday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-outfitoftoday/Pods-outfitoftoday.debug.xcconfig"; sourceTree = "<group>"; };
 		B30E0AA020E6DB1F00CD836A /* WeatherGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherGraph.swift; sourceTree = "<group>"; };
+		B3135F8020F72B8A00BA4CA9 /* OOTTemperatureData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTTemperatureData.swift; sourceTree = "<group>"; };
+		B3135F8220F72E5600BA4CA9 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B31DC2EB20DF9FEA00141B9A /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		B3202EE220EF77B900B9624C /* WeatherAnimationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAnimationModel.swift; sourceTree = "<group>"; };
 		B32A98CE20D56930003EBA31 /* View+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 		B386F6A420DFDCC300C08512 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B3135F8020F72B8A00BA4CA9 /* OOTTemperatureData.swift */,
 				B39E811020E1883200006A0C /* OOTDustData.swift */,
 				B3202EE220EF77B900B9624C /* WeatherAnimationModel.swift */,
 			);
@@ -272,6 +277,7 @@
 		B3C7BBA020D56862003D7CB2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B3135F8220F72E5600BA4CA9 /* LocationManager.swift */,
 				B3C7BBA520D568E9003D7CB2 /* OOT.swift */,
 				B3C7BBA420D568E9003D7CB2 /* Network.swift */,
 				B32A98CD20D5691F003EBA31 /* Setting */,
@@ -531,11 +537,13 @@
 				B32A98CF20D56930003EBA31 /* View+.swift in Sources */,
 				B386F6A320DFD61700C08512 /* String+.swift in Sources */,
 				B399B40C20E5F313004204D7 /* WeekDustStackView.swift in Sources */,
+				B3135F8120F72B8A00BA4CA9 /* OOTTemperatureData.swift in Sources */,
 				B342932020E29A730081D764 /* BaseCollectionView.swift in Sources */,
 				B3C7BBA620D568E9003D7CB2 /* Network.swift in Sources */,
 				B30E0AA120E6DB1F00CD836A /* WeatherGraph.swift in Sources */,
 				B347CF6020DCE3030081DD4F /* OOTLabelable.swift in Sources */,
 				B3F1096F20DCDB2600F1629C /* ConCreateOOTImgable.swift in Sources */,
+				B3135F8320F72E5600BA4CA9 /* LocationManager.swift in Sources */,
 				B381526120EC9CF500C5F708 /* WeatherAnimationViewController.swift in Sources */,
 				B3C7BBA720D568E9003D7CB2 /* OOT.swift in Sources */,
 				B3F1097620DCDC4D00F1629C /* ConCreateOOTImg.swift in Sources */,
