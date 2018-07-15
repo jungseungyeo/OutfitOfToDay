@@ -120,6 +120,7 @@ class OOTClothView: BaseView {
         
         
         
+
 //        addSubViews(backImg,
 //                    //weatherView!,
 //                    locationTitle, nowTimeTitle, nowTemperature, halfTemperature, lowTemperature, hightTemperature, textField, ottRecommend)
@@ -216,8 +217,6 @@ class OOTClothView: BaseView {
             if let responseObject = result as? OOTTemperatureData {
                 DispatchQueue.main.async {
                     self.nowTemperature.text = responseObject.current
-//                    self.lowTemperature.text = responseObject.minimum
-//                    self.hightTemperature.text = responseObject.maximum
                 }
             }
         }

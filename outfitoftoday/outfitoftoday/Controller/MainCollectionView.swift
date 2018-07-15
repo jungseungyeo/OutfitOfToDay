@@ -51,6 +51,7 @@ class MainCollectionView: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         edgeInSetSetting()
         
 //        addTapGesture()

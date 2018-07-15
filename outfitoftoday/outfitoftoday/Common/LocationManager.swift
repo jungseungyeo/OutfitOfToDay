@@ -14,7 +14,6 @@ final class LocationManager: NSObject {
     private override init() { super.init() }
     
     private(set) var cityName: String = "강남구"
-    
     var locationManager = CLLocationManager()
     
     func setup() {
@@ -40,7 +39,6 @@ final class LocationManager: NSObject {
                 self.cityName = city
                 return
             }
-
         }
     }
 }
