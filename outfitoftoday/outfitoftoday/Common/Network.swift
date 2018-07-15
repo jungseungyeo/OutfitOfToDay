@@ -46,6 +46,10 @@ final class NetWork {
             print("error : \(statusCode)")
         }
     }
+    
+    func requestGet(for requestName: OOTRequestName, parameters: [String: Any] = [:], completion: requestCompletionHandler) {
+        
+    }
 }
 
 enum OOTRequestName: String {

@@ -10,8 +10,11 @@
 		52BE9C79F9BF6C885298CF89 /* Pods_outfitoftoday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */; };
 		B301284220F08DEF00F0C4FD /* WeatherAnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3202EE220EF77B900B9624C /* WeatherAnimationModel.swift */; };
 		B30E0AA120E6DB1F00CD836A /* WeatherGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E0AA020E6DB1F00CD836A /* WeatherGraph.swift */; };
+		B3101D5D20FA2B8D00306F58 /* OOTTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3101D5C20FA2B8D00306F58 /* OOTTimeController.swift */; };
 		B3135F8120F72B8A00BA4CA9 /* OOTTemperatureData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3135F8020F72B8A00BA4CA9 /* OOTTemperatureData.swift */; };
 		B3135F8320F72E5600BA4CA9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3135F8220F72E5600BA4CA9 /* LocationManager.swift */; };
+		B3135F8520F73D3500BA4CA9 /* CouldAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3135F8420F73D3500BA4CA9 /* CouldAnimationController.swift */; };
+		B3135F8720F7466300BA4CA9 /* CloudModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3135F8620F7466300BA4CA9 /* CloudModel.swift */; };
 		B31DC2EC20DF9FEA00141B9A /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31DC2EB20DF9FEA00141B9A /* BackgroundView.swift */; };
 		B3202EE320EF77B900B9624C /* WeatherAnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3202EE220EF77B900B9624C /* WeatherAnimationModel.swift */; };
 		B32A98CF20D56930003EBA31 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32A98CE20D56930003EBA31 /* View+.swift */; };
@@ -20,12 +23,14 @@
 		B32B285D20D691800088AA23 /* BaseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B285C20D691800088AA23 /* BaseCollectionCell.swift */; };
 		B32B285F20D69AAD0088AA23 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32B285E20D69AAD0088AA23 /* UIColor+.swift */; };
 		B337604C20DBFEE20081AAEA /* MainCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B337604B20DBFEE10081AAEA /* MainCollectionView.swift */; };
+		B33C34C520F9F156006E72E5 /* OOTLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33C34C420F9F156006E72E5 /* OOTLocationView.swift */; };
 		B33CB1AA20E0790500BD3D38 /* OOTClothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33CB1A920E0790500BD3D38 /* OOTClothView.swift */; };
 		B33CB1AC20E079D900BD3D38 /* WeatherViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33CB1AB20E079D900BD3D38 /* WeatherViewCell.swift */; };
 		B33D1C7220E1D11800A0035B /* BaseWeatherPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D1C7120E1D11800A0035B /* BaseWeatherPage.swift */; };
 		B342932020E29A730081D764 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342931F20E29A720081D764 /* BaseCollectionView.swift */; };
 		B347CF6020DCE3030081DD4F /* OOTLabelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B347CF5F20DCE3030081DD4F /* OOTLabelable.swift */; };
 		B347CF6220DCE7770081DD4F /* ConCreateOOTLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B347CF6120DCE7770081DD4F /* ConCreateOOTLabel.swift */; };
+		B34F75AA20FADF7200F12243 /* OOTBackgroundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34F75A920FADF7200F12243 /* OOTBackgroundController.swift */; };
 		B359BDD220D566AF0032E187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B359BDD120D566AF0032E187 /* AppDelegate.swift */; };
 		B359BDD920D566B10032E187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B359BDD820D566B10032E187 /* Assets.xcassets */; };
 		B359BDDC20D566B10032E187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B359BDDA20D566B10032E187 /* LaunchScreen.storyboard */; };
@@ -67,8 +72,11 @@
 		38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_outfitoftoday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		582B9068E764BA7F495C82E3 /* Pods-outfitoftoday.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-outfitoftoday.debug.xcconfig"; path = "Pods/Target Support Files/Pods-outfitoftoday/Pods-outfitoftoday.debug.xcconfig"; sourceTree = "<group>"; };
 		B30E0AA020E6DB1F00CD836A /* WeatherGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherGraph.swift; sourceTree = "<group>"; };
+		B3101D5C20FA2B8D00306F58 /* OOTTimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTTimeController.swift; sourceTree = "<group>"; };
 		B3135F8020F72B8A00BA4CA9 /* OOTTemperatureData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTTemperatureData.swift; sourceTree = "<group>"; };
 		B3135F8220F72E5600BA4CA9 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B3135F8420F73D3500BA4CA9 /* CouldAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouldAnimationController.swift; sourceTree = "<group>"; };
+		B3135F8620F7466300BA4CA9 /* CloudModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudModel.swift; sourceTree = "<group>"; };
 		B31DC2EB20DF9FEA00141B9A /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		B3202EE220EF77B900B9624C /* WeatherAnimationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAnimationModel.swift; sourceTree = "<group>"; };
 		B32A98CE20D56930003EBA31 /* View+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
@@ -77,12 +85,14 @@
 		B32B285C20D691800088AA23 /* BaseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionCell.swift; sourceTree = "<group>"; };
 		B32B285E20D69AAD0088AA23 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		B337604B20DBFEE10081AAEA /* MainCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionView.swift; sourceTree = "<group>"; };
+		B33C34C420F9F156006E72E5 /* OOTLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTLocationView.swift; sourceTree = "<group>"; };
 		B33CB1A920E0790500BD3D38 /* OOTClothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTClothView.swift; sourceTree = "<group>"; };
 		B33CB1AB20E079D900BD3D38 /* WeatherViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewCell.swift; sourceTree = "<group>"; };
 		B33D1C7120E1D11800A0035B /* BaseWeatherPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWeatherPage.swift; sourceTree = "<group>"; };
 		B342931F20E29A720081D764 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		B347CF5F20DCE3030081DD4F /* OOTLabelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTLabelable.swift; sourceTree = "<group>"; };
 		B347CF6120DCE7770081DD4F /* ConCreateOOTLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConCreateOOTLabel.swift; sourceTree = "<group>"; };
+		B34F75A920FADF7200F12243 /* OOTBackgroundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTBackgroundController.swift; sourceTree = "<group>"; };
 		B359BDCE20D566AF0032E187 /* outfitoftoday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = outfitoftoday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B359BDD120D566AF0032E187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B359BDD820D566B10032E187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -168,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				B33CB1A920E0790500BD3D38 /* OOTClothView.swift */,
+				B33C34C420F9F156006E72E5 /* OOTLocationView.swift */,
 			);
 			path = Firstpage;
 			sourceTree = "<group>";
@@ -224,6 +235,7 @@
 			children = (
 				B381526020EC9CF500C5F708 /* WeatherAnimationViewController.swift */,
 				B381526220ECA11300C5F708 /* RainView.swift */,
+				B3135F8420F73D3500BA4CA9 /* CouldAnimationController.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -243,6 +255,7 @@
 				B3135F8020F72B8A00BA4CA9 /* OOTTemperatureData.swift */,
 				B39E811020E1883200006A0C /* OOTDustData.swift */,
 				B3202EE220EF77B900B9624C /* WeatherAnimationModel.swift */,
+				B3135F8620F7466300BA4CA9 /* CloudModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -301,6 +314,8 @@
 			isa = PBXGroup;
 			children = (
 				B337604B20DBFEE10081AAEA /* MainCollectionView.swift */,
+				B3101D5C20FA2B8D00306F58 /* OOTTimeController.swift */,
+				B34F75A920FADF7200F12243 /* OOTBackgroundController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -525,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B34F75AA20FADF7200F12243 /* OOTBackgroundController.swift in Sources */,
 				B381526320ECA11300C5F708 /* RainView.swift in Sources */,
 				B3AF271120E4C3830098767D /* DustView.swift in Sources */,
 				B31DC2EC20DF9FEA00141B9A /* BackgroundView.swift in Sources */,
@@ -536,6 +552,7 @@
 				B3DD704920E4BC220009D0E6 /* DustStackView.swift in Sources */,
 				B32A98CF20D56930003EBA31 /* View+.swift in Sources */,
 				B386F6A320DFD61700C08512 /* String+.swift in Sources */,
+				B33C34C520F9F156006E72E5 /* OOTLocationView.swift in Sources */,
 				B399B40C20E5F313004204D7 /* WeekDustStackView.swift in Sources */,
 				B3135F8120F72B8A00BA4CA9 /* OOTTemperatureData.swift in Sources */,
 				B342932020E29A730081D764 /* BaseCollectionView.swift in Sources */,
@@ -548,13 +565,16 @@
 				B3C7BBA720D568E9003D7CB2 /* OOT.swift in Sources */,
 				B3F1097620DCDC4D00F1629C /* ConCreateOOTImg.swift in Sources */,
 				B399B40E20E5F39F004204D7 /* WeekDustView.swift in Sources */,
+				B3101D5D20FA2B8D00306F58 /* OOTTimeController.swift in Sources */,
 				B347CF6220DCE7770081DD4F /* ConCreateOOTLabel.swift in Sources */,
 				B33D1C7220E1D11800A0035B /* BaseWeatherPage.swift in Sources */,
+				B3135F8520F73D3500BA4CA9 /* CouldAnimationController.swift in Sources */,
 				B3202EE320EF77B900B9624C /* WeatherAnimationModel.swift in Sources */,
 				B32A98D320D56937003EBA31 /* BaseView.swift in Sources */,
 				B359BDD220D566AF0032E187 /* AppDelegate.swift in Sources */,
 				B337604C20DBFEE20081AAEA /* MainCollectionView.swift in Sources */,
 				B33CB1AA20E0790500BD3D38 /* OOTClothView.swift in Sources */,
+				B3135F8720F7466300BA4CA9 /* CloudModel.swift in Sources */,
 				B32A98D220D56937003EBA31 /* BaseVC.swift in Sources */,
 				B32B285F20D69AAD0088AA23 /* UIColor+.swift in Sources */,
 				B39E811120E1883200006A0C /* OOTDustData.swift in Sources */,

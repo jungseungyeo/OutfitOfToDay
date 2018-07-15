@@ -29,12 +29,6 @@ class MainCollectionView: UICollectionViewController {
         $0.addTarget(self, action: #selector(handleUp), for: .touchUpInside)
     }
     
-    func moveLeft(view: UIView) {
-//        view.center.x += 30
-//        view.bounds.size.width -= 40
-//        view.bounds.size.height -= 40
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView?.backgroundColor = .white
@@ -99,13 +93,13 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! MainCell
         
         if indexPath.item == 0 {
-            collectionView.bounces = true
-            let ootClothView = OOTClothView()
-            ootClothView.addDownButton(downButton)
-            cell.addView(ootClothView)
+//            let ootClothView = OOTClothView()
+//            ootClothView.addDownButton(downButton)
+//            cell.addView(ootClothView)
+//            ootLocationView.setupData(with: requestGetTemperature())
+            cell.addView(OOTTime().view)
             
         }else if indexPath.item == 1 {
-            collectionView.bounces = false
             let weatherViewCell = WeatherViewCell()
             weatherViewCell.addUpBuuton(upButton)
             cell.addView(weatherViewCell)

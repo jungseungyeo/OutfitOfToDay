@@ -13,6 +13,8 @@ final class LocationManager: NSObject {
     static let shared = LocationManager()
     private override init() { super.init() }
     
+    private(set) var cityName: String = ""
+    
     var locationManager = CLLocationManager()
     
     func setup() {
@@ -22,14 +24,26 @@ final class LocationManager: NSObject {
         locationManager.startUpdatingLocation()
     }
     
-    func convertToAddressWith(coordinate: CLLocation) {
+    private func convertToAddressWith(coordinate: CLLocation) {
         let geoCoder = CLGeocoder()
         let locale = Locale(identifier: "Ko-kr")
         geoCoder.reverseGeocodeLocation(coordinate, preferredLocale: locale) { (placemarks, error) in
-            if let address: [CLPlacemark] = placemarks {
-                if let city = address.first?.locality {
-                    print(city)
-                }
+            
+            guard let address: [CLPlacemark] = placemarks else {
+                return
+            }
+            
+            guard self.cityName.isEmpty else {
+                return
+            }
+            
+            guard let city = address.first?.locality else {
+                return
+            }
+            
+            guard self.cityName == city else {
+                self.cityName = city
+                return
             }
         }
     }
@@ -38,9 +52,12 @@ final class LocationManager: NSObject {
 extension LocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let coor = manager.location?.coordinate{
-            print("latitude" + String(coor.latitude) + "/ longitude" + String(coor.longitude))
-            convertToAddressWith(coordinate: manager.location!)
+        guard manager.location?.coordinate != nil else {
+            return
         }
+        guard let coordinate = manager.location else {
+            return
+        }
+        convertToAddressWith(coordinate: coordinate)
     }
 }
