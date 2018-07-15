@@ -46,18 +46,29 @@ final class NetWork {
             print("error : \(statusCode)")
         }
     }
+    
+    func requestGet(for requestName: OOTRequestName, parameters: [String: Any] = [:], completion: requestCompletionHandler) {
+        
+    }
 }
 
 enum OOTRequestName: String {
-    
-    case ootRequest
+
+    case temperature
+    case dust
+    case background
     
     // 요청 보낼 URL, HTTP 메소드, 응답으로 받을 데이터를 맵핑할 클래스
     func getRequestInfo() -> (urlString: String, method: HTTPMethod, returnClass: Mappable.Type) {
         switch self {
+        case .temperature:
+            return (OOT.NETWORK.temperatures.description, .get, OOTTemperatureData.self)
             
-        case .ootRequest:
+        case .dust:
             return (OOT.NETWORK.dusts.description, .get, OOTDustData.self)
+        
+        case .background:
+            return (OOT.NETWORK.background.description, .get, OOTBackgroundData.self)
         }
     }
 }

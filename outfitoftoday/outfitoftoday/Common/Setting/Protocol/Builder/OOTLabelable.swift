@@ -18,4 +18,5 @@ protocol OOTLabelable {
     func setTextColor(with textColor: UIColor) -> OOTLabelable
     func setTextAlignment(with textAlignment: NSTextAlignment) -> OOTLabelable
     func setTextSpacing(spacing: CGFloat) -> OOTLabelable
+    func setTextString(with setText: String) -> OOTLabelable
 }

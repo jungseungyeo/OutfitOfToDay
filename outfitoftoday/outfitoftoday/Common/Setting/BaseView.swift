@@ -11,7 +11,7 @@ import UIKit
 class BaseView: UIView {
     
     func setupView() {
-        backgroundColor = .white
+        backgroundColor = .clear
     }
     
     override init(frame: CGRect) {

@@ -13,6 +13,7 @@ enum OOT {
         case URLPATH
         case dusts
         case temperatures
+        case background
     }
     
     enum ViewPage: Int {
@@ -106,7 +107,7 @@ extension OOT.mainCustomString: CustomStringConvertible {
             case .nowTime:
                 return "SpoqaHanSans-Light"
             case .nowTemperature:
-                return "SpoqaHanSans-Bold"
+                return "SpoqaHanSans-Light"
             case .lowTemperature:
                 return "SpoqaHanSans-Bold"
             case .hightTemperature:
@@ -140,11 +141,13 @@ extension OOT.NETWORK: CustomStringConvertible {
     var description: String {
         switch self {
             case .URLPATH:
-                return "http://13.125.232.55:8080/"
+                return "http://oot.depromeet.com:8080/"
             case .dusts:
                 return "\(OOT.NETWORK.URLPATH)dusts"
             case .temperatures:
                 return "\(OOT.NETWORK.URLPATH)temperatures"
+        case .background:
+                return "\(OOT.NETWORK.URLPATH)backgrounds"
         }
     }
 }

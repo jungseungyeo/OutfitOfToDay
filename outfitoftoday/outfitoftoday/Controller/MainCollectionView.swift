@@ -29,10 +29,8 @@ class MainCollectionView: UICollectionViewController {
         $0.addTarget(self, action: #selector(handleUp), for: .touchUpInside)
     }
     
-    func moveLeft(view: UIView) {
-//        view.center.x += 30
-//        view.bounds.size.width -= 40
-//        view.bounds.size.height -= 40
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +42,7 @@ class MainCollectionView: UICollectionViewController {
         
         self.refresher = UIRefreshControl() //0.0, 0.0, 320.0, 60.0
         
-        self.collectionView!.alwaysBounceVertical = true
+        self.collectionView!.alwaysBounceVertical = false
         self.refresher.tintColor = .gray
         self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
         self.collectionView!.addSubview(refresher)
@@ -53,7 +51,7 @@ class MainCollectionView: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestData()
+
         edgeInSetSetting()
         
 //        addTapGesture()
@@ -71,12 +69,12 @@ class MainCollectionView: UICollectionViewController {
     }
     
     @objc func loadData() {
-        //code to execute during refresher
-        stopRefresher()         //Call this to stop refresher
+        stopRefresher()
     }
     
     func stopRefresher() {
         self.refresher.endRefreshing()
+        collectionView?.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -98,14 +96,15 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! MainCell
         
+        for subView in cell.subviews {
+            subView.removeFromSuperview()
+        }
+        
         if indexPath.item == 0 {
-            collectionView.bounces = true
-            let ootClothView = OOTClothView()
-            ootClothView.addDownButton(downButton)
-            cell.addView(ootClothView)
+            let ootfirstView = OOTFirstViewController().view!
+            cell.addView(ootfirstView)
             
         }else if indexPath.item == 1 {
-            collectionView.bounces = false
             let weatherViewCell = WeatherViewCell()
             weatherViewCell.addUpBuuton(upButton)
             cell.addView(weatherViewCell)
@@ -117,20 +116,7 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
 
 extension MainCollectionView {
     
-    func requestData() {
-//        NetWork.request(String(OOT.NETWORK.dusts))
-//        NetWork.request(OOT.NETWORK.temperatures.description)
-//        NetWork.shared.request(for: .ootRequest) { (result) in
-//            
-//            guard let responseObject = result as? OOTDustData else {
-//                // Alert 창
-//                print(result as Any)
-//                return
-//            }
-//            print(responseObject)
-//        }
-    }
-    
+   
     func edgeInSetSetting() {
         if #available(iOS 11.0, *) {
             collectionView?.contentInsetAdjustmentBehavior = .never
