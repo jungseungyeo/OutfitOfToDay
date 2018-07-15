@@ -29,6 +29,10 @@ class MainCollectionView: UICollectionViewController {
         $0.addTarget(self, action: #selector(handleUp), for: .touchUpInside)
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView?.backgroundColor = .white
@@ -38,7 +42,7 @@ class MainCollectionView: UICollectionViewController {
         
         self.refresher = UIRefreshControl() //0.0, 0.0, 320.0, 60.0
         
-        self.collectionView!.alwaysBounceVertical = true
+        self.collectionView!.alwaysBounceVertical = false
         self.refresher.tintColor = .gray
         self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
         self.collectionView!.addSubview(refresher)
@@ -47,7 +51,6 @@ class MainCollectionView: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         edgeInSetSetting()
         
 //        addTapGesture()
@@ -65,12 +68,12 @@ class MainCollectionView: UICollectionViewController {
     }
     
     @objc func loadData() {
-        //code to execute during refresher
-        stopRefresher()         //Call this to stop refresher
+        stopRefresher()
     }
     
     func stopRefresher() {
         self.refresher.endRefreshing()
+        collectionView?.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -92,12 +95,13 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! MainCell
         
+        for subView in cell.subviews {
+            subView.removeFromSuperview()
+        }
+        
         if indexPath.item == 0 {
-//            let ootClothView = OOTClothView()
-//            ootClothView.addDownButton(downButton)
-//            cell.addView(ootClothView)
-//            ootLocationView.setupData(with: requestGetTemperature())
-            cell.addView(OOTTime().view)
+            let ootfirstView = OOTFirstViewController().view!
+            cell.addView(ootfirstView)
             
         }else if indexPath.item == 1 {
             let weatherViewCell = WeatherViewCell()

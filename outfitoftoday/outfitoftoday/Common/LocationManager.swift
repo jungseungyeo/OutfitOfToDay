@@ -13,7 +13,7 @@ final class LocationManager: NSObject {
     static let shared = LocationManager()
     private override init() { super.init() }
     
-    private(set) var cityName: String = ""
+    private(set) var cityName: String = "강남구"
     
     var locationManager = CLLocationManager()
     
@@ -33,18 +33,14 @@ final class LocationManager: NSObject {
                 return
             }
             
-            guard self.cityName.isEmpty else {
-                return
-            }
-            
             guard let city = address.first?.locality else {
                 return
             }
-            
             guard self.cityName == city else {
                 self.cityName = city
                 return
             }
+
         }
     }
 }

@@ -20,6 +20,9 @@ class BackgoundView: BaseView {
     override func setupView() {
         super.setupView()
         
+        // test
+        backgound.image = UIImage(named: "backgound_fine")
+        
         addSubViews(backgound)
         
         backgound.snp.remakeConstraints { make -> Void in

@@ -22,6 +22,12 @@ class ConCreateOOTLabel: OOTLabelable {
         return self
     }
     
+    func setTextString(with setText: String) -> OOTLabelable {
+        self.ootLabel.text = setText
+        return self
+    }
+    
+    
     func setNuberOfLine(with numberOfLine: Int) -> OOTLabelable {
         self.ootLabel.numberOfLines = numberOfLine
         return self

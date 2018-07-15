@@ -56,6 +56,7 @@ enum OOTRequestName: String {
 
     case temperature
     case dust
+    case background
     
     // 요청 보낼 URL, HTTP 메소드, 응답으로 받을 데이터를 맵핑할 클래스
     func getRequestInfo() -> (urlString: String, method: HTTPMethod, returnClass: Mappable.Type) {
@@ -65,6 +66,9 @@ enum OOTRequestName: String {
             
         case .dust:
             return (OOT.NETWORK.dusts.description, .get, OOTDustData.self)
+        
+        case .background:
+            return (OOT.NETWORK.background.description, .get, OOTBackgroundData.self)
         }
     }
 }

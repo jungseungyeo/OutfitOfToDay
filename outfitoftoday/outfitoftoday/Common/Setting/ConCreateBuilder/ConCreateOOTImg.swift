@@ -13,12 +13,12 @@ class ConCreateOOTImg: ConCreateOOTImgable {
     var ootImg: UIImageView = UIImageView()
     
     func instance() -> ConCreateOOTImgable {
+        self.ootImg.contentMode = .scaleAspectFill
         return self
     }
     
     func setUIImge(with imgeName: String) -> ConCreateOOTImgable {
         self.ootImg.image = UIImage(named: imgeName)
-        self.ootImg.contentMode = .scaleAspectFill
         return self
     }
     
