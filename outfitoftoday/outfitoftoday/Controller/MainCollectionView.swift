@@ -11,7 +11,7 @@ import Then
 
 class MainCollectionView: UICollectionViewController {
     
-    var refresher:UIRefreshControl!
+    private var refresher:UIRefreshControl!
     
     private let downButton: UIButton = UIButton().then{
         $0.setImage(UIImage(named: "downButton"), for: .normal)
@@ -40,13 +40,13 @@ class MainCollectionView: UICollectionViewController {
         collectionView?.isPagingEnabled = true
         collectionView?.showsVerticalScrollIndicator = false
         
-        self.refresher = UIRefreshControl() //0.0, 0.0, 320.0, 60.0
-        
-        self.collectionView!.alwaysBounceVertical = false
-        self.refresher.tintColor = .gray
-        self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
-        self.collectionView!.addSubview(refresher)
-        setupView()
+        collectionView?.bounces = false
+//        self.refresher = UIRefreshControl() //0.0, 0.0, 320.0, 60.0
+//        self.collectionView!.alwaysBounceVertical = false
+//        self.refresher.tintColor = .gray
+//        self.refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
+//        self.collectionView!.addSubview(refresher)
+//        setupView()
     }
     
     override func viewDidLoad() {
@@ -115,7 +115,6 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
 }
 
 extension MainCollectionView {
-    
    
     func edgeInSetSetting() {
         if #available(iOS 11.0, *) {
@@ -125,15 +124,14 @@ extension MainCollectionView {
     }
     
     func setupView() {
-        
         self.refresher.snp.makeConstraints {
             $0.top.equalTo(-20)
             $0.centerX.equalTo(view.snp.centerX)
         }
-        
-
     }
-    
+}
+
+extension MainCollectionView {
     @objc private func handleDown() {
         let index = IndexPath(item: 1, section: 0)
         collectionView?.scrollToItem(at: index, at: .centeredVertically, animated: true)
@@ -143,6 +141,5 @@ extension MainCollectionView {
         let index = IndexPath(item: 0, section: 0)
         collectionView?.scrollToItem(at: index, at: .centeredVertically, animated: true)
     }
-    
 }
 

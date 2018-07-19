@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Then
 import UIKit
 
 class OOTFirstViewController: BaseVC {
@@ -18,6 +19,8 @@ class OOTFirstViewController: BaseVC {
     private let cal = Calendar.current
     
     private var clounds: [UIImageView] = []
+    
+    private let cloth: UIView = OOTClothView()
     
     override func setupView() {
         super.setupView()
@@ -43,6 +46,12 @@ class OOTFirstViewController: BaseVC {
     
     private func updateView() {
         view = ootFirstView
+        view.addSubview(cloth)
+        
+        cloth.snp.makeConstraints { make -> Void in
+            make.top.equalTo(ootFirstView.weatherBackground.snp.top).offset(60)
+            make.right.equalTo(ootFirstView.weatherBackground.snp.right).offset(0)
+        }
     }
     
     private func setupData() {
@@ -132,12 +141,15 @@ extension OOTFirstViewController {
                     self.makeClounds(to: responseObject.skyCoverage)
                     self.setCloud()
                     self.moveClound(to: responseObject.windSpeed)
+                    
+                    self.dropWeather(precipitation: responseObject.precipitation, skyCoverage: responseObject.skyCoverage, windSpeed: responseObject.windSpeed)
                 }
             }
         }
     }
     
     private func makeWeatherBG(to weatherStatus: String?) {
+        
         guard let weatherStatus = weatherStatus else {
             return
         }
@@ -195,12 +207,8 @@ extension OOTFirstViewController {
     
     private func moveClound(to windSpeed: Int?) {
         
-        guard let windSpeed = windSpeed else {
-            return
-        }
-        
         for cloud in clounds {
-            ootFirstView.movecloud(to: cloud, speed: windSpeed)
+            ootFirstView.movecloud(to: cloud, speed: getRandSpeed())
         }
     }
     
@@ -225,5 +233,76 @@ extension OOTFirstViewController {
     private func getRandAlpha(to size: Int) -> CGFloat {
         let alpha = CGFloat(size / 10)
         return alpha * 0.1
+    }
+    
+    private func getRandSpeed() -> Int {
+        let speed = Int((arc4random_uniform(UInt32(50))) + 1)
+        return speed
+    }
+}
+
+// 눈 비 효과
+extension OOTFirstViewController {
+    private func dropWeather( precipitation: String?, skyCoverage: Int?, windSpeed: Int?) {
+        
+        let weatherStyle = getDropWeatherStyle(to: precipitation)
+        let dropAmount = getDropAmount(to: skyCoverage)
+        let weatherSpeed = getDropDownSpeed(to: windSpeed)
+        let weatherWind = getDropDisSpeedto(to: windSpeed)
+        
+        let weatherModel = WeaetherModel(weatherStyle, weatherWind, dropAmount, weatherSpeed)
+        
+        let weatherController = WeatherAnimationViewController()
+        weatherController.setWeatherModel(with: weatherModel)
+        
+        ootFirstView.weatherBackground.addSubview(weatherController.view!)
+        ootFirstView.weatherBackground.clipsToBounds = true
+    }
+    
+    // 비, 눈, 없음
+    private func getDropWeatherStyle(to precipiation: String?) -> WeatherAnimationViewController.weather {
+        
+        guard let precipiation = precipiation else {
+            return WeatherAnimationViewController.weather.none
+        }
+        
+        guard let weatherStyle = WeatherAnimationViewController.weather(rawValue: precipiation) else {
+            return WeatherAnimationViewController.weather.none
+        }
+        
+        return weatherStyle
+    }
+    
+    // 눈 비 양
+    private func getDropAmount(to skyCoverage: Int?) -> WeatherAnimationViewController.status.amount {
+        guard let skyCoverage = skyCoverage else {
+            return WeatherAnimationViewController.status.amount.low
+        }
+        
+        switch skyCoverage {
+            case 0 ... 2:
+                return WeatherAnimationViewController.status.amount.low
+            case 3 ... 7:
+                return WeatherAnimationViewController.status.amount.middle
+            default:
+                return WeatherAnimationViewController.status.amount.many
+        }
+    }
+    
+    // 떨어지는 속도
+    private func getDropDownSpeed(to windSpeed: Int?) -> WeatherAnimationViewController.status.speed {
+        guard let windSpeed = windSpeed else {
+            return WeatherAnimationViewController.status.speed.slow
+        }
+        return WeatherAnimationViewController.status.speed.slow
+    }
+    
+    // 거리
+    private func getDropDisSpeedto(to windSpeed: Int?) -> WeatherAnimationViewController.status.wind {
+        guard let windSpeed = windSpeed else {
+            return WeatherAnimationViewController.status.wind.step1
+        }
+        
+        return WeatherAnimationViewController.status.wind.step4
     }
 }
