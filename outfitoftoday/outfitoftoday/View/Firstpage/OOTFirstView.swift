@@ -15,7 +15,7 @@ class OOTFirstView: BaseView {
     
     // 현재 위치
     private let locationTitle: UILabel = ConCreateOOTLabel().instance()
-        .setTextString(with: "sadfhlksdhfklshdkflh")
+        .setTextString(with: "서울 강남구")
         .setTextColor(with: .setColor(49, 56, 62))
         .setFontSize(with: 19)
         .setFontType(with: OOT.mainCustomString.location)
@@ -36,7 +36,7 @@ class OOTFirstView: BaseView {
         .setTextColor(with: .setColor(62, 62, 62))
         .setFontType(with: OOT.mainCustomString.nowTemperature)
         .setTextAlignment(with: .center)
-        .setFontSize(with: 81)
+        .setFontSize(with: 65)
         .ootLabel
     
     // 온도 기호
@@ -49,7 +49,7 @@ class OOTFirstView: BaseView {
         .ootLabel
     
     // 날씨 배경
-    private let weatherBackground: UIImageView = ConCreateOOTImg().instance()
+    private(set) var weatherBackground: UIImageView = ConCreateOOTImg().instance()
         .ootImg
     
     // 태양
@@ -59,38 +59,55 @@ class OOTFirstView: BaseView {
             $0.isHidden = true
     }
     
+    // 추천 멘트
+    private let ootComment: UILabel = ConCreateOOTLabel().instance()
+        .setTextString(with: """
+                                시원한 빗속을
+                                천천히 걸어보아요
+                                """)
+        .setNuberOfLine(with: 2)
+        .setTextAlignment(with: .left)
+        .setTextColor(with: .setColor(0, 0, 0, 0.8))
+        .setFontSize(with: 20)
+        .ootLabel
+    
     override func setupView() {
         super.setupView()
         
         addSubViews(
+            // 위치, 시간, 온도, 온도기호
             locationTitle,
             nowTimeTitle,
             nowTemperature,
             temperatureSybol,
             
+            // 태양, 배경
             astalBody,
-            weatherBackground
+            weatherBackground,
             
+            // 코멘트
+            ootComment
         )
         
         // 위치
         locationTitle.snp.makeConstraints { make -> Void in
-            make.top.equalTo(safeAreaLayoutGuide).offset(23)
+            make.top.equalTo(safeAreaLayoutGuide).offset(16)
             make.centerX.equalTo(self).offset(0)
         }
         
         // 시간
         nowTimeTitle.snp.makeConstraints { make -> Void in
-            make.top.equalTo(locationTitle.snp.bottom).offset(0)
+            make.top.equalTo(locationTitle.snp.bottom).offset(4)
             make.centerX.equalTo(self).offset(0)
         }
         
         // 온도
         nowTemperature.snp.makeConstraints { make -> Void in
-            make.top.equalTo(locationTitle.snp.bottom).offset(11)
+            make.top.equalTo(nowTimeTitle.snp.bottom).offset(4)
             make.centerX.equalTo(self).offset(0)
         }
         
+        // 온동 기호
         temperatureSybol.snp.makeConstraints { make -> Void in
             make.top.equalTo(nowTemperature.snp.top).offset(6)
             make.left.equalTo(nowTemperature.snp.right).offset(0)
@@ -98,19 +115,24 @@ class OOTFirstView: BaseView {
         
         // 날씨 배경
         weatherBackground.snp.makeConstraints { make -> Void in
-            make.height.equalTo(360)
-            make.width.equalTo(335)
-            
-            make.top.equalTo(nowTemperature.snp.bottom).offset(0)
-            make.centerX.equalTo(self).offset(0)
+            make.top.equalTo(nowTemperature.snp.bottom).offset(16)
+            make.left.equalTo(20)
+            make.right.equalTo(-20)
+            make.height.equalTo(weatherBackground.snp.width).offset(70/63)
         }
         
         // 태양
         astalBody.snp.makeConstraints { make -> Void in
-            make.size.equalTo(80)
-            
-            make.top.equalTo(weatherBackground.snp.top).offset(-58)
-            make.left.equalTo(weatherBackground.snp.left).offset(-14)
+            make.top.equalTo(weatherBackground.snp.top).offset(-88)
+            make.left.equalTo(weatherBackground.snp.left).offset(-4)
+            make.width.equalTo(104)
+            make.height.equalTo(astalBody.snp.width).offset(0)
+        }
+        
+        // 코멘트
+        ootComment.snp.makeConstraints { make -> Void in
+            make.top.equalTo(weatherBackground.snp.bottom).offset(40)
+            make.left.equalTo(weatherBackground.snp.left).offset(0)
         }
     }
 
@@ -144,6 +166,9 @@ extension OOTFirstView {
 
 // 구름
 extension OOTFirstView {
+    
+    private let
+    
     public func makeCloudImg() -> UIImageView {
         let cloud = UIImageView().then {
             $0.image = UIImage(named: "cloud")
@@ -152,6 +177,7 @@ extension OOTFirstView {
         return cloud
     }
     
+    // 사이즈 변경 필요
     public func locationCloud(to cloudImg: UIImageView,size: Int, top: Int, left: Int, alpha: CGFloat) {
         weatherBackground.addSubview(cloudImg)
         cloudImg.alpha = alpha
@@ -163,8 +189,9 @@ extension OOTFirstView {
         }
     }
     
+    // 구름
     public func movecloud(to cloudImg: UIImageView, speed: Int) {
-        UIView.animate(withDuration: TimeInterval(300), animations: {
+        UIView.animate(withDuration: TimeInterval(speed), animations: {
             self.moveLeft(view: cloudImg)
         }) { (finished) in
             if finished {
@@ -174,6 +201,6 @@ extension OOTFirstView {
     }
     
     private func moveLeft(view: UIView) {
-        view.center.x -= 300
+        view.center.x -= 500
     }
 }
