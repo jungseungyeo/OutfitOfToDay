@@ -13,15 +13,16 @@ class WeatherAnimationViewController: BaseVC {
     private var wind: status.wind = .step1
     private var speed: status.speed = .nomal
     
-    private let model = WeaetherModel(
+    private var model = WeaetherModel(
                               .snow,
                               .step3,
                               .middle,
                               .slow)
     
-    enum weather {
+    enum weather: String {
         case rain
         case snow
+        case none
     }
     
     enum status {
@@ -111,10 +112,12 @@ class WeatherAnimationViewController: BaseVC {
         
         switch weatherSytle {
             case .rain:
-                weatherView.image = UIImage(named: "downButton.png")
+                weatherView.image = UIImage(named: "waterdrop.png")
                 return weatherView
             case .snow:
                 weatherView.image = weatherImg
+                return weatherView
+            case .none:
                 return weatherView
         }
     }
@@ -150,15 +153,23 @@ class WeatherAnimationViewController: BaseVC {
     }
     
     @objc func animationTimerHandler() {
+        
+        let weatherType = model.weatherType
+        
+        if weatherType == weather.none {
+            return
+        }
+        
         let downWeather = mkaeView(to: model.weatherType)
+        
         let (startx, endx) = getXpoint(to: wind)
         
         self.view.addSubview(downWeather)
         
-        downWeather.frame = CGRect(x: startx, y: 0, width: 10, height: 10)
+        downWeather.frame = CGRect(x: startx, y: -10, width: 10, height: 10)
         downWeather.tag = startx + endx
         UIImageView.animate(withDuration: speed.ratio, animations: {
-            downWeather.frame = CGRect(x: endx, y: Int(UIScreen.main.bounds.height) + 10, width: 10, height: 10)
+            downWeather.frame = CGRect(x: endx, y: Int(UIScreen.main.bounds.height) - 40, width: 10, height: 10)
         }, completion: { finished in
             if downWeather.tag == (startx + endx) {
                 downWeather.removeFromSuperview()
@@ -166,6 +177,12 @@ class WeatherAnimationViewController: BaseVC {
         }
         )
     }
-    
+}
+
+extension WeatherAnimationViewController {
+    public func setWeatherModel(with weatherModel: WeaetherModel) {
+        self.model = weatherModel
+        
+    }
 }
 
