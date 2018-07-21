@@ -35,6 +35,18 @@ class OOTLifeIndexView: BaseView {
         self.title.text = title
         self.dataLogo.image = UIImage(named: dataLogoName)
         self.weahterStatus.text = weatherStatus
+        
+        switch self.weahterStatus.text {
+        case "좋음":
+            self.weahterStatus.textColor = .setColor(92, 176, 255)
+        case "보통":
+            self.weahterStatus.textColor = .setColor(112, 112, 112)
+        case "나쁨", "높음":
+            self.weahterStatus.textColor = .setColor(238, 88, 94, 0.9)
+        default:
+            break
+        }
+        
         initView()
     }
     

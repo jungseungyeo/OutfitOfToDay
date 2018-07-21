@@ -105,14 +105,14 @@ class WeatherAnimationViewController: BaseVC {
     private func mkaeView(to weatherSytle: weather) -> UIImageView {
         let weatherView = UIImageView()
         
-        guard let weatherImg = UIImage(named: "snow.png") else {
+        guard let weatherImg = UIImage(named: "snowiCon") else {
             // defaulet img
             return UIImageView()
         }
         
         switch weatherSytle {
             case .rain:
-                weatherView.image = UIImage(named: "waterdrop.png")
+                weatherView.image = UIImage(named: "rainiCon")
                 return weatherView
             case .snow:
                 weatherView.image = weatherImg

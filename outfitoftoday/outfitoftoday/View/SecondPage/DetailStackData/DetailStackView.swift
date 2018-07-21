@@ -16,7 +16,7 @@ class DetailStackView: BaseStackView {
     
     private let weatherLogoNames: [String] = ["dust", "wind", "humidity", "precipitation"]
     
-    private let weatherStatus: [String] = ["좋음", "약함", "10%", "40%"]
+    private let weatherStatus: [String] = ["보통", "약함", "0%", "44%"]
     
     private let stackViewWidth = Double((UIScreen.main.bounds.width-40) / 4)
     

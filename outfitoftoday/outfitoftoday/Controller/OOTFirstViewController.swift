@@ -92,7 +92,7 @@ extension OOTFirstViewController {
                 return "오전 \(hour)시"
             case 13 ... 19:
                 let validhour = hour % 12
-                return "오후 0\(validhour)"
+                return "오후 0\(validhour)시"
             default:
                 let validhour = hour % 12
                 return "오후 \(validhour)시"
@@ -145,7 +145,7 @@ extension OOTFirstViewController {
                     self.setCloud()
                     self.moveClound(to: responseObject.windSpeed)
                     
-                    self.dropWeather(precipitation: responseObject.precipitation, skyCoverage: responseObject.skyCoverage, windSpeed: responseObject.windSpeed)
+                    self.dropWeather(precipitation: "none", skyCoverage: responseObject.skyCoverage, windSpeed: responseObject.windSpeed)
                 }
             }
         }
@@ -167,12 +167,16 @@ extension OOTFirstViewController {
                 self.ootFirstView.isHiddenAstal(to: false)
                 return
             case .cloudy:
-                self.ootFirstView.setWeatherBackGround(to: UIImage(named: "BackgroundImageCloudy"))
-                self.ootFirstView.isHiddenAstal(to: true)
+//                self.ootFirstView.setWeatherBackGround(to: UIImage(named: "BackgroundImageCloudy"))
+                self.ootFirstView.setWeatherBackGround(to: UIImage(named: "BackgroundImageFine"))
+//                self.ootFirstView.isHiddenAstal(to: true)
+                self.ootFirstView.isHiddenAstal(to: false)
                 return
             case .snowy:
-                self.ootFirstView.setWeatherBackGround(to: UIImage(named: "BackgroundImageSnowy"))
-                self.ootFirstView.isHiddenAstal(to: true)
+//                self.ootFirstView.setWeatherBackGround(to: UIImage(named: "BackgroundImageSnowy"))
+                self.ootFirstView.setWeatherBackGround(to: UIImage(named: "BackgroundImageFine"))
+//                self.ootFirstView.isHiddenAstal(to: true)
+                self.ootFirstView.isHiddenAstal(to: false)
                 return
         }
     }

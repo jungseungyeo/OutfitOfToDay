@@ -35,6 +35,22 @@ class DetailView: BaseView {
         self.title.text = title
         self.dataLogo.image = UIImage(named: dataLogoName)
         self.weahterStatus.text = weatherStatus
+        
+        switch self.weahterStatus.text {
+            
+        case "좋음", "약함", "10%", "0%":
+            self.weahterStatus.textColor = .setColor(92, 176, 255)
+            break
+        case "44%":
+            self.weahterStatus.textColor = .setColor(240, 74, 80, 0.9)
+            break
+        case "보통":
+            self.weahterStatus.textColor = .setColor(112, 112, 112)
+            break
+        default:
+            break
+        }
+        
         initView()
     }
     

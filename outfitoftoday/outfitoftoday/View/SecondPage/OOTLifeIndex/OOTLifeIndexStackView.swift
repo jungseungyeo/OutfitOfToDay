@@ -16,7 +16,7 @@ class OOTLifeIndexStackView: BaseStackView {
     
     private let weatherLogoNames: [String] = ["temper", "lifeSun", "discomfortIndex"]
     
-    private let weatherStatus: [String] = ["좋음", "보통", "나쁨"]
+    private let weatherStatus: [String] = ["높음", "나쁨", "나쁨"]
     
     private let stackViewWidth = Double((UIScreen.main.bounds.width - 80) / 3)
     
