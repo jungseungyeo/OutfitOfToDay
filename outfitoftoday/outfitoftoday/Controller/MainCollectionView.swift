@@ -105,9 +105,11 @@ extension MainCollectionView: UICollectionViewDelegateFlowLayout {
             cell.addView(ootfirstView)
             
         }else if indexPath.item == 1 {
-            let weatherViewCell = WeatherViewCell()
-            weatherViewCell.addUpBuuton(upButton)
-            cell.addView(weatherViewCell)
+//            let weatherViewCell = WeatherViewCell()
+//            weatherViewCell.addUpBuuton(upButton)
+            
+            let ootSecondViewCell = OOTSecondViewController().view!
+            cell.addView(ootSecondViewCell)
         }
         
         return cell
