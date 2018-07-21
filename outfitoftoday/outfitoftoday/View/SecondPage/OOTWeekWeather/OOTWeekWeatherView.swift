@@ -48,7 +48,7 @@ class OOTWeekWeatherView: BaseView {
         
         weekToDayImg.snp.makeConstraints { make -> Void in
             make.size.equalTo(24)
-            make.top.equalTo(weekToDayName).offset(11)
+            make.top.equalTo(weekToDayName.snp.bottom).offset(11)
             make.centerX.equalTo(self)
         }
         

@@ -17,7 +17,7 @@ class OOTFirstView: BaseView {
     private let locationTitle: UILabel = ConCreateOOTLabel().instance()
         .setTextString(with: "서울 강남구")
         .setTextColor(with: .setColor(49, 56, 62))
-        .setFontSize(with: 19)
+        .setFontSize(with: 16)
         .setFontType(with: OOT.mainCustomString.location)
         .setTextAlignment(with: .center)
         .setTextSpacing(spacing: -0.3)
@@ -27,7 +27,7 @@ class OOTFirstView: BaseView {
     private var nowTimeTitle: UILabel = ConCreateOOTLabel().instance()
         .setTextColor(with: .setColor(69, 81, 90, 0.9))
         .setFontSize(with: 12)
-        .setFontType(with: OOT.mainCustomString.nowTime)
+//        .setFontType(with: OOT.mainCustomString.nowTime)
         .setTextAlignment(with: .center)
         .ootLabel
     
@@ -45,7 +45,7 @@ class OOTFirstView: BaseView {
         .setTextColor(with: .setColor(62, 62, 62))
         .setTextAlignment(with: .center)
         .setFontType(with: OOT.mainCustomString.nowTemperature)
-        .setFontSize(with: 81)
+        .setFontSize(with: 70)
         .ootLabel
     
     // 날씨 배경
@@ -62,8 +62,8 @@ class OOTFirstView: BaseView {
     // 추천 멘트
     private let ootComment: UILabel = ConCreateOOTLabel().instance()
         .setTextString(with: """
-                                시원한 빗속을
-                                천천히 걸어보아요
+                                방심하면 태닝 자국
+                                생길 수 있습니다
                                 """)
         .setNuberOfLine(with: 2)
         .setTextAlignment(with: .left)
@@ -109,7 +109,7 @@ class OOTFirstView: BaseView {
         
         // 온동 기호
         temperatureSybol.snp.makeConstraints { make -> Void in
-            make.top.equalTo(nowTemperature.snp.top).offset(6)
+            make.top.equalTo(nowTemperature.snp.top).offset(-6)
             make.left.equalTo(nowTemperature.snp.right).offset(0)
         }
         

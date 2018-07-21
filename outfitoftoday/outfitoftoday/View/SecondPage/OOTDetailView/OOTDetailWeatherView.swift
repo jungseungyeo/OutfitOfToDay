@@ -15,6 +15,7 @@ class OOTDetailWeatherView: BaseView {
     let ootDetailWeatherTitle: UILabel = ConCreateOOTLabel().instance()
         .setTextString(with: "상세날씨")
         .setFontSize(with: 16)
+        .setFontType(with: OOT.mainCustomString.location)
         .setTextColor(with: .setColor(51, 51, 51))
         .setTextAlignment(with: .center)
         .ootLabel

@@ -16,28 +16,56 @@ class OOTSecondTimeView: BaseScrollView {
     
     private let locationView: UILabel = ConCreateOOTLabel().instance()
         .setTextString(with: "서울 강남구")
-        .setFontSize(with: 16)
         .setNuberOfLine(with: 1)
         .setTextAlignment(with: .left)
+        .setFontSize(with: 16)
         .setFontType(with: OOT.mainCustomString.location)
         .setTextColor(with: .setColor( 49, 56, 62))
         .ootLabel
     
     private let nowTime: UILabel = ConCreateOOTLabel().instance()
         .setTextString(with: "오후 00시 00분")
-        .setFontSize(with: 12)
         .setNuberOfLine(with: 1)
         .setTextAlignment(with: .left)
         .setFontType(with: OOT.mainCustomString.nowTime)
+        .setFontSize(with: 12)
         .setTextColor(with: .setColor( 69, 81, 90, 0.9))
         .ootLabel
     
     private let nowTemperature: UILabel = ConCreateOOTLabel().instance()
         .setTextColor(with: .setColor(62, 62, 62))
-        .setTextString(with: "20 ̊")
+        .setTextString(with: "28 ̊")
         .setFontType(with: OOT.mainCustomString.nowTemperature)
         .setTextAlignment(with: .left)
         .setFontSize(with: 72)
+        .ootLabel
+    
+    
+    private let maxTemperature: UILabel = ConCreateOOTLabel().instance()
+        .setTextColor(with: .setColor(0, 0, 0))
+        .setTextString(with: "28 ̊")
+        .setTextAlignment(with: .left)
+        .setFontSize(with: 14)
+        .setFontType(with: OOT.mainCustomString.location)
+        .setTextColor(with: .setColor(255, 92, 92))
+        .ootLabel
+    
+    private let division: UILabel = ConCreateOOTLabel().instance()
+        .setTextColor(with: .setColor(0, 0, 0))
+        .setTextString(with: "/")
+        .setTextAlignment(with: .left)
+        .setFontSize(with: 14)
+        .setFontType(with: OOT.mainCustomString.location)
+        .setTextColor(with: .setColor(112, 112, 112))
+        .ootLabel
+    
+    private let minTemperature: UILabel = ConCreateOOTLabel().instance()
+        .setTextColor(with: .setColor(0, 0, 0))
+        .setTextString(with: "20 ̊")
+        .setTextAlignment(with: .left)
+        .setFontSize(with: 14)
+        .setFontType(with: OOT.mainCustomString.location)
+        .setTextColor(with: .setColor(92, 176, 255))
         .ootLabel
     
     private let maxWithMinTemperature: UILabel = ConCreateOOTLabel().instance()
@@ -111,7 +139,11 @@ class OOTSecondTimeView: BaseScrollView {
             varticalLine,
             detailWeatherView,
             ootweekview,
-            vertiCalLine2
+            vertiCalLine2,
+            
+            maxTemperature,
+            division,
+            minTemperature
             
 //            ,tmpHightLow
         )
@@ -137,9 +169,24 @@ class OOTSecondTimeView: BaseScrollView {
         }
         
         // 최고 온도
-        maxWithMinTemperature.snp.makeConstraints { make -> Void in
-            make.top.equalTo(nowTime.snp.bottom).offset(102)
+//        maxWithMinTemperature.snp.makeConstraints { make -> Void in
+//            make.top.equalTo(nowTime.snp.bottom).offset(102)
+//            make.left.equalTo(52)
+//        }
+        
+        maxTemperature.snp.makeConstraints { make -> Void in
+            make.top.equalTo(nowTime.snp.bottom).offset(90)
             make.left.equalTo(52)
+        }
+        
+        division.snp.makeConstraints { make -> Void in
+            make.top.equalTo(nowTime.snp.bottom).offset(90)
+            make.left.equalTo(maxTemperature.snp.right).offset(1)
+        }
+        
+        minTemperature.snp.makeConstraints { make -> Void in
+            make.top.equalTo(nowTime.snp.bottom).offset(90)
+            make.left.equalTo(division.snp.right).offset(1)
         }
         
         // 날씨 아이콘

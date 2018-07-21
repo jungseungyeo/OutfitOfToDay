@@ -15,6 +15,7 @@ class OOTWeekView: BaseView {
     internal let ootweekTitle: UILabel = ConCreateOOTLabel().instance()
         .setTextString(with: "주간날씨")
         .setFontSize(with: 16)
+        .setFontType(with: OOT.mainCustomString.location)
         .setTextColor(with: .setColor(51, 51, 51))
         .setTextAlignment(with: .center)
         .ootLabel

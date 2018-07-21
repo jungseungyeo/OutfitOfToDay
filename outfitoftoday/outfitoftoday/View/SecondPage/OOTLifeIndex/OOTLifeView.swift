@@ -15,6 +15,7 @@ class OOTLifeView: BaseView {
     private let ootLifeindxeTitle: UILabel = ConCreateOOTLabel().instance()
         .setTextString(with: "생활지수")
         .setFontSize(with: 16)
+        .setFontType(with: OOT.mainCustomString.location)
         .setTextColor(with: .setColor(51, 51, 51))
         .setTextAlignment(with: .center)
         .ootLabel

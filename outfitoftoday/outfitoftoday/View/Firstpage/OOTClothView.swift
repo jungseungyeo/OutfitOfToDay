@@ -16,7 +16,7 @@ class OOTClothView: BaseView {
     // 임시 서버 통신해서 이미지 받아올 예정
     
     private let face: UIImageView = UIImageView().then {
-        $0.image = UIImage(named: "face.png")
+        $0.image = UIImage(named: "head.png")
         $0.contentMode = .scaleAspectFit
     }
     
@@ -40,8 +40,8 @@ class OOTClothView: BaseView {
         
         addSubViews(
                 leg,
-                body,
                 face,
+                body,
                 foot
             )
         
@@ -55,7 +55,7 @@ class OOTClothView: BaseView {
         body.snp.makeConstraints { make -> Void in
             make.height.equalTo(180)
             
-            make.top.equalTo(face.snp.bottom).offset(-15)
+            make.top.equalTo(face.snp.bottom).offset(-30)
             make.left.right.equalTo(self)
         }
         
