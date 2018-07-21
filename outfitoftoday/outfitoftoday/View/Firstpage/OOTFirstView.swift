@@ -121,6 +121,14 @@ class OOTFirstView: BaseView {
             make.height.equalTo(weatherBackground.snp.width).offset(70/63)
         }
         
+        weatherBackground.layer.cornerRadius = 3
+        weatherBackground.layer.shadowColor = UIColor.gray.cgColor
+        weatherBackground.layer.shadowOpacity = 1
+        weatherBackground.layer.shadowOffset = CGSize(width: 10, height: 10)
+        weatherBackground.layer.shadowRadius = 10
+        weatherBackground.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        weatherBackground.layer.shouldRasterize = true
+        
         // 태양
         astalBody.snp.makeConstraints { make -> Void in
             make.top.equalTo(weatherBackground.snp.top).offset(-88)
@@ -166,8 +174,6 @@ extension OOTFirstView {
 
 // 구름
 extension OOTFirstView {
-    
-    private let
     
     public func makeCloudImg() -> UIImageView {
         let cloud = UIImageView().then {

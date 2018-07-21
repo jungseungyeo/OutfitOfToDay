@@ -66,7 +66,7 @@ extension OOTFirstViewController {
     private func requestGetTemperature() {
         NetWork.shared.request(for: .temperature) { (result) in
             if let responseObject = result as? OOTTemperatureData {
-                DispatchQueue.main.async {
+                DispatchQueue.main.async {                    
                     self.ootFirstView.setNowTemperature(to: self.convertToTemperatureText(temperatureText: responseObject.current))
                 }
             }
@@ -90,9 +90,12 @@ extension OOTFirstViewController {
                 return "오전 0\(hour)시"
             case 10 ... 12:
                 return "오전 \(hour)시"
+            case 13 ... 19:
+                let validhour = hour % 12
+                return "오후 0\(validhour)"
             default:
                 let validhour = hour % 12
-                return "오후 0\(validhour)시"
+                return "오후 \(validhour)시"
             }
     }
     
