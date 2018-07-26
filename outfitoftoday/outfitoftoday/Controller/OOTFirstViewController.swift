@@ -145,7 +145,7 @@ extension OOTFirstViewController {
                     self.setCloud()
                     self.moveClound(to: responseObject.windSpeed)
                     
-                    self.dropWeather(precipitation: "none", skyCoverage: responseObject.skyCoverage, windSpeed: responseObject.windSpeed)
+                    self.dropWeather(precipitation: "rain", skyCoverage: responseObject.skyCoverage, windSpeed: responseObject.windSpeed)
                 }
             }
         }
@@ -168,15 +168,14 @@ extension OOTFirstViewController {
                 return
             case .cloudy:
 //                self.ootFirstView.setWeatherBackGround(to: UIImage(named: "BackgroundImageCloudy"))
-                self.ootFirstView.setWeatherBackGround(to: UIImage(named: "BackgroundImageFine"))
+                self.ootFirstView.setWeatherBackGround(to: UIImage(named: "BackgroundImageCloudy"))
 //                self.ootFirstView.isHiddenAstal(to: true)
-                self.ootFirstView.isHiddenAstal(to: false)
+                self.ootFirstView.isHiddenAstal(to: true)
                 return
             case .snowy:
 //                self.ootFirstView.setWeatherBackGround(to: UIImage(named: "BackgroundImageSnowy"))
                 self.ootFirstView.setWeatherBackGround(to: UIImage(named: "BackgroundImageFine"))
-//                self.ootFirstView.isHiddenAstal(to: true)
-                self.ootFirstView.isHiddenAstal(to: false)
+                self.ootFirstView.isHiddenAstal(to: true)
                 return
         }
     }
