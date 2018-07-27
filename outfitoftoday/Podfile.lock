@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.7.2)
+  - NVActivityIndicatorView (4.0.1):
+    - NVActivityIndicatorView/Presenter (= 4.0.1)
+  - NVActivityIndicatorView/Presenter (4.0.1)
   - ObjectMapper (3.3.0)
   - SnapKit (4.0.0)
   - SwiftyJSON (4.1.0)
@@ -7,6 +10,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - NVActivityIndicatorView (~> 4.0.0)
   - ObjectMapper
   - SnapKit (~> 4.0.0)
   - SwiftyJSON (~> 4.0)
@@ -15,6 +19,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - NVActivityIndicatorView
     - ObjectMapper
     - SnapKit
     - SwiftyJSON
@@ -22,11 +27,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  NVActivityIndicatorView: 77ed6d7b571643e24899e7858bf9ae2ee4c21f31
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
 
-PODFILE CHECKSUM: 1eee49f56ccce80c037be938eb36b275cec895f6
+PODFILE CHECKSUM: 8520cb65e2a66268e4282b390f25b9b01f4edb72
 
 COCOAPODS: 1.5.3
