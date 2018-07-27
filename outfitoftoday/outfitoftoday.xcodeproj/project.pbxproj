@@ -11,7 +11,6 @@
 		B30E0C47210AED910038CF7A /* OOTPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E0C46210AED910038CF7A /* OOTPageViewController.swift */; };
 		B30E0C4B210AF0140038CF7A /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E0C4A210AF0140038CF7A /* BaseVC.swift */; };
 		B30E0C4D210AF2CC0038CF7A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E0C4C210AF2CC0038CF7A /* BaseView.swift */; };
-		B30E0C50210AF4CC0038CF7A /* BaseVCable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E0C4F210AF4CC0038CF7A /* BaseVCable.swift */; };
 		B30E0C53210AF56D0038CF7A /* OOTWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30E0C52210AF56D0038CF7A /* OOTWeatherService.swift */; };
 		B3201DD8210BD68000E58DE7 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3201DD7210BD68000E58DE7 /* LocationView.swift */; };
 		B3201DDA210BD90700E58DE7 /* TemperaturesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3201DD9210BD90700E58DE7 /* TemperaturesModel.swift */; };
@@ -46,7 +45,6 @@
 		B30E0C46210AED910038CF7A /* OOTPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTPageViewController.swift; sourceTree = "<group>"; };
 		B30E0C4A210AF0140038CF7A /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		B30E0C4C210AF2CC0038CF7A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
-		B30E0C4F210AF4CC0038CF7A /* BaseVCable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVCable.swift; sourceTree = "<group>"; };
 		B30E0C52210AF56D0038CF7A /* OOTWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTWeatherService.swift; sourceTree = "<group>"; };
 		B3201DD7210BD68000E58DE7 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		B3201DD9210BD90700E58DE7 /* TemperaturesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperaturesModel.swift; sourceTree = "<group>"; };
@@ -119,14 +117,6 @@
 				B3201DDB210BE19100E58DE7 /* VC */,
 			);
 			path = Controlller;
-			sourceTree = "<group>";
-		};
-		B30E0C4E210AF4730038CF7A /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				B30E0C4F210AF4CC0038CF7A /* BaseVCable.swift */,
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		B30E0C51210AF5530038CF7A /* Network */ = {
@@ -224,7 +214,6 @@
 				B30E0C4C210AF2CC0038CF7A /* BaseView.swift */,
 				B32725EB210B060B00CE0FFC /* AlartController+.swift */,
 				B32725ED210B07B900CE0FFC /* Extension */,
-				B30E0C4E210AF4730038CF7A /* Protocol */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -429,7 +418,6 @@
 				B30E0C53210AF56D0038CF7A /* OOTWeatherService.swift in Sources */,
 				B3A57003210B71070063C36D /* NVIndicatorView.swift in Sources */,
 				B3C1E68A2109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift in Sources */,
-				B30E0C50210AF4CC0038CF7A /* BaseVCable.swift in Sources */,
 				B3C1E6882109BC8300A7CA7E /* RootPageViewController.swift in Sources */,
 				B30E0C4D210AF2CC0038CF7A /* BaseView.swift in Sources */,
 				B30E0C4B210AF0140038CF7A /* BaseVC.swift in Sources */,
