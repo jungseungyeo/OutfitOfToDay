@@ -36,7 +36,7 @@ class OOTWeatherViewCotnroller: BaseVC {
     }
 }
 
-// api
+// MARK: API
 extension OOTWeatherViewCotnroller {
     private func backgroundAPI() {
         let indicator: NVActivityIndicatorView = NVIndicatiorView.instance(self)
@@ -54,7 +54,7 @@ extension OOTWeatherViewCotnroller {
             indicator.stopAnimating()
             let errorAlert = UIAlertController.alert("code: \(statusCode)",errorMessage: errorMessage)
             errorAlert.add("ok", handler: { (handling) in
-                print(handling)
+                self.errorHandling(statusCode)
             }).show(self)
         })
     }
@@ -75,8 +75,27 @@ extension OOTWeatherViewCotnroller {
             indicator.stopAnimating()
             let errorAlert = UIAlertController.alert("code: \(statusCode)",errorMessage: errorMessage)
             errorAlert.add("ok", handler: { (handling) in
-                print(handling)
+                self.errorHandling(statusCode)
             }).show(self)
         })
+    }
+}
+
+// MAKR : error handling
+extension OOTWeatherViewCotnroller {
+    private func errorHandling(_ statusCode: Int) {
+        switch statusCode {
+            case 100 ... 199:
+                print("")
+            case 300 ... 399:
+                print("")
+            case 400 ... 499:
+                print("")
+            case 500 ... 599:
+                print("")
+            default:
+                print("")
+        }
+        exit(0)
     }
 }
