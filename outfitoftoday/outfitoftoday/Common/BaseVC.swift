@@ -10,10 +10,6 @@ import UIKit
 
 class BaseVC: UIViewController {
     
-    // 1
-    internal func initAPI() {
-    }
-    
     // 2
     internal func setup() {
     }
@@ -21,6 +17,7 @@ class BaseVC: UIViewController {
     // 3
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
     }
     
     // 4
