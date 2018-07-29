@@ -13,26 +13,63 @@ import SnapKit
 class OOTWeatherViewCotnroller: BaseVC {
     
     /// model
-    
     private var backgroundModel: BackgroundsModel?
     private var temperaturesModel: TemperaturesModel?
     
-    // 호출시기 2
-    override func initAPI() {
-        super.initAPI()
+    /// view
+    private let locationTimeView = LocationTimeView()
+    private let sceneView = SceneView()
+    
+    // singleTon
+    let locationManager = LocationManager.shared
+    let timeManager = TimeManager.shared
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
+    
+    private func initAPI() {
         temperrauresAPI()
         backgroundAPI()
     }
     
-    // 호출시기 3
-    override func setup() {
-        super.setup()
+    private func initObserver() {
+        locationManager.attachObserver(self)
+        timeManager.attachObserver(self)
     }
     
-    // 호출시기 1
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func setup() {
+        super.setup()
+        locationManager.requestForLocation()
+        initObserver()
         initAPI()
+    }
+    
+    private func initUI() {
+        self.view.addSubViews(
+            locationTimeView
+            ,sceneView
+        )
+        
+        locationTimeView.snp.makeConstraints { make -> Void in
+            make.height.equalTo(116)
+            
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(53)
+            make.left.equalTo(20)
+            make.right.equalTo(-20)
+        }
+        
+        sceneView.snp.makeConstraints { make -> Void in
+            make.height.equalTo(sceneRatio() * 70)
+            
+            make.top.equalTo(locationTimeView.snp.bottom)
+            make.left.equalToSuperview().inset(20)
+            make.right.equalToSuperview().inset(20)
+        }
+    }
+    private func sceneRatio() -> CGFloat {
+        return CGFloat((UIScreen.main.bounds.width - 40) / 67)
     }
 }
 
@@ -45,15 +82,16 @@ extension OOTWeatherViewCotnroller {
         OOTWeatherService.shared.get(urlPath: .backgrounds, handler: {(json) in
             indicator.stopAnimating()
             self.backgroundModel = BackgroundsModel(
-                skyCoverage: json["skyCoverage"].intValue
-                ,precipitation: json["precipitation"].stringValue
-                ,weather: json["weather"].stringValue
-                ,windSpeed: json["windSpeed"].intValue
+                skyCoverage: json[kSTRING_BACKGROUND_API_SKYCOVERAGE].intValue
+                ,precipitation: json[kSTRING_BACKGROUND_API_PRECIPITATION].stringValue
+                ,weather: json[kSTRING_BACKGROUND_API_WEATHER].stringValue
+                ,windSpeed: json[kSTRING_BACKGROUND_API_WINDSPEED].intValue
             )
+            self.sceneView.backgroundsModel = self.backgroundModel
         }, errorHandler: { (statusCode, errorMessage) in
             indicator.stopAnimating()
-            let errorAlert = UIAlertController.alert("code: \(statusCode)",errorMessage: errorMessage)
-            errorAlert.add("ok", handler: { (handling) in
+            let errorAlert: UIAlertController = .alert("code: \(statusCode)",errorMessage: errorMessage)
+            errorAlert.add(kSTRING_TITLE_CONFIRM, handler: { (handling) in
                 self.errorHandling(statusCode)
             }).show(self)
         })
@@ -66,15 +104,17 @@ extension OOTWeatherViewCotnroller {
         OOTWeatherService.shared.get(urlPath: .temperatures, handler: {(json) in
             indicator.stopAnimating()
             self.temperaturesModel = TemperaturesModel(
-                current: json["current"].stringValue
-                ,maximum: json["maximum"].stringValue
-                ,minimum: json["minimum"].stringValue
-                ,today: json["today"].arrayValue.map({ $0.intValue})
-                ,tomorrow: json["tomorrow"].arrayValue.map({ $0.intValue}))
+                current: json[kSTRING_TEMPERATURES_API_CURRENT].stringValue
+                ,maximum: json[kSTRING_TEMPERATURES_API_MAXIMUM].stringValue
+                ,minimum: json[kSTRING_TEMPERATURES_API_MINIMUM].stringValue
+                ,today: json[kSTRING_TEMPERATURES_API_TODAY].arrayValue.map({ $0.intValue})
+                ,tomorrow: json[kSTRING_TEMPERATURES_API_TOMORROW].arrayValue.map({ $0.intValue}))
+            self.locationTimeView.temperatures = self.temperaturesModel
+            self.initUI()
         }, errorHandler: { (statusCode, errorMessage) in
             indicator.stopAnimating()
-            let errorAlert = UIAlertController.alert("code: \(statusCode)",errorMessage: errorMessage)
-            errorAlert.add("ok", handler: { (handling) in
+            let errorAlert: UIAlertController = .alert("code: \(statusCode)",errorMessage: errorMessage)
+            errorAlert.add(kSTRING_TITLE_CONFIRM, handler: { (handling) in
                 self.errorHandling(statusCode)
             }).show(self)
         })
@@ -97,5 +137,15 @@ extension OOTWeatherViewCotnroller {
                 print("")
         }
         exit(0)
+    }
+}
+
+// MARK: Observer
+extension OOTWeatherViewCotnroller: LocationObserver, TimeObserver {
+    func updateLocation(_ notyValue: String) {
+        locationTimeView.locationText = notyValue
+    }
+    func updateTime(_ notyValue: String) {
+        locationTimeView.nowTimeText = notyValue
     }
 }
