@@ -53,13 +53,22 @@ class LocationManager: NSObject{
                 return
             }
             
-            self.observerValue = "\(cityName) \(cityVillage)"
+            self.observerValue = "\(self.vilidCityName(to: cityName)) \(cityVillage)"
         }
     }
 }
 
+// vilid 체크
 extension LocationManager {
-//    private func validCityName
+    
+    private func vilidCityName(to cityName: String) -> String {
+        switch cityName {
+            case "서울특별시":
+                return "서울시"
+            default:
+                return cityName
+            }
+    }
 }
 
 extension LocationManager: CLLocationManagerDelegate {

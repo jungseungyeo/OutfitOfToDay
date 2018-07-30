@@ -53,9 +53,9 @@ class DropAnimationManager: NSObject {
         var seep: Double {
             switch self {
                 case .rain:
-                    return 7.0
+                    return 5.0
                 case .snow:
-                    return 10.0
+                    return 7.0
             }
         }
     }
@@ -75,8 +75,8 @@ class DropAnimationManager: NSObject {
         return Int(arc4random_uniform(UInt32(UIScreen.main.bounds.maxX))) * 2
     }
     
-    private func getEndX() -> Int {
-        return (DropAnimationManager.getStartX() - 400)
+    static func getEndX(startX: Int) -> Int {
+        return (startX - 400)
     }
     
     internal func startAnimation(animationVC: UIViewController, dropSeep: Double) {

@@ -32,6 +32,7 @@
 		B3C1E6882109BC8300A7CA7E /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1E6872109BC8300A7CA7E /* RootPageViewController.swift */; };
 		B3C1E68A2109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1E6892109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift */; };
 		B3ECD75D210C03E5005CBA4A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ECD75C210C03E5005CBA4A /* LocationManager.swift */; };
+		B3FAA82E210F004D00BA9E28 /* CloudAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FAA82D210F004D00BA9E28 /* CloudAnimationView.swift */; };
 		BFC8E013CBDAF7863D27648F /* Pods_outfitoftoday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B381529720ECAB3400C5F708 /* Pods_outfitoftoday.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		B3C1E6872109BC8300A7CA7E /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
 		B3C1E6892109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTWeatherViewCotnroller.swift; sourceTree = "<group>"; };
 		B3ECD75C210C03E5005CBA4A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B3FAA82D210F004D00BA9E28 /* CloudAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAnimationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 				B3201DD7210BD68000E58DE7 /* LocationTimeView.swift */,
 				B39F27AB210E3658005F8374 /* SceneView.swift */,
 				B392B263210E9FF0007B9022 /* DropAnimationView.swift */,
+				B3FAA82D210F004D00BA9E28 /* CloudAnimationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				B392B264210E9FF0007B9022 /* DropAnimationView.swift in Sources */,
 				B3ECD75D210C03E5005CBA4A /* LocationManager.swift in Sources */,
 				B3201DDD210BEB6700E58DE7 /* View+.swift in Sources */,
+				B3FAA82E210F004D00BA9E28 /* CloudAnimationView.swift in Sources */,
 				B3C1E68A2109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift in Sources */,
 				B3C1E6882109BC8300A7CA7E /* RootPageViewController.swift in Sources */,
 				B3201DDF210BEEE300E58DE7 /* Strings.swift in Sources */,

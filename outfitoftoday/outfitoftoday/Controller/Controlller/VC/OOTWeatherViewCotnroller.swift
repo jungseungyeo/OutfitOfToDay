@@ -19,7 +19,6 @@ class OOTWeatherViewCotnroller: BaseVC {
     // view
     private let locationTimeView = LocationTimeView()
     private let sceneView = SceneView()
-    private let dropView = DropAnimationView()
     
     // singleTon
     private let locationManager = LocationManager.shared
@@ -72,7 +71,7 @@ class OOTWeatherViewCotnroller: BaseVC {
             make.right.equalToSuperview().inset(20)
         }
         
-        if backgroundModel?.weather != "none" {
+        if backgroundModel?.precipitation != "none" {
             initAnimation()
         }
     }
@@ -98,8 +97,6 @@ extension OOTWeatherViewCotnroller {
                 ,windSpeed: json[kSTRING_BACKGROUND_API_WINDSPEED].intValue
             )
             self.sceneView.backgroundsModel = self.backgroundModel
-            self.dropView.backgroundsModel = self.backgroundModel
-            
         }, errorHandler: { (statusCode, errorMessage) in
             indicator.stopAnimating()
             let errorAlert: UIAlertController = .alert("code: \(statusCode)",errorMessage: errorMessage)
@@ -173,21 +170,38 @@ extension OOTWeatherViewCotnroller {
         
         let amount = DropAnimationManager.getCreateAmountTime(skyCoverage: backgroundModel.skyCoverage)
         
-//        dropTimer.invalidate()
-//        dropTimer = Timer.scheduledTimer(timeInterval: amount, target: self, selector: #selector(setupDropView), userInfo: [], repeats: true)
-//
+        dropTimer.invalidate()
+        dropTimer = Timer.scheduledTimer(timeInterval: amount, target: self, selector: #selector(setupDropView), userInfo: [], repeats: true)
+
     }
     
     @objc private func setupDropView() {
-//        sceneView.addSubViews(dropView)
+        let dropView = DropAnimationView()
+        dropView.backgroundsModel = self.backgroundModel
         
-//        dropView.snp.makeConstraints { make -> Void in
-//            make.size.equalTo(10)
-//
-//            make.top.equalToSuperview()
-//            make.left.equalTo(DropAnimationManager.getStartX())
-//        }
+        self.sceneView.addSubViews(dropView)
+        let startX = DropAnimationManager.getStartX()
+        dropView.frame = CGRect(x: startX, y: -20, width: 10, height: 10)
+        startAnimation(to: dropView)
+    }
+    
+    private func startAnimation(to animationView: UIView) {
         
+        guard let dropType = self.backgroundModel?.precipitation else {
+            return
+        }
         
+        guard let dropSeep = DropAnimationManager.dropSeep(rawValue: dropType)?.seep else {
+            return
+        }
+        
+        UIView.animate(withDuration: dropSeep, animations: {
+            animationView.center.x -= 200
+            animationView.center.y += self.sceneView.frame.height + 40
+        }, completion: { (finished: Bool) in
+            if finished {
+                animationView.removeFromSuperview()
+            }
+        })
     }
 }

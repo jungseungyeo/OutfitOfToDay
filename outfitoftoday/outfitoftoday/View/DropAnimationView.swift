@@ -31,6 +31,7 @@ class DropAnimationView: BaseView {
     
     override func setup() {
         super.setup()
+        initUI()
     }
     
     private func initUI() {
