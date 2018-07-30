@@ -19,28 +19,4 @@ class outfitoftodayTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-   
-    func test_makeAnimationObject() {
-        let animationObject = WeatherAnimationViewController()
-        XCTAssertNotNil(animationObject)
-    }
-    
-    func test_boundsCheck() {
-        let animationObject = WeatherAnimationViewController()
-        var check = false
-        
-        for _ in 0 ... 100 {
-            let startx = animationObject.getRandomStartX()
-            guard startx < Int(UIScreen.main.bounds.maxX) else {
-                check = false
-                break
-            }
-            check = true
-        }
-        
-        XCTAssertTrue(check)
-        
-    }
-    
-    
 }
