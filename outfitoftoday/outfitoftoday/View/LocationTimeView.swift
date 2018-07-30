@@ -37,6 +37,7 @@ class LocationTimeView: BaseView {
         $0.text = ""
         $0.font = .systemFont(ofSize: 72, weight: .regular)
         $0.textAlignment = .center
+        $0.minimumScaleFactor = 0.5
         $0.numberOfLines = 0
     }
     
@@ -44,6 +45,7 @@ class LocationTimeView: BaseView {
         $0.text = ""
         $0.font = .systemFont(ofSize: 14, weight: .bold)
         $0.textAlignment = .left
+        $0.minimumScaleFactor = 0.5
         $0.numberOfLines = 0
     }
     
@@ -52,6 +54,7 @@ class LocationTimeView: BaseView {
         $0.textColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
         $0.font = .systemFont(ofSize: 14, weight: .regular)
         $0.textAlignment = .left
+        $0.minimumScaleFactor = 0.5
         $0.numberOfLines = 0
     }
     
@@ -79,14 +82,14 @@ class LocationTimeView: BaseView {
             make.center.equalToSuperview()
         }
         
-        location.snp.makeConstraints { make -> Void in
-            make.top.equalTo(nowTemperature.snp.top).offset(39)
+        nowTime.snp.makeConstraints { make -> Void in
+            make.top.equalTo(location.snp.bottom).offset(3)
             make.right.equalToSuperview().offset(-2)
         }
         
-        nowTime.snp.makeConstraints { make -> Void in
-            make.top.equalTo(location.snp.bottom).offset(3)
-            make.left.equalTo(location).offset(0)
+        location.snp.makeConstraints { make -> Void in
+            make.top.equalTo(nowTemperature.snp.top).offset(39)
+            make.left.equalTo(nowTime).offset(0)
         }
         
         sumAndMoon.snp.makeConstraints { make -> Void in

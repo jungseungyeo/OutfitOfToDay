@@ -58,6 +58,10 @@ class LocationManager: NSObject{
     }
 }
 
+extension LocationManager {
+//    private func validCityName
+}
+
 extension LocationManager: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

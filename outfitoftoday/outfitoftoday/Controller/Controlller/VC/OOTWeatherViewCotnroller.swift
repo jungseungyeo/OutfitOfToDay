@@ -16,12 +16,17 @@ class OOTWeatherViewCotnroller: BaseVC {
     private var backgroundModel: BackgroundsModel?
     private var temperaturesModel: TemperaturesModel?
     
+    // view
     private let locationTimeView = LocationTimeView()
     private let sceneView = SceneView()
+    private let dropView = DropAnimationView()
     
     // singleTon
-    let locationManager = LocationManager.shared
-    let timeManager = TimeManager.shared
+    private let locationManager = LocationManager.shared
+    private let timeManager = TimeManager.shared
+    
+    //
+    private var dropTimer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,8 +60,8 @@ class OOTWeatherViewCotnroller: BaseVC {
             make.height.equalTo(116)
             
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(53)
-            make.left.equalTo(20)
-            make.right.equalTo(-20)
+            make.left.equalToSuperview().inset(20)
+            make.right.equalToSuperview().inset(20)
         }
         
         sceneView.snp.makeConstraints { make -> Void in
@@ -65,6 +70,10 @@ class OOTWeatherViewCotnroller: BaseVC {
             make.top.equalTo(locationTimeView.snp.bottom)
             make.left.equalToSuperview().inset(20)
             make.right.equalToSuperview().inset(20)
+        }
+        
+        if backgroundModel?.weather != "none" {
+            initAnimation()
         }
     }
     
@@ -89,6 +98,8 @@ extension OOTWeatherViewCotnroller {
                 ,windSpeed: json[kSTRING_BACKGROUND_API_WINDSPEED].intValue
             )
             self.sceneView.backgroundsModel = self.backgroundModel
+            self.dropView.backgroundsModel = self.backgroundModel
+            
         }, errorHandler: { (statusCode, errorMessage) in
             indicator.stopAnimating()
             let errorAlert: UIAlertController = .alert("code: \(statusCode)",errorMessage: errorMessage)
@@ -148,5 +159,35 @@ extension OOTWeatherViewCotnroller: LocationObserver, TimeObserver {
     }
     func updateTime(_ notyValue: String) {
         locationTimeView.nowTimeText = notyValue
+    }
+}
+
+
+// MAKR: animation
+extension OOTWeatherViewCotnroller {
+    private func initAnimation() {
+        
+        guard let backgroundModel = self.backgroundModel else {
+            return
+        }
+        
+        let amount = DropAnimationManager.getCreateAmountTime(skyCoverage: backgroundModel.skyCoverage)
+        
+//        dropTimer.invalidate()
+//        dropTimer = Timer.scheduledTimer(timeInterval: amount, target: self, selector: #selector(setupDropView), userInfo: [], repeats: true)
+//
+    }
+    
+    @objc private func setupDropView() {
+//        sceneView.addSubViews(dropView)
+        
+//        dropView.snp.makeConstraints { make -> Void in
+//            make.size.equalTo(10)
+//
+//            make.top.equalToSuperview()
+//            make.left.equalTo(DropAnimationManager.getStartX())
+//        }
+        
+        
     }
 }
