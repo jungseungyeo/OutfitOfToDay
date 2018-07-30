@@ -65,13 +65,7 @@
 		B36E3DD4210B41A100E24C4D /* BackgroundsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundsModel.swift; sourceTree = "<group>"; };
 		B381526A20ECA9A000C5F708 /* outfitoftodayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = outfitoftodayTests.swift; sourceTree = "<group>"; };
 		B381526C20ECA9A000C5F708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B381529320ECAB3400C5F708 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B381529520ECAB3400C5F708 /* ObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B381529720ECAB3400C5F708 /* Pods_outfitoftoday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_outfitoftoday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B381529920ECAB3400C5F708 /* SideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B381529B20ECAB3400C5F708 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B381529D20ECAB3400C5F708 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B381529F20ECAB3400C5F708 /* Then.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Then.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39F27A7210E10C0005F8374 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		B39F27A9210E1C37005F8374 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		B39F27AB210E3658005F8374 /* SceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
@@ -272,13 +266,7 @@
 		F4BB7F4976E680E0AD567C04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B381529320ECAB3400C5F708 /* Alamofire.framework */,
-				B381529520ECAB3400C5F708 /* ObjectMapper.framework */,
 				B381529720ECAB3400C5F708 /* Pods_outfitoftoday.framework */,
-				B381529920ECAB3400C5F708 /* SideMenu.framework */,
-				B381529B20ECAB3400C5F708 /* SnapKit.framework */,
-				B381529D20ECAB3400C5F708 /* SwiftyJSON.framework */,
-				B381529F20ECAB3400C5F708 /* Then.framework */,
 				38F2E84EE659465F7898ED8A /* Pods_outfitoftoday.framework */,
 			);
 			name = Frameworks;
@@ -410,7 +398,6 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftLocation/SwiftLocation.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 			);
@@ -419,7 +406,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftLocation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 			);
