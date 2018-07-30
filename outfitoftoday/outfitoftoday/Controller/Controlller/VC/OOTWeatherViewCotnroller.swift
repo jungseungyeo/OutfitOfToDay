@@ -16,7 +16,6 @@ class OOTWeatherViewCotnroller: BaseVC {
     private var backgroundModel: BackgroundsModel?
     private var temperaturesModel: TemperaturesModel?
     
-    /// view
     private let locationTimeView = LocationTimeView()
     private let sceneView = SceneView()
     
@@ -26,17 +25,6 @@ class OOTWeatherViewCotnroller: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-    
-    private func initAPI() {
-        temperrauresAPI()
-        backgroundAPI()
-    }
-    
-    private func initObserver() {
-        locationManager.attachObserver(self)
-        timeManager.attachObserver(self)
     }
     
     override func setup() {
@@ -44,6 +32,17 @@ class OOTWeatherViewCotnroller: BaseVC {
         locationManager.requestForLocation()
         initObserver()
         initAPI()
+    }
+    
+    override func initAPI() {
+        super.initAPI()
+        temperrauresAPI()
+        backgroundAPI()
+    }
+    
+    private func initObserver() {
+        locationManager.attachObserver(self)
+        timeManager.attachObserver(self)
     }
     
     private func initUI() {
@@ -68,9 +67,11 @@ class OOTWeatherViewCotnroller: BaseVC {
             make.right.equalToSuperview().inset(20)
         }
     }
+    
     private func sceneRatio() -> CGFloat {
         return CGFloat((UIScreen.main.bounds.width - 40) / 67)
     }
+    
 }
 
 // MARK: API

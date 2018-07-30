@@ -10,6 +10,10 @@ import UIKit
 
 class BaseVC: UIViewController {
     
+    internal func initAPI() {
+        
+    }
+    
     // 2
     internal func setup() {
     }
