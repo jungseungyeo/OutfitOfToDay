@@ -23,7 +23,7 @@ class OOTDetailWeatherVC: UIViewController {
 	let collectionView: UICollectionView = {
 		let layout = UICollectionViewFlowLayout()
 		let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//		cv.backgroundColor = .vividPurple
+		cv.backgroundColor = .clear
 		return cv
 	}()
 	
@@ -42,7 +42,7 @@ class OOTDetailWeatherVC: UIViewController {
 
 		collectionView.delegate = self
 		collectionView.dataSource = self
-		collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+		collectionView.register(DescriptionWeatherCell.self, forCellWithReuseIdentifier: cellID)
 	}
 }
 
@@ -62,6 +62,6 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		let cWidth = self.view.frame.width
 		
-		return CGSize(width: cWidth, height: 300)
+		return CGSize(width: cWidth, height: 184)
 	}
 }
