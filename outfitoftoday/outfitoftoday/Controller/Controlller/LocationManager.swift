@@ -65,9 +65,11 @@ extension LocationManager {
 extension LocationManager: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         guard manager.location?.coordinate != nil else {
             return
         }
+        
         guard let coordinate = manager.location else {
             return
         }
