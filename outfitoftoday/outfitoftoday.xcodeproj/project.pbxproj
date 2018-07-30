@@ -33,6 +33,9 @@
 		B3C1E68A2109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1E6892109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift */; };
 		B3ECD75D210C03E5005CBA4A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ECD75C210C03E5005CBA4A /* LocationManager.swift */; };
 		BFC8E013CBDAF7863D27648F /* Pods_outfitoftoday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B381529720ECAB3400C5F708 /* Pods_outfitoftoday.framework */; };
+		EF566B7A210EEFD1003673B0 /* OOTDetailWeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF566B79210EEFD1003673B0 /* OOTDetailWeatherVC.swift */; };
+		EF566B7D210EFB0C003673B0 /* SubWeatherTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF566B7C210EFB0C003673B0 /* SubWeatherTitleCell.swift */; };
+		EF566B7F210EFB68003673B0 /* DetailWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF566B7E210EFB68003673B0 /* DetailWeatherCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 		B3C1E6872109BC8300A7CA7E /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
 		B3C1E6892109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTWeatherViewCotnroller.swift; sourceTree = "<group>"; };
 		B3ECD75C210C03E5005CBA4A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		EF566B79210EEFD1003673B0 /* OOTDetailWeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDetailWeatherVC.swift; sourceTree = "<group>"; };
+		EF566B7C210EFB0C003673B0 /* SubWeatherTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubWeatherTitleCell.swift; sourceTree = "<group>"; };
+		EF566B7E210EFB68003673B0 /* DetailWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWeatherCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +148,8 @@
 			isa = PBXGroup;
 			children = (
 				B3C1E6892109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift */,
+				EF566B79210EEFD1003673B0 /* OOTDetailWeatherVC.swift */,
+				EF566B7B210EFAED003673B0 /* Detail Weather Cell */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -267,6 +275,15 @@
 				B359BDDD20D566B10032E187 /* Info.plist */,
 			);
 			path = SurpportFile;
+			sourceTree = "<group>";
+		};
+		EF566B7B210EFAED003673B0 /* Detail Weather Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EF566B7C210EFB0C003673B0 /* SubWeatherTitleCell.swift */,
+				EF566B7E210EFB68003673B0 /* DetailWeatherCell.swift */,
+			);
+			path = "Detail Weather Cell";
 			sourceTree = "<group>";
 		};
 		F4BB7F4976E680E0AD567C04 /* Frameworks */ = {
@@ -441,11 +458,14 @@
 				B3201DDF210BEEE300E58DE7 /* Strings.swift in Sources */,
 				B30E0C4D210AF2CC0038CF7A /* BaseView.swift in Sources */,
 				B392B266210EA7A0007B9022 /* DropAinmationManager.swift in Sources */,
+				EF566B7D210EFB0C003673B0 /* SubWeatherTitleCell.swift in Sources */,
 				B30E0C4B210AF0140038CF7A /* BaseVC.swift in Sources */,
 				B32725EC210B060B00CE0FFC /* AlartController+.swift in Sources */,
 				B36E3DD5210B41A100E24C4D /* BackgroundsModel.swift in Sources */,
 				B39F27AA210E1C37005F8374 /* TimeManager.swift in Sources */,
 				B3201DD8210BD68000E58DE7 /* LocationTimeView.swift in Sources */,
+				EF566B7A210EEFD1003673B0 /* OOTDetailWeatherVC.swift in Sources */,
+				EF566B7F210EFB68003673B0 /* DetailWeatherCell.swift in Sources */,
 				B32725EF210B07C300CE0FFC /* Data+.swift in Sources */,
 				B359BDD220D566AF0032E187 /* AppDelegate.swift in Sources */,
 			);
