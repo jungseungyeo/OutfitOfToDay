@@ -39,6 +39,9 @@
 		EF566B81210F6FF7003673B0 /* DescriptionWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF566B80210F6FF7003673B0 /* DescriptionWeatherCell.swift */; };
 		EF566B83210FCEEF003673B0 /* LifeIndexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF566B82210FCEEF003673B0 /* LifeIndexCell.swift */; };
 		EF6A6BA1211048F6002301EF /* WeeklyWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6BA0211048F6002301EF /* WeeklyWeatherCell.swift */; };
+		EF6A6BA621108887002301EF /* CurveAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6BA421108887002301EF /* CurveAlgorithm.swift */; };
+		EF6A6BA821108887002301EF /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6BA521108887002301EF /* LineChart.swift */; };
+		EF6A6BAB211088A6002301EF /* DailyWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6BAA211088A6002301EF /* DailyWeatherCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,9 @@
 		EF566B80210F6FF7003673B0 /* DescriptionWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionWeatherCell.swift; sourceTree = "<group>"; };
 		EF566B82210FCEEF003673B0 /* LifeIndexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeIndexCell.swift; sourceTree = "<group>"; };
 		EF6A6BA0211048F6002301EF /* WeeklyWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyWeatherCell.swift; sourceTree = "<group>"; };
+		EF6A6BA421108887002301EF /* CurveAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurveAlgorithm.swift; sourceTree = "<group>"; };
+		EF6A6BA521108887002301EF /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		EF6A6BAA211088A6002301EF /* DailyWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,9 +296,20 @@
 				EF566B7C210EFB0C003673B0 /* SubWeatherTitleCell.swift */,
 				EF566B80210F6FF7003673B0 /* DescriptionWeatherCell.swift */,
 				EF566B82210FCEEF003673B0 /* LifeIndexCell.swift */,
+				EF6A6BAA211088A6002301EF /* DailyWeatherCell.swift */,
 				EF6A6BA0211048F6002301EF /* WeeklyWeatherCell.swift */,
+				EF6A6BA321108860002301EF /* Line Chart */,
 			);
 			path = "Detail Weather Cell";
+			sourceTree = "<group>";
+		};
+		EF6A6BA321108860002301EF /* Line Chart */ = {
+			isa = PBXGroup;
+			children = (
+				EF6A6BA421108887002301EF /* CurveAlgorithm.swift */,
+				EF6A6BA521108887002301EF /* LineChart.swift */,
+			);
+			path = "Line Chart";
 			sourceTree = "<group>";
 		};
 		F4BB7F4976E680E0AD567C04 /* Frameworks */ = {
@@ -458,6 +475,7 @@
 				B30E0C47210AED910038CF7A /* OOTPageViewController.swift in Sources */,
 				B39F27A8210E10C0005F8374 /* Observer.swift in Sources */,
 				B39F27AC210E3658005F8374 /* SceneView.swift in Sources */,
+				EF6A6BA821108887002301EF /* LineChart.swift in Sources */,
 				B30E0C53210AF56D0038CF7A /* OOTWeatherService.swift in Sources */,
 				B3A57003210B71070063C36D /* NVIndicatorView.swift in Sources */,
 				B392B264210E9FF0007B9022 /* DropAnimationView.swift in Sources */,
@@ -472,9 +490,11 @@
 				EF566B7D210EFB0C003673B0 /* SubWeatherTitleCell.swift in Sources */,
 				B30E0C4B210AF0140038CF7A /* BaseVC.swift in Sources */,
 				B32725EC210B060B00CE0FFC /* AlartController+.swift in Sources */,
+				EF6A6BA621108887002301EF /* CurveAlgorithm.swift in Sources */,
 				B36E3DD5210B41A100E24C4D /* BackgroundsModel.swift in Sources */,
 				B39F27AA210E1C37005F8374 /* TimeManager.swift in Sources */,
 				B3201DD8210BD68000E58DE7 /* LocationTimeView.swift in Sources */,
+				EF6A6BAB211088A6002301EF /* DailyWeatherCell.swift in Sources */,
 				EF566B7A210EEFD1003673B0 /* OOTDetailWeatherVC.swift in Sources */,
 				EF566B7F210EFB68003673B0 /* DetailWeatherCell.swift in Sources */,
 				B32725EF210B07C300CE0FFC /* Data+.swift in Sources */,

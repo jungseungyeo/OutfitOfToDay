@@ -13,9 +13,8 @@ fileprivate enum DetailWeatherType: Int {
 	case title = 0
 	case description = 1
 	case lifeIndex = 2
-	
-	case weeklyChart = 3
-//	case dailyChart = 3
+	case dailyChart = 3
+	case weeklyChart = 4
 //	case weeklyChart = 4
 	
 	static func count() -> Int {
@@ -26,6 +25,7 @@ fileprivate enum DetailWeatherType: Int {
 fileprivate let titleCellID = "titleCellID"
 fileprivate let descriptCellID = "descriptionCellID"
 fileprivate let lifeIndexCellID = "lifeIndexCellID"
+fileprivate let dailyChartCellID = "dailyChartCellID"
 fileprivate let weeklyCellID = "weeklyCellID"
 
 class OOTDetailWeatherVC: UIViewController {
@@ -55,6 +55,7 @@ class OOTDetailWeatherVC: UIViewController {
 		collectionView.register(SubWeatherTitleCell.self, forCellWithReuseIdentifier: titleCellID)
 		collectionView.register(DescriptionWeatherCell.self, forCellWithReuseIdentifier: descriptCellID)
 		collectionView.register(LifeIndexCell.self, forCellWithReuseIdentifier: lifeIndexCellID)
+		collectionView.register(DailyWeatherCell.self, forCellWithReuseIdentifier: dailyChartCellID)
 		collectionView.register(WeeklyWeatherCell.self, forCellWithReuseIdentifier: weeklyCellID)
 	}
 }
@@ -63,7 +64,7 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //		return DetailWeatherType.count()
-		return 4
+		return DetailWeatherType.count()
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -87,13 +88,17 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: lifeIndexCellID, for: indexPath)
 			
 			return cell
+		case .dailyChart:
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: dailyChartCellID, for: indexPath)
 			
+			return cell
 		case .weeklyChart:
 			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: weeklyCellID, for: indexPath)
 			
 			return cell
 
 		}
+		
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -110,6 +115,8 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 		case .description:
 			return CGSize(width: cWidth, height: 122)
 		case .lifeIndex:
+			return CGSize(width: cWidth, height: 210)
+		case .dailyChart:
 			return CGSize(width: cWidth, height: 210)
 		case .weeklyChart:
 			return CGSize(width: cWidth, height: 270)
