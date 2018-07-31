@@ -24,7 +24,9 @@ class DescriptionWeatherCell: DetailWeatherCell {
 		
 		stackView.snp.remakeConstraints { make -> Void in
 			make.top.bottom.equalTo(readableContentGuide)
-			make.left.right.equalTo(readableContentGuide).inset(32)
+			make.centerX.equalTo(self)
+			make.width.equalTo(280)
+//			make.left.right.equalTo(readableContentGuide).inset(32)
 		}
 
 		

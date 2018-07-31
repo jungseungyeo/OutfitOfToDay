@@ -52,7 +52,8 @@ class VerticalLineView: UIView {
 	private func setupView() {
 		self.backgroundColor = .groupTableViewBackground
 			self.snp.remakeConstraints { make -> Void in
-				make.size.equalTo(CGSize(width: 1, height: 99))
+//				make.size.equalTo(CGSize(width: 1, height: 99))
+				make.width.equalTo(1)
 		}
 	}
 	
