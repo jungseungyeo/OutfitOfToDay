@@ -13,11 +13,8 @@ import SnapKit
 class DescriptionWeatherCell: DetailWeatherCell {
 	
 	let stackView = UIStackView().then {
-		$0.backgroundColor = .blue
 		$0.axis = .horizontal
-		$0.distribution = .fill
-		$0.translatesAutoresizingMaskIntoConstraints = false
-		$0.spacing = 16
+		$0.distribution = .equalSpacing
 	}
 	
 	override func setupView() {
@@ -26,7 +23,8 @@ class DescriptionWeatherCell: DetailWeatherCell {
 		addSubViews(stackView)
 		
 		stackView.snp.remakeConstraints { make -> Void in
-			make.edges.equalTo(readableContentGuide)
+			make.top.bottom.equalTo(readableContentGuide)
+			make.left.right.equalTo(readableContentGuide).inset(32)
 		}
 
 		
@@ -46,7 +44,7 @@ class DescriptionView: UIView {
 	
 	let typeLabel = UILabel().then {
 		$0.text = "미세먼지"
-		$0.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+		$0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
 	}
 	
 	let valueLabel = UILabel().then {
@@ -68,7 +66,8 @@ class DescriptionView: UIView {
 		addSubViews(iconImgView, typeLabel, valueLabel)
 		
 		iconImgView.snp.remakeConstraints { make -> Void in
-			make.centerX.top.equalTo(self)
+			make.top.equalTo(self)
+			make.centerX.equalTo(self)
 			make.size.equalTo(48)
 		}
 		
@@ -78,12 +77,13 @@ class DescriptionView: UIView {
 		}
 		
 		valueLabel.snp.remakeConstraints { make -> Void in
-			make.top.equalTo(typeLabel.snp.bottom)
+			make.top.equalTo(typeLabel.snp.bottom).offset(4)
 			make.centerX.equalTo(self)
 		}
 
-		self.translatesAutoresizingMaskIntoConstraints = false
-		self.widthAnchor.constraint(equalToConstant: 60).isActive = true
-		backgroundColor = .brown
+		self.snp.remakeConstraints { make -> Void in
+			make.width.equalTo(60)
+		}
+
 	}
 }
