@@ -15,10 +15,11 @@ fileprivate enum DetailWeatherType: Int {
 	case lifeIndex = 2
 	case dailyChart = 3
 	case weeklyChart = 4
+	case goToTop = 5
 //	case weeklyChart = 4
 	
 	static func count() -> Int {
-		return self.weeklyChart.rawValue + 1
+		return self.goToTop.rawValue + 1
 	}
 }
 
@@ -27,6 +28,7 @@ fileprivate let descriptCellID = "descriptionCellID"
 fileprivate let lifeIndexCellID = "lifeIndexCellID"
 fileprivate let dailyChartCellID = "dailyChartCellID"
 fileprivate let weeklyCellID = "weeklyCellID"
+fileprivate let gotoTopCellID = "goToTopCellID"
 
 class OOTDetailWeatherVC: UIViewController {
 	
@@ -57,6 +59,8 @@ class OOTDetailWeatherVC: UIViewController {
 		collectionView.register(LifeIndexCell.self, forCellWithReuseIdentifier: lifeIndexCellID)
 		collectionView.register(DailyWeatherCell.self, forCellWithReuseIdentifier: dailyChartCellID)
 		collectionView.register(WeeklyWeatherCell.self, forCellWithReuseIdentifier: weeklyCellID)
+		collectionView.register(GoToTopCell.self, forCellWithReuseIdentifier: gotoTopCellID)
+
 	}
 }
 
@@ -97,7 +101,19 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 			
 			return cell
 
+		case .goToTop:
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gotoTopCellID, for: indexPath) as! GoToTopCell
+			cell.goToTopButton.addTarget(self, action: #selector(didTapGoToTop), for: .touchUpInside)
+			return cell
 		}
+		
+	}
+	
+	@objc func didTapGoToTop() {
+		self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+		
+		let pageViewController = self.parent as! OOTPageViewController
+		pageViewController.goToTop()
 		
 	}
 	
@@ -111,16 +127,26 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 		
 		switch item {
 		case .title:
-			return CGSize(width: cWidth, height: 184)
+			return CGSize(width: cWidth, height: 200)
 		case .description:
-			return CGSize(width: cWidth, height: 122)
+			return CGSize(width: cWidth, height: 116)
 		case .lifeIndex:
-			return CGSize(width: cWidth, height: 210)
+			return CGSize(width: cWidth, height: 172)
 		case .dailyChart:
 			return CGSize(width: cWidth, height: 210)
 		case .weeklyChart:
-			return CGSize(width: cWidth, height: 226)
+			return CGSize(width: cWidth, height: 230)
 
+		case .goToTop:
+			return CGSize(width: cWidth, height: 34)
 		}
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+		return 24
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+		return UIEdgeInsetsMake(4, 0, 40, 0)
 	}
 }

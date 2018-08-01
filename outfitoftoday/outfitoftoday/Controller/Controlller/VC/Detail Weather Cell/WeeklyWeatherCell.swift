@@ -29,7 +29,7 @@ class WeeklyWeatherCell: DetailWeatherCell {
 		}
 		
 		chartView.snp.remakeConstraints { make -> Void in
-			make.top.equalTo(titleLabel.snp.bottom).offset(14)
+			make.top.equalTo(titleLabel.snp.bottom).offset(18)
 			make.left.right.equalTo(readableContentGuide).inset(10)
 			make.bottom.equalTo(readableContentGuide)
 		}

@@ -25,22 +25,67 @@ class DescriptionWeatherCell: DetailWeatherCell {
 		stackView.snp.remakeConstraints { make -> Void in
 			make.top.bottom.equalTo(readableContentGuide)
 			make.centerX.equalTo(self)
-			make.width.equalTo(280)
-//			make.left.right.equalTo(readableContentGuide).inset(32)
+			make.width.equalTo(288)
 		}
 
 		
-		for _ in 0..<4 {
+		let types: [DescriptionType] = [.dust, .wind, .humidity, .rain]
+		for i in 0..<4 {
 			let dView = DescriptionView()
+			dView.type = types[i]
 			stackView.addArrangedSubview(dView)
 		}
 	}
 }
 
+enum DescriptionType {
+	
+	case dust
+	case wind
+	case humidity
+	case rain
+	
+	case temp
+	case uv
+	case discomfort
+	
+}
+
 class DescriptionView: UIView {
 	
+	var type: DescriptionType? {
+		didSet {
+			guard let type = type else { return }
+			switch type {
+			case .dust:
+				iconImgView.image = #imageLiteral(resourceName: "iconDust")
+				typeLabel.text = "미세먼지"
+			case .wind:
+				iconImgView.image = #imageLiteral(resourceName: "iconWind")
+				typeLabel.text = "풍량"
+			case .humidity:
+				iconImgView.image = #imageLiteral(resourceName: "iconHumidity")
+				typeLabel.text = "습도"
+			case .rain:
+				iconImgView.image = #imageLiteral(resourceName: "iconRain")
+				typeLabel.text = "강수확률"
+			case .temp:
+				iconImgView.image = #imageLiteral(resourceName: "iconTemp")
+				typeLabel.text = "체감온도"
+			case .uv:
+				iconImgView.image = #imageLiteral(resourceName: "iconUV")
+				typeLabel.text = "자외선"
+			case .discomfort:
+				iconImgView.image = #imageLiteral(resourceName: "iconDiscomfort")
+				typeLabel.text = "불쾌지수"
+			}
+			
+			
+		}
+	}
+	
 	let iconImgView = UIImageView().then {
-		$0.image = #imageLiteral(resourceName: "dust")
+		$0.image = #imageLiteral(resourceName: "iconDust")
 		$0.contentMode = .scaleAspectFit
 	}
 	
@@ -74,13 +119,15 @@ class DescriptionView: UIView {
 		}
 		
 		typeLabel.snp.remakeConstraints { make -> Void in
-			make.top.equalTo(iconImgView.snp.bottom).offset(8)
+//			make.top.equalTo(iconImgView.snp.bottom).offset(8)
 			make.centerX.equalTo(self)
+			make.bottom.equalTo(valueLabel.snp.top).offset(-4)
 		}
 		
 		valueLabel.snp.remakeConstraints { make -> Void in
-			make.top.equalTo(typeLabel.snp.bottom).offset(4)
+//			make.top.equalTo(typeLabel.snp.bottom).offset(4)
 			make.centerX.equalTo(self)
+			make.bottom.equalTo(self)
 		}
 
 		self.snp.remakeConstraints { make -> Void in
