@@ -17,37 +17,59 @@ class WeeklyWeatherCell: DetailWeatherCell {
 		$0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
 	}
 	
-	let stackView = UIStackView().then {
-		$0.axis = .horizontal
-		$0.distribution = .equalSpacing
-	}
+	let chartView = WeeklyChartView()
 	
 	override func setupView() {
 		super.setupView()
-		addSubViews(titleLabel, stackView)
+		addSubViews(titleLabel, chartView)
 		
 		titleLabel.snp.remakeConstraints { make -> Void in
 			make.top.equalTo(self.readableContentGuide).offset(16)
 			make.centerX.equalTo(self)
 		}
 		
-		stackView.snp.remakeConstraints { make -> Void in
+		chartView.snp.remakeConstraints { make -> Void in
 			make.top.equalTo(titleLabel.snp.bottom).offset(14)
 			make.left.right.equalTo(readableContentGuide).inset(10)
 			make.bottom.equalTo(readableContentGuide)
 		}
+		setDummyData()
 		
+	}
+	
+	func setDummyData() {
+		let dataEntries = generateRandomEntries()
 		
-		for i in 0..<13 {
-			if i % 2 == 0 {
-				let dView = SummaryOneDayView()
-				stackView.addArrangedSubview(dView)
-			} else {
-				let lineView = VerticalLineView()
-				stackView.addArrangedSubview(lineView)
-				
-			}
-		}
+		chartView.dataEntries = dataEntries
+	}
+	
+	private func generateRandomEntries() -> [TempDataEntry] {
+//		var result: [TempDataEntry] = []
+//		for i in 0..<7 {
+//			let value = Int(arc4random() % 10)
+//			result.append(TempDataEntry(max: value*value, min: value, label: String(value)))
+//		}
+		
+		/*
+{"dailyTemperatures":
+		[{"maximum":0,"minimum":0},
+		{"maximum":39,"minimum":29},
+		{"maximum":39,"minimum":29},
+		{"maximum":38,"minimum":28},
+		{"maximum":37,"minimum":27},
+		{"maximum":36,"minimum":26},
+		{"maximum":35,"minimum":26}]}*/
+		let result: [TempDataEntry] = [
+		TempDataEntry(max: 38, min: 27, label: ""),
+		TempDataEntry(max: 39, min: 29, label: ""),
+		TempDataEntry(max: 39, min: 29, label: ""),
+		TempDataEntry(max: 38, min: 28, label: ""),
+		TempDataEntry(max: 37, min: 27, label: ""),
+		TempDataEntry(max: 36, min: 26, label: ""),
+		TempDataEntry(max: 35, min: 26, label: "")
+		]
+		
+		return result
 	}
 }
 
