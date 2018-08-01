@@ -26,7 +26,7 @@ class SceneView: BaseView {
         }
     }
     
-    private enum background:String  {
+    private enum background:String {
         case fine       // 맑음
         case cloudy     // 흐림
         case snowy      // 눈
@@ -59,10 +59,17 @@ class SceneView: BaseView {
             backgroundArea
         )
         
+        backgroundArea.layer.cornerRadius = 3
+        backgroundArea.layer.masksToBounds = true
+        
         backgroundArea.snp.makeConstraints { make -> Void in
             make.edges.equalTo(self).inset(UIEdgeInsetsMake(0, 0, 0, 0))
         }
         
+    }
+    
+    public func addCloudView(to cloudView: CloudAnimationView) {
+        self.backgroundArea.addSubViews(cloudView)
     }
     
 }

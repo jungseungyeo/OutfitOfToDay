@@ -59,7 +59,7 @@ class LocationTimeView: BaseView {
     }
     
     lazy private var sumAndMoon: UIImageView = UIImageView().then {
-        $0.image = UIImage(named: "sun")
+        $0.image = UIImage(named: "sunnyMain")
         $0.contentMode = .scaleAspectFill
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
