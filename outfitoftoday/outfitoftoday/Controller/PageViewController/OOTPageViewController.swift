@@ -16,7 +16,7 @@ class OOTPageViewController: UIPageViewController {
         super.viewDidLoad()
         self.dataSource = self
         if let first = viewcontrollerList.first {
-            self.setViewControllers([first], direction: .forward, animated: true, completion: nil)
+            self.setViewControllers([first], direction: .forward, animated: false, completion: nil)
         }
     }
 }

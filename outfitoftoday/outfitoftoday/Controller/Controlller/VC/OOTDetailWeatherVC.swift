@@ -9,21 +9,31 @@
 import UIKit
 import SnapKit
 
-enum DetailWeatherType: Int {
+fileprivate enum DetailWeatherType: Int {
 	case title = 0
 	case description = 1
 	case lifeIndex = 2
-	case dailyChart = 3
-	case weeklyChart = 4
+	
+	case weeklyChart = 3
+//	case dailyChart = 3
+//	case weeklyChart = 4
+	
+	static func count() -> Int {
+		return self.weeklyChart.rawValue + 1
+	}
 }
 
-fileprivate let cellID = "detailWeatherCellID"
+fileprivate let titleCellID = "titleCellID"
+fileprivate let descriptCellID = "descriptionCellID"
+fileprivate let lifeIndexCellID = "lifeIndexCellID"
+fileprivate let weeklyCellID = "weeklyCellID"
+
 class OOTDetailWeatherVC: UIViewController {
 	
 	let collectionView: UICollectionView = {
 		let layout = UICollectionViewFlowLayout()
 		let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//		cv.backgroundColor = .vividPurple
+		cv.backgroundColor = .clear
 		return cv
 	}()
 	
@@ -42,26 +52,68 @@ class OOTDetailWeatherVC: UIViewController {
 
 		collectionView.delegate = self
 		collectionView.dataSource = self
-		collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+		collectionView.register(SubWeatherTitleCell.self, forCellWithReuseIdentifier: titleCellID)
+		collectionView.register(DescriptionWeatherCell.self, forCellWithReuseIdentifier: descriptCellID)
+		collectionView.register(LifeIndexCell.self, forCellWithReuseIdentifier: lifeIndexCellID)
+		collectionView.register(WeeklyWeatherCell.self, forCellWithReuseIdentifier: weeklyCellID)
 	}
 }
 
 extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 10
+//		return DetailWeatherType.count()
+		return 4
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
 		
-		cell.backgroundColor = .green
-		return cell
+		guard let item = DetailWeatherType(rawValue: indexPath.item) else {
+			assertionFailure()
+			return UICollectionViewCell()
+		}
+		
+		switch item {
+		case .title:
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: titleCellID, for: indexPath)
+			
+			return cell
+			
+		case .description:
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: descriptCellID, for: indexPath)
+			
+			return cell
+		case .lifeIndex:
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: lifeIndexCellID, for: indexPath)
+			
+			return cell
+			
+		case .weeklyChart:
+			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: weeklyCellID, for: indexPath)
+			
+			return cell
+
+		}
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		let cWidth = self.view.frame.width
 		
-		return CGSize(width: cWidth, height: 300)
+		guard let item = DetailWeatherType(rawValue: indexPath.item) else {
+			assertionFailure()
+			return .zero
+		}
+		
+		switch item {
+		case .title:
+			return CGSize(width: cWidth, height: 184)
+		case .description:
+			return CGSize(width: cWidth, height: 122)
+		case .lifeIndex:
+			return CGSize(width: cWidth, height: 210)
+		case .weeklyChart:
+			return CGSize(width: cWidth, height: 270)
+
+		}
 	}
 }
