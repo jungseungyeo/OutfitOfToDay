@@ -17,14 +17,21 @@ class OOTWeatherViewCotnroller: BaseVC {
     private var temperaturesModel: TemperaturesModel?
     
     // view
+    private let backColorView = BackColorView()
     private let locationTimeView = LocationTimeView()
-    private let sceneView = SceneView()
+    private let sceneView = SceneView().then {
+        $0.clipsToBounds = true
+    }
+    private let clothView = ClothView()
+    
+    // 한 줄 코멘트
+    private let todatComment = UILabel()
     
     // singleTon
     private let locationManager = LocationManager.shared
     private let timeManager = TimeManager.shared
     
-    //
+    // drop view 생성 시간
     private var dropTimer = Timer()
     
     override func viewDidLoad() {
@@ -51,9 +58,19 @@ class OOTWeatherViewCotnroller: BaseVC {
     
     private func initUI() {
         self.view.addSubViews(
-            locationTimeView
+            backColorView
+            ,locationTimeView
             ,sceneView
+            ,clothView
         )
+        
+        backColorView.snp.makeConstraints { make -> Void in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            
+            make.width.equalToSuperview()
+            make.height.equalTo(self.view.snp.width).dividedBy(1.15065971156)
+        }
         
         locationTimeView.snp.makeConstraints { make -> Void in
             make.height.equalTo(116)
@@ -72,8 +89,21 @@ class OOTWeatherViewCotnroller: BaseVC {
         }
         
         if backgroundModel?.precipitation != "none" {
-            initAnimation()
+            initDropAnimation()
         }
+        
+        if ((backgroundModel?.windSpeed) != nil) {
+            initCloudAnimation()
+        }
+        
+        clothView.snp.makeConstraints { make -> Void in
+            make.top.equalTo(sceneView.snp.top).offset(28.4)
+            make.right.equalTo(sceneView.snp.right).offset(-7.5)
+            
+            make.width.equalTo((self.view.frame.width - 40) * 0.429850746268)
+            make.height.equalTo(((self.view.frame.width - 40) * 0.429850746268) * 2.8888888)
+        }
+    
     }
     
     private func sceneRatio() -> CGFloat {
@@ -112,6 +142,7 @@ extension OOTWeatherViewCotnroller {
         
         OOTWeatherService.shared.get(urlPath: .temperatures, handler: {(json) in
             indicator.stopAnimating()
+            
             self.temperaturesModel = TemperaturesModel(
                 current: json[kSTRING_TEMPERATURES_API_CURRENT].stringValue
                 ,maximum: json[kSTRING_TEMPERATURES_API_MAXIMUM].stringValue
@@ -160,9 +191,11 @@ extension OOTWeatherViewCotnroller: LocationObserver, TimeObserver {
 }
 
 
-// MAKR: animation
+// MAKR: Drop animation
 extension OOTWeatherViewCotnroller {
-    private func initAnimation() {
+    
+    /// drop animation
+    private func initDropAnimation() {
         
         guard let backgroundModel = self.backgroundModel else {
             return
@@ -201,6 +234,51 @@ extension OOTWeatherViewCotnroller {
         }, completion: { (finished: Bool) in
             if finished {
                 animationView.removeFromSuperview()
+            }
+        })
+    }
+}
+
+// MAKR: cloud Animation
+extension OOTWeatherViewCotnroller {
+ 
+    private func initCloudAnimation() {
+        guard let backgroundModel = self.backgroundModel else {
+            return
+        }
+        
+        let cloudCount = CloudAnimationManager.getCreateCloudCount(skyCoverage: backgroundModel.skyCoverage)
+        
+        for _ in 1 ... cloudCount {
+            setupCloud()
+        }
+    }
+    
+    private func setupCloud() {
+        let cloudView = CloudAnimationView()
+        let cloudSize = CloudAnimationManager.getCloundSize()
+        let cloudXPoint = CloudAnimationManager.makeCloudXPoint()
+        let cloudYPoint = CloudAnimationManager.makeCloudYPoint()
+        
+        self.sceneView.addSubViews(cloudView)
+        
+        cloudView.alpha = CloudAnimationManager.getRandAlpha(cloudSize: cloudSize)
+        
+        cloudView.snp.makeConstraints { make -> Void in
+            make.size.equalTo(cloudSize)
+            
+            make.top.equalTo(sceneView).offset(cloudYPoint)
+            make.left.equalTo(sceneView).offset(cloudXPoint)
+        }
+        
+        UIView.animate(withDuration: TimeInterval(CloudAnimationManager.getMoveSpeed()), animations: {
+            
+            cloudView.center.x -= UIScreen.main.bounds.width / 2
+            
+        }, completion: { (finished: Bool) in
+            if finished {
+                cloudView.removeFromSuperview()
+                self.setupCloud()
             }
         })
     }

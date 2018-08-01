@@ -10,7 +10,7 @@ import UIKit
 
 class OOTPageViewController: UIPageViewController {
     
-    private let viewcontrollerList: [UIViewController] = [OOTWeatherViewCotnroller()]
+    private let viewcontrollerList: [UIViewController] = [OOTWeatherViewCotnroller(), OOTDetailWeatherVC()]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -24,6 +24,7 @@
 		B36E3DD5210B41A100E24C4D /* BackgroundsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36E3DD4210B41A100E24C4D /* BackgroundsModel.swift */; };
 		B392B264210E9FF0007B9022 /* DropAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392B263210E9FF0007B9022 /* DropAnimationView.swift */; };
 		B392B266210EA7A0007B9022 /* DropAinmationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392B265210EA7A0007B9022 /* DropAinmationManager.swift */; };
+		B3947212211131FB0007F2D5 /* BackColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3947211211131FB0007F2D5 /* BackColorView.swift */; };
 		B39F27A8210E10C0005F8374 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F27A7210E10C0005F8374 /* Observer.swift */; };
 		B39F27AA210E1C37005F8374 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F27A9210E1C37005F8374 /* TimeManager.swift */; };
 		B39F27AC210E3658005F8374 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39F27AB210E3658005F8374 /* SceneView.swift */; };
@@ -31,9 +32,14 @@
 		B3A57003210B71070063C36D /* NVIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A57002210B71070063C36D /* NVIndicatorView.swift */; };
 		B3C1E6882109BC8300A7CA7E /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1E6872109BC8300A7CA7E /* RootPageViewController.swift */; };
 		B3C1E68A2109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C1E6892109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift */; };
+		B3DC26CA211000F9007F594F /* ClothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DC26C9211000F9007F594F /* ClothView.swift */; };
 		B3ECD75D210C03E5005CBA4A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3ECD75C210C03E5005CBA4A /* LocationManager.swift */; };
+		B3F7F87B210F38AD00E7C05D /* CloudAnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7F87A210F38AD00E7C05D /* CloudAnimationManager.swift */; };
 		B3FAA82E210F004D00BA9E28 /* CloudAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FAA82D210F004D00BA9E28 /* CloudAnimationView.swift */; };
 		BFC8E013CBDAF7863D27648F /* Pods_outfitoftoday.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B381529720ECAB3400C5F708 /* Pods_outfitoftoday.framework */; };
+		EF566B7A210EEFD1003673B0 /* OOTDetailWeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF566B79210EEFD1003673B0 /* OOTDetailWeatherVC.swift */; };
+		EF566B7D210EFB0C003673B0 /* SubWeatherTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF566B7C210EFB0C003673B0 /* SubWeatherTitleCell.swift */; };
+		EF566B7F210EFB68003673B0 /* DetailWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF566B7E210EFB68003673B0 /* DetailWeatherCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +77,7 @@
 		B381529720ECAB3400C5F708 /* Pods_outfitoftoday.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_outfitoftoday.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B392B263210E9FF0007B9022 /* DropAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropAnimationView.swift; sourceTree = "<group>"; };
 		B392B265210EA7A0007B9022 /* DropAinmationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropAinmationManager.swift; sourceTree = "<group>"; };
+		B3947211211131FB0007F2D5 /* BackColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackColorView.swift; sourceTree = "<group>"; };
 		B39F27A7210E10C0005F8374 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		B39F27A9210E1C37005F8374 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 		B39F27AB210E3658005F8374 /* SceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
@@ -80,8 +87,13 @@
 		B3A57002210B71070063C36D /* NVIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NVIndicatorView.swift; sourceTree = "<group>"; };
 		B3C1E6872109BC8300A7CA7E /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
 		B3C1E6892109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTWeatherViewCotnroller.swift; sourceTree = "<group>"; };
+		B3DC26C9211000F9007F594F /* ClothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothView.swift; sourceTree = "<group>"; };
 		B3ECD75C210C03E5005CBA4A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B3F7F87A210F38AD00E7C05D /* CloudAnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAnimationManager.swift; sourceTree = "<group>"; };
 		B3FAA82D210F004D00BA9E28 /* CloudAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAnimationView.swift; sourceTree = "<group>"; };
+		EF566B79210EEFD1003673B0 /* OOTDetailWeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDetailWeatherVC.swift; sourceTree = "<group>"; };
+		EF566B7C210EFB0C003673B0 /* SubWeatherTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubWeatherTitleCell.swift; sourceTree = "<group>"; };
+		EF566B7E210EFB68003673B0 /* DetailWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailWeatherCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +139,7 @@
 				B3ECD75C210C03E5005CBA4A /* LocationManager.swift */,
 				B39F27A9210E1C37005F8374 /* TimeManager.swift */,
 				B392B265210EA7A0007B9022 /* DropAinmationManager.swift */,
+				B3F7F87A210F38AD00E7C05D /* CloudAnimationManager.swift */,
 				B3201DDB210BE19100E58DE7 /* VC */,
 			);
 			path = Controlller;
@@ -144,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				B3C1E6892109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift */,
+				EF566B79210EEFD1003673B0 /* OOTDetailWeatherVC.swift */,
+				EF566B7B210EFAED003673B0 /* Detail Weather Cell */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -249,6 +264,8 @@
 				B39F27AB210E3658005F8374 /* SceneView.swift */,
 				B392B263210E9FF0007B9022 /* DropAnimationView.swift */,
 				B3FAA82D210F004D00BA9E28 /* CloudAnimationView.swift */,
+				B3DC26C9211000F9007F594F /* ClothView.swift */,
+				B3947211211131FB0007F2D5 /* BackColorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,6 +287,15 @@
 				B359BDDD20D566B10032E187 /* Info.plist */,
 			);
 			path = SurpportFile;
+			sourceTree = "<group>";
+		};
+		EF566B7B210EFAED003673B0 /* Detail Weather Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EF566B7C210EFB0C003673B0 /* SubWeatherTitleCell.swift */,
+				EF566B7E210EFB68003673B0 /* DetailWeatherCell.swift */,
+			);
+			path = "Detail Weather Cell";
 			sourceTree = "<group>";
 		};
 		F4BB7F4976E680E0AD567C04 /* Frameworks */ = {
@@ -443,13 +469,19 @@
 				B3C1E68A2109BD0200A7CA7E /* OOTWeatherViewCotnroller.swift in Sources */,
 				B3C1E6882109BC8300A7CA7E /* RootPageViewController.swift in Sources */,
 				B3201DDF210BEEE300E58DE7 /* Strings.swift in Sources */,
+				B3947212211131FB0007F2D5 /* BackColorView.swift in Sources */,
 				B30E0C4D210AF2CC0038CF7A /* BaseView.swift in Sources */,
 				B392B266210EA7A0007B9022 /* DropAinmationManager.swift in Sources */,
+				EF566B7D210EFB0C003673B0 /* SubWeatherTitleCell.swift in Sources */,
+				B3DC26CA211000F9007F594F /* ClothView.swift in Sources */,
 				B30E0C4B210AF0140038CF7A /* BaseVC.swift in Sources */,
 				B32725EC210B060B00CE0FFC /* AlartController+.swift in Sources */,
 				B36E3DD5210B41A100E24C4D /* BackgroundsModel.swift in Sources */,
 				B39F27AA210E1C37005F8374 /* TimeManager.swift in Sources */,
 				B3201DD8210BD68000E58DE7 /* LocationTimeView.swift in Sources */,
+				EF566B7A210EEFD1003673B0 /* OOTDetailWeatherVC.swift in Sources */,
+				EF566B7F210EFB68003673B0 /* DetailWeatherCell.swift in Sources */,
+				B3F7F87B210F38AD00E7C05D /* CloudAnimationManager.swift in Sources */,
 				B32725EF210B07C300CE0FFC /* Data+.swift in Sources */,
 				B359BDD220D566AF0032E187 /* AppDelegate.swift in Sources */,
 			);
@@ -605,7 +637,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 524TVTU6B9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/outfitoftoday/SurpportFile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -625,7 +657,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 524TVTU6B9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/outfitoftoday/SurpportFile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
