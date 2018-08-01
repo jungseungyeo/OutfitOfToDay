@@ -30,6 +30,9 @@ class WeeklyChartView: UIView {
 	let topSpace: CGFloat = 80.0
 	let bottomSpace: CGFloat = 40.0
 	
+	let maxLayerColor = UIColor.rosyPink.cgColor
+	let minLayerColor = UIColor.skyBlue.cgColor
+	
 	var lineGap: CGFloat {
 		get {
 			return self.frame.size.width / CGFloat(dataEntries?.count ?? 1)
@@ -127,13 +130,13 @@ class WeeklyChartView: UIView {
 			
 			let minLineLayer = CAShapeLayer()
 			minLineLayer.path = path.0.cgPath
-			minLineLayer.strokeColor = #colorLiteral(red: 0.7215686275, green: 0.7215686275, blue: 0.7215686275, alpha: 1).cgColor
+			minLineLayer.strokeColor = minLayerColor
 			minLineLayer.fillColor = UIColor.clear.cgColor
 			dataLayer.addSublayer(minLineLayer)
 			
 			let maxLineLayer = CAShapeLayer()
 			maxLineLayer.path = path.1.cgPath
-			maxLineLayer.strokeColor = #colorLiteral(red: 0.7215686275, green: 0.7215686275, blue: 0.7215686275, alpha: 1).cgColor
+			maxLineLayer.strokeColor = maxLayerColor
 			maxLineLayer.fillColor = UIColor.clear.cgColor
 			dataLayer.addSublayer(maxLineLayer)
 		}
@@ -156,7 +159,7 @@ class WeeklyChartView: UIView {
 		maxPath.move(to: maxPoint)
 		
 		
-		drawDot(minPoint)
+		drawDot(minPoint, color: minLayerColor)
 		drawDot(maxPoint)
 		
 		
@@ -164,7 +167,7 @@ class WeeklyChartView: UIView {
 			let minPoint = dataPoints[i].0
 			let maxPoint = dataPoints[i].1
 			
-			drawDot(minPoint)
+			drawDot(minPoint, color: minLayerColor)
 			drawDot(maxPoint)
 			
 			minPath.addLine(to: minPoint)
@@ -175,9 +178,9 @@ class WeeklyChartView: UIView {
 		return (minPath, maxPath)
 	}
 	
-	private func drawDot(_ point: CGPoint, color: UIColor = #colorLiteral(red: 0.9348803163, green: 0.3433670402, blue: 0.3681144118, alpha: 1)) {
+	private func drawDot(_ point: CGPoint, color: CGColor = UIColor.rosyPink.cgColor) {
 		let dotLayer = CALayer().then {
-			$0.backgroundColor = color.cgColor
+			$0.backgroundColor = color
 			$0.frame = CGRect(x: point.x - 4, y: point.y - 4, width: 8, height: 8)
 			$0.cornerRadius = 4
 		}
@@ -200,7 +203,7 @@ class WeeklyChartView: UIView {
 				// draw Text: 윗쪽 시간표시
 				let topTextLayer = CATextLayer().then {
 					$0.frame = CGRect(x: xValue, y: 0, width: lineGap, height: 18)
-					$0.foregroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+					$0.foregroundColor = UIColor.gunmetal.cgColor
 					$0.backgroundColor = UIColor.clear.cgColor
 					$0.alignmentMode = kCAAlignmentCenter
 					$0.contentsScale = UIScreen.main.scale
@@ -225,7 +228,7 @@ class WeeklyChartView: UIView {
 					let maxTempTextLayer = CATextLayer().then {
 						let point = dataPoints[i].1
 						$0.frame = CGRect(x: xValue, y: point.y - 26, width: lineGap, height: 18)
-						$0.foregroundColor = UIColor.red.cgColor
+						$0.foregroundColor = maxLayerColor
 						$0.backgroundColor = UIColor.clear.cgColor
 						$0.alignmentMode = kCAAlignmentCenter
 						$0.contentsScale = UIScreen.main.scale
@@ -240,7 +243,7 @@ class WeeklyChartView: UIView {
 					let minTempTextLayer = CATextLayer().then {
 						let point = dataPoints[i].0
 						$0.frame = CGRect(x: xValue, y: point.y + 8, width: lineGap, height: 18)
-						$0.foregroundColor = UIColor.blue.cgColor
+						$0.foregroundColor = minLayerColor
 						$0.backgroundColor = UIColor.clear.cgColor
 						$0.alignmentMode = kCAAlignmentCenter
 						$0.contentsScale = UIScreen.main.scale
