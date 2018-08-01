@@ -119,7 +119,7 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 		case .dailyChart:
 			return CGSize(width: cWidth, height: 210)
 		case .weeklyChart:
-			return CGSize(width: cWidth, height: 270)
+			return CGSize(width: cWidth, height: 226)
 
 		}
 	}

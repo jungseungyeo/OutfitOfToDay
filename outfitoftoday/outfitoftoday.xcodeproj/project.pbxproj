@@ -42,6 +42,7 @@
 		EF6A6BA621108887002301EF /* CurveAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6BA421108887002301EF /* CurveAlgorithm.swift */; };
 		EF6A6BA821108887002301EF /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6BA521108887002301EF /* LineChart.swift */; };
 		EF6A6BAB211088A6002301EF /* DailyWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6BAA211088A6002301EF /* DailyWeatherCell.swift */; };
+		EFD440072110B3C600C5F188 /* WeeklyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD440062110B3C600C5F188 /* WeeklyChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		EF6A6BA421108887002301EF /* CurveAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurveAlgorithm.swift; sourceTree = "<group>"; };
 		EF6A6BA521108887002301EF /* LineChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		EF6A6BAA211088A6002301EF /* DailyWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherCell.swift; sourceTree = "<group>"; };
+		EFD440062110B3C600C5F188 /* WeeklyChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				EF6A6BA421108887002301EF /* CurveAlgorithm.swift */,
+				EFD440062110B3C600C5F188 /* WeeklyChartView.swift */,
 				EF6A6BA521108887002301EF /* LineChart.swift */,
 			);
 			path = "Line Chart";
@@ -478,6 +481,7 @@
 				EF6A6BA821108887002301EF /* LineChart.swift in Sources */,
 				B30E0C53210AF56D0038CF7A /* OOTWeatherService.swift in Sources */,
 				B3A57003210B71070063C36D /* NVIndicatorView.swift in Sources */,
+				EFD440072110B3C600C5F188 /* WeeklyChartView.swift in Sources */,
 				B392B264210E9FF0007B9022 /* DropAnimationView.swift in Sources */,
 				B3ECD75D210C03E5005CBA4A /* LocationManager.swift in Sources */,
 				EF566B83210FCEEF003673B0 /* LifeIndexCell.swift in Sources */,
