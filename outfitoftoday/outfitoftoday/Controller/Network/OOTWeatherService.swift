@@ -24,7 +24,14 @@ class OOTWeatherService {
 		case dayTime
 		case discomfort
 		case humidity
-		case dusts
+		case dust
+		case wind
+		case rain
+		case windChill
+		case uv
+		
+		case hour // 3시간 단위 그래프용
+		case week // 하루 단위 1주일치 그래프용
 		
 		var description: String {
 			switch self {
@@ -40,8 +47,20 @@ class OOTWeatherService {
 				return "\(OOTWeatherService.path.baseURL.description)discomfort"
 			case .humidity:
 				return "\(OOTWeatherService.path.baseURL.description)humidity"
-			case .dusts:
-				return "\(OOTWeatherService.path.baseURL.description)dusts"
+			case .dust:
+				return "\(OOTWeatherService.path.baseURL.description)dust"
+			case .wind:
+				return "\(OOTWeatherService.path.baseURL.description)wind"
+			case .rain:
+				return "\(OOTWeatherService.path.baseURL.description)rain"
+			case .windChill:
+				return "\(OOTWeatherService.path.baseURL.description)wind-chill"
+			case .uv:
+				return "\(OOTWeatherService.path.baseURL.description)uv"
+			case .hour:
+				return "\(OOTWeatherService.path.baseURL.description)hour"
+			case .week:
+				return "\(OOTWeatherService.path.baseURL.description)week"
 			}
 		}
 	}

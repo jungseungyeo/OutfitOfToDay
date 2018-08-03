@@ -20,6 +20,32 @@ class WeeklyWeatherCell: DetailWeatherCell {
 	
 	let chartView = WeeklyChartView()
 	
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		
+		getData()
+	}
+	
+	private func getData() {
+		OOTWeatherService.shared.get(urlPath: .week, handler: { (json) in				let decoder = JSONDecoder()
+			
+			do {
+				let rawData = try json.rawData()
+				let data = try decoder.decode([OneDayData].self, from: rawData)
+				
+				print(data)
+				
+			} catch let err {
+				debugPrint(err)
+			}		}) { (code, err) in
+			print("err Load Weekly Data:", code, err)
+		}
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
 	override func setupView() {
 		super.setupView()
 		addSubViews(titleLabel, chartView)
@@ -151,7 +177,7 @@ class SummaryOneDayView: UIView {
 
 
 	}
-	
+
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		

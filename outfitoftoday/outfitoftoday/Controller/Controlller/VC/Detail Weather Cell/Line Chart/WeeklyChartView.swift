@@ -15,6 +15,33 @@ struct TempDataEntry {
 	let label: String
 }
 
+/*
+### 1일 단위 (오늘 포함 7일)
+/week
+
+```
+[{
+"month": int,
+"day": int,
+"hour": int,
+"dayOfWeek": string, // MON, TUE, WED, ...
+"max": int,
+"min": int,
+"weather": 0~9
+},
+...
+]
+*/
+struct OneDayData: Codable {
+	let month: Int
+	let day: Int
+	let hour: Int
+	let dayOfWeek: String
+	
+	let max: Int
+	let min: Int
+	let weather: Int
+}
 // 스크롤 없는 버전의 차트
 
 class WeeklyChartView: UIView {

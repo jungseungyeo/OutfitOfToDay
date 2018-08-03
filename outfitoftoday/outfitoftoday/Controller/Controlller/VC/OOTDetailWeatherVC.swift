@@ -39,15 +39,44 @@ struct Weather {
 	var maxTemp: String?
 	
 	
+	class Info {
+		var value: Int?
+		init() { }
+	}
 	// MARK: dusts
 	var dust = Dust()
-	struct Dust {
-		var pm10: (Int, String)?
-		var pm25: (Int, String)?
-		var message: String?
-		init() {
-			
-		}
+	class Dust: Info {
+		
+	}
+	
+	var wind = Wind()
+	class Wind: Info {
+		
+	}
+	
+	var humidity = Humidity()
+	class Humidity: Info {
+		
+	}
+	
+	var rain = Rain()
+	class Rain: Info {
+		
+	}
+	
+	var windChill = WindChill()
+	class WindChill: Info {
+	
+	}
+	
+	var ui = UV()
+	class UV: Info {
+		
+	}
+	
+	var discomfort = Discomfort()
+	class Discomfort: Info {
+		
 	}
 	
 	init() {
@@ -88,7 +117,7 @@ class OOTDetailWeatherVC: UIViewController {
 		weather = Weather()
 		weather.currentLocation = locationManager.getCityName()
 		getTodayTemperature()
-		getDusts()
+		getDust()
 	}
 	
 	private func setupCollectionView() {
@@ -221,19 +250,12 @@ extension OOTDetailWeatherVC {
 		})
 	}
 	
-	private func getDusts() {
-		OOTWeatherService.shared.get(urlPath: .dusts, handler: {(json) in
+	private func getDust() {
+		OOTWeatherService.shared.get(urlPath: .dust, handler: {(json) in
 			print(json)
-			let pm10Value = json[kSTRING_DUSTS_API_PM10VALUE].intValue
-			let pm10Status = json[kSTRING_DUSTS_API_PM10STATUS].stringValue
-			self.weather.dust.pm10 = (pm10Value, pm10Status)
-			
-			let pm25Value = json[kSTRING_DUSTS_API_PM25VALUE].intValue
-			let pm25Status = json[kSTRING_DUSTS_API_PM25STATUS].stringValue
-			self.weather.dust.pm25 = (pm25Value, pm25Status)
-//			self.weather.pm10 =
+			let value = json["value"].intValue
+			self.weather.dust.value = value
 
-			
 			self.collectionView.reloadData()
 		}, errorHandler: { (statusCode, errorMessage) in
 			

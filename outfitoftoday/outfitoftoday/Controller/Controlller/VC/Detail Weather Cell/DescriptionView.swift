@@ -24,7 +24,7 @@ enum DescriptionType {
 class DescriptionView: UIView {
 	var weather: Weather? {
 		didSet {
-			valueLabel.text = weather?.dust.pm10?.1
+			valueLabel.text = weather?.dust.value?.description
 		}
 	}
 	var type: DescriptionType? {
