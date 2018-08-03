@@ -91,12 +91,12 @@ class DescriptionView: UIView {
 	
 	let typeLabel = UILabel().then {
 		$0.text = "미세먼지"
-		$0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+		$0.font = .spoqaFont(ofSize: 14, weight: .regular)
 	}
 	
 	let valueLabel = UILabel().then {
 		$0.text = "좋음"
-		$0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+		$0.font = .spoqaFont(ofSize: 14, weight: .regular)
 	}
 	
 	override init(frame: CGRect) {
@@ -119,13 +119,11 @@ class DescriptionView: UIView {
 		}
 		
 		typeLabel.snp.remakeConstraints { make -> Void in
-//			make.top.equalTo(iconImgView.snp.bottom).offset(8)
 			make.centerX.equalTo(self)
 			make.bottom.equalTo(valueLabel.snp.top).offset(-4)
 		}
 		
 		valueLabel.snp.remakeConstraints { make -> Void in
-//			make.top.equalTo(typeLabel.snp.bottom).offset(4)
 			make.centerX.equalTo(self)
 			make.bottom.equalTo(self)
 		}

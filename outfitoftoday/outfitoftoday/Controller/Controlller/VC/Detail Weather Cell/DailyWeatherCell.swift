@@ -12,7 +12,7 @@ class DailyWeatherCell: DetailWeatherCell {
 	
 	let titleLabel = UILabel().then {
 		$0.text = "상세날씨"
-		$0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+		$0.font = .spoqaFont(ofSize: 16, weight: .bold)
 	}
 	
 	let lineChartView = LineChart()

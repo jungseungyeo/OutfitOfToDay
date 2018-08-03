@@ -31,8 +31,16 @@ fileprivate let weeklyCellID = "weeklyCellID"
 fileprivate let gotoTopCellID = "goToTopCellID"
 
 struct Weather {
-	var currentTime: String
-	var currentLocation: String
+	var currentTime: String?
+	var currentLocation: String?
+	
+	var currentTemp: String?
+	var minTemp: String?
+	var maxTemp: String?
+	
+	init() {
+		
+	}
 }
 
 class OOTDetailWeatherVC: UIViewController {
@@ -54,8 +62,8 @@ class OOTDetailWeatherVC: UIViewController {
 		super.viewDidLoad()
 		
 		
-		setupWeather()
 		setupObserver()
+		setupWeather()
 		setupCollectionView()
 	}
 	
@@ -64,7 +72,10 @@ class OOTDetailWeatherVC: UIViewController {
 		timeManager.attachObserver(self)
 	}
 	private func setupWeather() {
-		weather = Weather(currentTime: "오후 99시 99분", currentLocation: "숴울쉬 광놤구")
+//		weather = Weather(currentTime: "", currentLocation: locationManager.getCityName()
+		weather = Weather()
+		weather.currentLocation = locationManager.getCityName()
+		getTemperature()
 	}
 	
 	private func setupCollectionView() {
@@ -122,8 +133,6 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 		case .weeklyChart:
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: weeklyCellID, for: indexPath) as! WeeklyWeatherCell
 			
-			
-
 		case .goToTop:
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: gotoTopCellID, for: indexPath) as! GoToTopCell
 			(cell as! GoToTopCell).goToTopButton.addTarget(self, action: #selector(didTapGoToTop), for: .touchUpInside)
@@ -151,11 +160,11 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 		
 		switch item {
 		case .title:
-			return CGSize(width: cWidth, height: 200)
+			return CGSize(width: cWidth, height: 216)
 		case .description:
-			return CGSize(width: cWidth, height: 116)
+			return CGSize(width: cWidth, height: 120)
 		case .lifeIndex:
-			return CGSize(width: cWidth, height: 172)
+			return CGSize(width: cWidth, height: 186)
 		case .dailyChart:
 			return CGSize(width: cWidth, height: 210)
 		case .weeklyChart:
@@ -173,6 +182,33 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 		return UIEdgeInsetsMake(4, 0, 40, 0)
 	}
+	
+	
+}
+
+// MARK: Get Weather's Info Service
+extension OOTDetailWeatherVC {
+	private func getTemperature() {
+		
+		let parameters = [
+			"type": "today"
+		]
+		OOTWeatherService.shared.get(urlPath: .temperatures,parameters: parameters, handler: {(json) in
+			self.weather.currentTemp = json[kSTRING_TEMPERATURES_API_CURRENT].stringValue
+			self.weather.maxTemp = json[kSTRING_TEMPERATURES_API_MAXIMUM].stringValue
+			self.weather.minTemp = json[kSTRING_TEMPERATURES_API_MINIMUM].stringValue
+			
+			self.collectionView.reloadData()
+		}, errorHandler: { (statusCode, errorMessage) in
+			
+			let errorAlert: UIAlertController = .alert("code: \(statusCode)",errorMessage: errorMessage)
+			errorAlert.add(kSTRING_TITLE_CONFIRM, handler: { (handling) in
+				//				self.errorHandling(statusCode)
+			}).show(self)
+		})
+	}
+	
+	
 }
 
 // MARK: Observer

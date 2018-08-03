@@ -12,7 +12,7 @@ class LifeIndexCell: DetailWeatherCell {
 	
 	let titleLabel = UILabel().then {
 		$0.text = "생활지수"
-		$0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+		$0.font = .spoqaFont(ofSize: 16, weight: .bold)
 	}
 	
 	let stackView = UIStackView().then {

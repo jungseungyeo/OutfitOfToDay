@@ -25,6 +25,10 @@ class LocationManager: NSObject{
             return city
         }
     }
+	
+	func getCityName() -> String {
+		return city
+	}
     
     private override init(){ super.init() }
     
@@ -53,7 +57,7 @@ class LocationManager: NSObject{
                 return
             }
             
-            self.observerValue = "\(self.vilidCityName(to: cityName)) \(cityVillage)"
+            self.observerValue = "\(self.validCityName(to: cityName)) \(cityVillage)"
         }
     }
 }
@@ -61,7 +65,7 @@ class LocationManager: NSObject{
 // vilid 체크
 extension LocationManager {
     
-    private func vilidCityName(to cityName: String) -> String {
+    private func validCityName(to cityName: String) -> String {
         switch cityName {
             case "서울특별시":
                 return "서울시"

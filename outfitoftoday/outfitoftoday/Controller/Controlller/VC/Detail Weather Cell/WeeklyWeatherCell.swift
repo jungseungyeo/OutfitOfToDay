@@ -14,7 +14,7 @@ class WeeklyWeatherCell: DetailWeatherCell {
 	
 	let titleLabel = UILabel().then {
 		$0.text = "주간날씨"
-		$0.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+		$0.font = .spoqaFont(ofSize: 16, weight: .bold)
 	}
 	
 	let chartView = WeeklyChartView()
@@ -78,7 +78,7 @@ class SummaryOneDayView: UIView {
 	// MARK: Views
 	let dayLabel = UILabel().then {
 		$0.text = "ㅇ요일"
-		$0.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+		$0.font = .spoqaFont(ofSize: 12, weight: .regular)
 		$0.textAlignment = .center
 	}
 	
@@ -91,7 +91,7 @@ class SummaryOneDayView: UIView {
 		$0.textColor = .red
 		$0.text = "-33"
 		$0.textAlignment = .center
-		$0.font = UIFont.systemFont(ofSize: 12, weight: .light)
+		$0.font = .spoqaFont(ofSize: 12, weight: .light)
 	}
 	
 	let highTempPointView = UIView().then {
@@ -103,7 +103,7 @@ class SummaryOneDayView: UIView {
 		$0.textColor = .blue
 		$0.text = "-55"
 		$0.textAlignment = .center
-		$0.font = UIFont.systemFont(ofSize: 12, weight: .light)
+		$0.font = .spoqaFont(ofSize: 12, weight: .light)
 
 	}
 	
