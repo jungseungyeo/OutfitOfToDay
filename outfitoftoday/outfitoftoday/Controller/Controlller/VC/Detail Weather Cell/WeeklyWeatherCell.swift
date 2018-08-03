@@ -34,6 +34,7 @@ class WeeklyWeatherCell: DetailWeatherCell {
 				let data = try decoder.decode([OneDayData].self, from: rawData)
 				
 				print(data)
+				self.chartView.dataEntries = data
 				
 			} catch let err {
 				debugPrint(err)
@@ -60,14 +61,15 @@ class WeeklyWeatherCell: DetailWeatherCell {
 			make.left.right.equalTo(readableContentGuide).inset(10)
 			make.bottom.equalTo(readableContentGuide)
 		}
-		setDummyData()
+//		setDummyData()
 		
+		getData()
 	}
 	
 	func setDummyData() {
-		let dataEntries = generateRandomEntries()
+//		let dataEntries = generateRandomEntries()
 		
-		chartView.dataEntries = dataEntries
+//		chartView.dataEntries = dataEntries
 	}
 	
 	private func generateRandomEntries() -> [TempDataEntry] {

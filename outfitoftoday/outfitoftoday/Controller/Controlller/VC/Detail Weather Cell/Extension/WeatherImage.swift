@@ -8,6 +8,9 @@
 
 import UIKit
 
-let weatherImages: [UIImage] = [
-	#imageLiteral(resourceName: "SunnyIcon"), #imageLiteral(resourceName: "SmallCloudyIcon"), #imageLiteral(resourceName: "MediumCloudyIcon"), #imageLiteral(resourceName: "CloudyIcon"), #imageLiteral(resourceName: "RainyIcon"), #imageLiteral(resourceName: "SnowyIcon"), #imageLiteral(resourceName: "SleetIcon"), #imageLiteral(resourceName: "HailIcon"), #imageLiteral(resourceName: "FogIcon"), #imageLiteral(resourceName: "YellowdustIcon")
-]
+struct WeatherImage {
+	static let imgs: [UIImage] = [
+		#imageLiteral(resourceName: "SunnyIcon"), #imageLiteral(resourceName: "SmallCloudyIcon"), #imageLiteral(resourceName: "MediumCloudyIcon"), #imageLiteral(resourceName: "CloudyIcon"), #imageLiteral(resourceName: "RainyIcon"), #imageLiteral(resourceName: "SnowyIcon"), #imageLiteral(resourceName: "SleetIcon"), #imageLiteral(resourceName: "HailIcon"), #imageLiteral(resourceName: "FogIcon"), #imageLiteral(resourceName: "YellowdustIcon")
+	]
+}
+
