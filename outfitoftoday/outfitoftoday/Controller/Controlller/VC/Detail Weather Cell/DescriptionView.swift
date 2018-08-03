@@ -24,7 +24,24 @@ enum DescriptionType {
 class DescriptionView: UIView {
 	var weather: Weather? {
 		didSet {
-			valueLabel.text = weather?.dust.value?.description
+			guard let info = weather?.descriptionInfo else { return }
+			guard let type = type else { return }
+			switch type {
+			case .dust:
+				valueLabel.text = indexToValue(info.dust)
+			case .wind:
+				valueLabel.text = indexToValue(info.wind)
+			case .humidity:
+				valueLabel.text = indexToValue(info.humidity)
+			case .rain:
+				valueLabel.text = indexToValue(info.rain)
+			case .temp:
+				valueLabel.text = indexToValue(info.windChill)
+			case .uv:
+				valueLabel.text = indexToValue(info.uv)
+			case .discomfort:
+				valueLabel.text = indexToValue(info.discomfort)
+			}
 		}
 	}
 	var type: DescriptionType? {
@@ -121,6 +138,9 @@ class DescriptionView: UIView {
 	}
 	
 	func indexToValue(_ index: Int) -> String {
+		let colorArr: [UIColor] = [.rosyPink, .skyBlue, .lightishGreen]
+		self.valueLabel.textColor = colorArr[index]
+		
 		guard let type = type else { return "" }
 		var valueList = ["", "", ""]
 		switch type {

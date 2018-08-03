@@ -27,6 +27,12 @@ class LifeIndexCell: DetailWeatherCell {
 		DescriptionView(weather: nil, type: .discomfort)
 	]
 	
+	override func didSetWeather() {
+		super.didSetWeather()
+		
+		descriptionViews.forEach { $0.weather = weather }
+	}
+	
 	override func setupView() {
 		super.setupView()
 		addSubViews(titleLabel, stackView)

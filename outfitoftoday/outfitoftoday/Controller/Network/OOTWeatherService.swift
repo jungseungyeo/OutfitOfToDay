@@ -30,6 +30,8 @@ class OOTWeatherService {
 		case windChill
 		case uv
 		
+		case current
+		
 		case hour // 3시간 단위 그래프용
 		case week // 하루 단위 1주일치 그래프용
 		
@@ -61,6 +63,8 @@ class OOTWeatherService {
 				return "\(OOTWeatherService.path.baseURL.description)hour"
 			case .week:
 				return "\(OOTWeatherService.path.baseURL.description)week"
+			case .current:
+				return "\(OOTWeatherService.path.baseURL.description)current"
 			}
 		}
 	}

@@ -39,45 +39,7 @@ struct Weather {
 	var maxTemp: String?
 	
 	
-	class Info {
-		var value: Int?
-		init() { }
-	}
-	// MARK: dusts
-	var dust = Dust()
-	class Dust: Info {
-		
-	}
-	
-	var wind = Wind()
-	class Wind: Info {
-		
-	}
-	
-	var humidity = Humidity()
-	class Humidity: Info {
-		
-	}
-	
-	var rain = Rain()
-	class Rain: Info {
-		
-	}
-	
-	var windChill = WindChill()
-	class WindChill: Info {
-	
-	}
-	
-	var ui = UV()
-	class UV: Info {
-		
-	}
-	
-	var discomfort = Discomfort()
-	class Discomfort: Info {
-		
-	}
+	var descriptionInfo: DescriptionInfo?
 	
 	init() {
 		
@@ -117,7 +79,7 @@ class OOTDetailWeatherVC: UIViewController {
 		weather = Weather()
 		weather.currentLocation = locationManager.getCityName()
 		getTodayTemperature()
-		getDust()
+		getCurrentInfo()
 	}
 	
 	private func setupCollectionView() {
@@ -250,22 +212,25 @@ extension OOTDetailWeatherVC {
 		})
 	}
 	
-	private func getDust() {
-		OOTWeatherService.shared.get(urlPath: .dust, handler: {(json) in
-			print(json)
-			let value = json["value"].intValue
-			self.weather.dust.value = value
-
-			self.collectionView.reloadData()
-		}, errorHandler: { (statusCode, errorMessage) in
+	private func getCurrentInfo() {
+		OOTWeatherService.shared.get(urlPath: .current, handler: {(json) in
 			
-			let errorAlert: UIAlertController = .alert("code: \(statusCode)",errorMessage: errorMessage)
-			errorAlert.add(kSTRING_TITLE_CONFIRM, handler: { (handling) in
-				//				self.errorHandling(statusCode)
-			}).show(self)
-		})
+			let decoder = JSONDecoder()
+			
+			do {
+				let rawData = try json.rawData()
+				let data = try decoder.decode(DescriptionInfo.self, from: rawData)
+				
+				print(data)
+				self.weather.descriptionInfo = data
+				self.collectionView.reloadData()
+				
+			} catch let err {
+				debugPrint(err)
+			}		}) { (code, err) in
+				print("err Load Weekly Data:", code, err)
+		}
 	}
-	
 	
 }
 

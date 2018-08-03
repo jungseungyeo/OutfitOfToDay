@@ -24,9 +24,10 @@ class DescriptionWeatherCell: DetailWeatherCell {
 		DescriptionView(weather: nil, type: .rain)
 	]
 	override func didSetWeather() {
-		for i in 0..<4 {
-			descriptionViews[i].weather = weather
-		}
+//		for i in 0..<4 {
+//			descriptionViews[i].weather = weather
+//		}
+		descriptionViews.forEach { $0.weather = weather }
 	}
 	override func setupView() {
 		super.setupView()
