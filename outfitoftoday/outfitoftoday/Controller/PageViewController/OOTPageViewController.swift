@@ -19,6 +19,13 @@ class OOTPageViewController: UIPageViewController {
             self.setViewControllers([first], direction: .forward, animated: false, completion: nil)
         }
     }
+	
+	func goToTop() {
+		if let first = viewcontrollerList.first {
+			self.setViewControllers([first], direction: .reverse, animated: true, completion: nil)
+		}
+		
+	}
 }
 
 extension OOTPageViewController: UIPageViewControllerDataSource {

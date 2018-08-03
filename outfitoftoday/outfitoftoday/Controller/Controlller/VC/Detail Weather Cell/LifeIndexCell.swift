@@ -30,7 +30,7 @@ class LifeIndexCell: DetailWeatherCell {
 		}
 		
 		stackView.snp.remakeConstraints { make -> Void in
-			make.top.equalTo(titleLabel.snp.bottom).offset(14)
+			make.top.equalTo(titleLabel.snp.bottom).offset(20)
 			make.left.right.equalTo(readableContentGuide).inset(32)
 			make.bottom.equalTo(readableContentGuide)
 		}

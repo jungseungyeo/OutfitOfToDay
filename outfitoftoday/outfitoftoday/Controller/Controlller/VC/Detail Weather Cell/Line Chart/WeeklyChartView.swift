@@ -28,7 +28,7 @@ class WeeklyChartView: UIView {
 	
 	
 	let topSpace: CGFloat = 80.0
-	let bottomSpace: CGFloat = 40.0
+	let bottomSpace: CGFloat = 26.0
 	
 	let maxLayerColor = UIColor.rosyPink.cgColor
 	let minLayerColor = UIColor.skyBlue.cgColor
@@ -77,6 +77,7 @@ class WeeklyChartView: UIView {
 			dataPoints = convertDataEntriesToPoints(dataEntries)
 			
 			clean()
+			drawVerticalLines()
 //			drawHorizontalLines()
 			drawChart()
 			drawLables()
@@ -103,7 +104,7 @@ class WeeklyChartView: UIView {
 			
 			for i in 0..<entries.count {
 				let height = dataLayer.frame.height * (1 - ((CGFloat(entries[i]) - CGFloat(min)) / minMaxRange))
-				let lineGap = self.frame.size.width / 7
+				let lineGap = self.frame.size.width / CGFloat(dataEntries.count)
 				
 				if i%2 == 0 { // min point
 					let minPoint = CGPoint(x: CGFloat(Int(i/2))*lineGap + (lineGap/2), y: height)
@@ -113,11 +114,25 @@ class WeeklyChartView: UIView {
 					result[Int(i/2)].1 = maxPoint
 				}
 				
-				
 			}
 			return result
 		}
 		return []
+	}
+	
+	/// 요일 구분 세로선을 그린다
+	private func drawVerticalLines() {
+		guard let entries = dataEntries else { return }
+		for i in 0..<(entries.count - 1) {
+			let lineLayer = CALayer().then {
+				$0.backgroundColor = UIColor.groupTableViewBackground.cgColor
+				
+				let xValue = (CGFloat(i+1) * lineGap)
+				$0.frame = CGRect(x: xValue, y: 8, width: 1, height: self.frame.size.height - 16)
+			}
+//			mainLayer.addSublayer(lineLayer)
+			mainLayer.insertSublayer(lineLayer, at: 0)
+		}
 	}
 	
 	/**
