@@ -35,11 +35,11 @@ class DropAnimationManager: NSObject {
         var createTime: Double {
             switch self {
                 case .many:
-                    return 0.01
-                case .middle:
                     return 0.05
-                case .low:
+                case .middle:
                     return 0.1
+                case .low:
+                    return 0.2
             }
         }
     }

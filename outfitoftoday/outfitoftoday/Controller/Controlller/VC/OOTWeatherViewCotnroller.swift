@@ -25,7 +25,24 @@ class OOTWeatherViewCotnroller: BaseVC {
     private let clothView = ClothView()
     
     // 한 줄 코멘트
-    private let todatComment = UILabel()
+    private let todatComment = UILabel().then {
+        $0.text = """
+        시원한 빗속을
+        천천히 걸어보아요
+        """
+        $0.numberOfLines = 2
+        $0.font = .systemFont(ofSize: 20, weight: .light)
+        $0.contentMode = .left
+        $0.textColor = .black
+    }
+    
+    private let gotoBottom = UIImageView().then {
+        $0.image = UIImage(named: "gotoBottom")
+        $0.contentMode = .scaleAspectFit
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private let cloudCount: Int = 0
     
     // singleTon
     private let locationManager = LocationManager.shared
@@ -62,6 +79,8 @@ class OOTWeatherViewCotnroller: BaseVC {
             ,locationTimeView
             ,sceneView
             ,clothView
+            ,todatComment
+            ,gotoBottom
         )
         
         backColorView.snp.makeConstraints { make -> Void in
@@ -73,9 +92,9 @@ class OOTWeatherViewCotnroller: BaseVC {
         }
         
         locationTimeView.snp.makeConstraints { make -> Void in
-            make.height.equalTo(116)
+            make.height.equalTo(self.view.snp.height).dividedBy(6.2336448598)
             
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(53)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(locationTimeViewRatio())
             make.left.equalToSuperview().inset(20)
             make.right.equalToSuperview().inset(20)
         }
@@ -104,10 +123,26 @@ class OOTWeatherViewCotnroller: BaseVC {
             make.height.equalTo(((self.view.frame.width - 40) * 0.429850746268) * 2.8888888)
         }
     
+        todatComment.snp.makeConstraints { make -> Void in
+            make.top.equalTo(sceneView.snp.bottom).offset(20)
+            make.left.equalTo(sceneView)
+        }
+        
+        gotoBottom.snp.makeConstraints { make -> Void in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-8)
+            
+            make.height.equalTo(32)
+            make.width.equalTo(55)
+        }
     }
     
     private func sceneRatio() -> CGFloat {
         return CGFloat((UIScreen.main.bounds.width - 40) / 67)
+    }
+    
+    private func locationTimeViewRatio() -> CGFloat {
+        return (UIScreen.main.bounds.height * 0.079460269865)
     }
     
 }
@@ -117,7 +152,6 @@ extension OOTWeatherViewCotnroller {
     private func backgroundAPI() {
         let indicator: NVActivityIndicatorView = NVIndicatiorView.instance(self)
         indicator.startAnimating()
-        
         OOTWeatherService.shared.get(urlPath: .backgrounds, handler: {(json) in
             indicator.stopAnimating()
             self.backgroundModel = BackgroundsModel(
@@ -127,6 +161,7 @@ extension OOTWeatherViewCotnroller {
                 ,windSpeed: json[kSTRING_BACKGROUND_API_WINDSPEED].intValue
             )
             self.sceneView.backgroundsModel = self.backgroundModel
+            self.clothView.backgroundModel = self.backgroundModel
         }, errorHandler: { (statusCode, errorMessage) in
             indicator.stopAnimating()
             let errorAlert: UIAlertController = .alert("code: \(statusCode)",errorMessage: errorMessage)
@@ -139,8 +174,10 @@ extension OOTWeatherViewCotnroller {
     private func temperrauresAPI() {
         let indicator: NVActivityIndicatorView = NVIndicatiorView.instance(self)
         indicator.startAnimating()
-        
-        OOTWeatherService.shared.get(urlPath: .temperatures, handler: {(json) in
+        let parameters = [
+            "type": "today"
+        ]
+        OOTWeatherService.shared.get(urlPath: .temperatures,parameters: parameters, handler: {(json) in
             indicator.stopAnimating()
             
             self.temperaturesModel = TemperaturesModel(
@@ -159,6 +196,8 @@ extension OOTWeatherViewCotnroller {
             }).show(self)
         })
     }
+    
+    
 }
 
 // MAKR : error handling
@@ -272,7 +311,7 @@ extension OOTWeatherViewCotnroller {
         }
         
         UIView.animate(withDuration: TimeInterval(CloudAnimationManager.getMoveSpeed()), animations: {
-            
+
             cloudView.center.x -= UIScreen.main.bounds.width / 2
             
         }, completion: { (finished: Bool) in
