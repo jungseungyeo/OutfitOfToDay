@@ -27,7 +27,7 @@ class DailyWeatherCell: DetailWeatherCell {
 		}
 		
 		lineChartView.snp.remakeConstraints { make -> Void in
-			make.top.equalTo(titleLabel.snp.bottom).offset(4)
+			make.top.equalTo(titleLabel.snp.bottom).offset(18)
 			make.left.right.bottom.equalTo(self)
 		}
 

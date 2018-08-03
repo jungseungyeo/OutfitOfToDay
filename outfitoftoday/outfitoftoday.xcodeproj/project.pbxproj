@@ -58,6 +58,7 @@
 		EF6A6BAB211088A6002301EF /* DailyWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6A6BAA211088A6002301EF /* DailyWeatherCell.swift */; };
 		EFD440072110B3C600C5F188 /* WeeklyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD440062110B3C600C5F188 /* WeeklyChartView.swift */; };
 		EFD4400921116AAC00C5F188 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4400821116AAC00C5F188 /* UIColor+.swift */; };
+		EFD4400C21118FD100C5F188 /* GoToTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD4400B21118FD100C5F188 /* GoToTopCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		EF6A6BAA211088A6002301EF /* DailyWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWeatherCell.swift; sourceTree = "<group>"; };
 		EFD440062110B3C600C5F188 /* WeeklyChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyChartView.swift; sourceTree = "<group>"; };
 		EFD4400821116AAC00C5F188 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		EFD4400B21118FD100C5F188 /* GoToTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToTopCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +346,7 @@
 				EF6A6BAA211088A6002301EF /* DailyWeatherCell.swift */,
 				EF6A6BA0211048F6002301EF /* WeeklyWeatherCell.swift */,
 				EF6A6BA321108860002301EF /* Line Chart */,
+				EFD4400B21118FD100C5F188 /* GoToTopCell.swift */,
 			);
 			path = "Detail Weather Cell";
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				EF566B7F210EFB68003673B0 /* DetailWeatherCell.swift in Sources */,
 				B3F7F87B210F38AD00E7C05D /* CloudAnimationManager.swift in Sources */,
 				B32725EF210B07C300CE0FFC /* Data+.swift in Sources */,
+				EFD4400C21118FD100C5F188 /* GoToTopCell.swift in Sources */,
 				B359BDD220D566AF0032E187 /* AppDelegate.swift in Sources */,
 				EF566B81210F6FF7003673B0 /* DescriptionWeatherCell.swift in Sources */,
 			);
@@ -724,6 +728,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 827YX997NH;
 				INFOPLIST_FILE = "$(SRCROOT)/outfitoftoday/SurpportFile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -744,6 +749,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 827YX997NH;
 				INFOPLIST_FILE = "$(SRCROOT)/outfitoftoday/SurpportFile/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
