@@ -38,6 +38,18 @@ struct Weather {
 	var minTemp: String?
 	var maxTemp: String?
 	
+	
+	// MARK: dusts
+	var dust = Dust()
+	struct Dust {
+		var pm10: (Int, String)?
+		var pm25: (Int, String)?
+		var message: String?
+		init() {
+			
+		}
+	}
+	
 	init() {
 		
 	}
@@ -75,7 +87,8 @@ class OOTDetailWeatherVC: UIViewController {
 //		weather = Weather(currentTime: "", currentLocation: locationManager.getCityName()
 		weather = Weather()
 		weather.currentLocation = locationManager.getCityName()
-		getTemperature()
+		getTodayTemperature()
+		getDusts()
 	}
 	
 	private func setupCollectionView() {
@@ -188,7 +201,7 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 
 // MARK: Get Weather's Info Service
 extension OOTDetailWeatherVC {
-	private func getTemperature() {
+	private func getTodayTemperature() {
 		
 		let parameters = [
 			"type": "today"
@@ -197,6 +210,29 @@ extension OOTDetailWeatherVC {
 			self.weather.currentTemp = json[kSTRING_TEMPERATURES_API_CURRENT].stringValue
 			self.weather.maxTemp = json[kSTRING_TEMPERATURES_API_MAXIMUM].stringValue
 			self.weather.minTemp = json[kSTRING_TEMPERATURES_API_MINIMUM].stringValue
+			
+			self.collectionView.reloadData()
+		}, errorHandler: { (statusCode, errorMessage) in
+			
+			let errorAlert: UIAlertController = .alert("code: \(statusCode)",errorMessage: errorMessage)
+			errorAlert.add(kSTRING_TITLE_CONFIRM, handler: { (handling) in
+				//				self.errorHandling(statusCode)
+			}).show(self)
+		})
+	}
+	
+	private func getDusts() {
+		OOTWeatherService.shared.get(urlPath: .dusts, handler: {(json) in
+			print(json)
+			let pm10Value = json[kSTRING_DUSTS_API_PM10VALUE].intValue
+			let pm10Status = json[kSTRING_DUSTS_API_PM10STATUS].stringValue
+			self.weather.dust.pm10 = (pm10Value, pm10Status)
+			
+			let pm25Value = json[kSTRING_DUSTS_API_PM25VALUE].intValue
+			let pm25Status = json[kSTRING_DUSTS_API_PM25STATUS].stringValue
+			self.weather.dust.pm25 = (pm25Value, pm25Status)
+//			self.weather.pm10 =
+
 			
 			self.collectionView.reloadData()
 		}, errorHandler: { (statusCode, errorMessage) in

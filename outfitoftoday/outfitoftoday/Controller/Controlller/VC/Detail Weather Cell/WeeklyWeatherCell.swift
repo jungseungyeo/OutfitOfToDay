@@ -14,6 +14,7 @@ class WeeklyWeatherCell: DetailWeatherCell {
 	
 	let titleLabel = UILabel().then {
 		$0.text = "주간날씨"
+		$0.textColor = .brightBlack
 		$0.font = .spoqaFont(ofSize: 16, weight: .bold)
 	}
 	

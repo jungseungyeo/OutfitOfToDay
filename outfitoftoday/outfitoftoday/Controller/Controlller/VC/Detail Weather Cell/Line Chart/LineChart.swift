@@ -247,20 +247,20 @@ class LineChart: UIView {
 				// draw Text: 아랫쪽 온도표시
                 let textLayer = CATextLayer()
                 textLayer.frame = CGRect(x: xValue, y: mainLayer.frame.size.height - bottomSpace/2 - 8, width: lineGap, height: 16)
-                textLayer.foregroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+                textLayer.foregroundColor = UIColor.gunmetal.cgColor
                 textLayer.backgroundColor = UIColor.clear.cgColor
                 textLayer.alignmentMode = kCAAlignmentCenter
                 textLayer.contentsScale = UIScreen.main.scale
                 textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
                 textLayer.fontSize = 12
-                textLayer.string = dataEntries[i].label
+                textLayer.string = dataEntries[i].label + " ̊"
                 mainLayer.addSublayer(textLayer)
 				
 				
 				// draw Text: 윗쪽 시간표시
 				let topTextLayer = CATextLayer().then {
 					$0.frame = CGRect(x: xValue, y: 0, width: lineGap, height: 18)
-					$0.foregroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+					$0.foregroundColor = UIColor.gunmetal.cgColor
 					$0.backgroundColor = UIColor.clear.cgColor
 					$0.alignmentMode = kCAAlignmentCenter
 					$0.contentsScale = UIScreen.main.scale

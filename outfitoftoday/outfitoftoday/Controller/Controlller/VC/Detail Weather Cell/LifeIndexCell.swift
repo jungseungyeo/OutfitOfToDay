@@ -13,12 +13,19 @@ class LifeIndexCell: DetailWeatherCell {
 	let titleLabel = UILabel().then {
 		$0.text = "생활지수"
 		$0.font = .spoqaFont(ofSize: 16, weight: .bold)
+		$0.textColor = .brightBlack
 	}
 	
 	let stackView = UIStackView().then {
 		$0.axis = .horizontal
 		$0.distribution = .equalSpacing
 	}
+	
+	var descriptionViews: [DescriptionView] = [
+		DescriptionView(weather: nil, type: .temp),
+		DescriptionView(weather: nil, type: .uv),
+		DescriptionView(weather: nil, type: .discomfort)
+	]
 	
 	override func setupView() {
 		super.setupView()
@@ -41,7 +48,7 @@ class LifeIndexCell: DetailWeatherCell {
 				let lineView = VerticalLineView()
 				stackView.addArrangedSubview(lineView)
 			} else {
-				let dView = DescriptionView()
+				let dView = descriptionViews[Int(i/2)]
 				stackView.addArrangedSubview(dView)
 			}
 		}
