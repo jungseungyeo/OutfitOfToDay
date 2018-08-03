@@ -94,7 +94,7 @@ class LocationTimeView: BaseView {
         
         sumAndMoon.snp.makeConstraints { make -> Void in
             make.size.equalTo(70)
-            make.top.equalTo(20)
+            make.centerY.equalToSuperview()
             make.left.equalToSuperview()
         }
         

@@ -15,6 +15,7 @@ class OOTWeatherViewCotnroller: BaseVC {
     /// model
     private var backgroundModel: BackgroundsModel?
     private var temperaturesModel: TemperaturesModel?
+    private var ultravioletModel: UltraVioletModel?
     
     // view
     private let backColorView = BackColorView()
@@ -42,7 +43,18 @@ class OOTWeatherViewCotnroller: BaseVC {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private let cloudCount: Int = 0
+    private func addTapGest() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapped(sender:)))
+        gotoBottom.isUserInteractionEnabled = true
+        gotoBottom.addGestureRecognizer(tap)
+        
+    }
+    
+    @objc private func tapped(sender: UITapGestureRecognizer) {
+        
+        let pageViewController = self.parent as! OOTPageViewController
+        pageViewController.goToBottom()
+    }
     
     // singleTon
     private let locationManager = LocationManager.shared
@@ -60,6 +72,7 @@ class OOTWeatherViewCotnroller: BaseVC {
         locationManager.requestForLocation()
         initObserver()
         initAPI()
+        addTapGest()
     }
     
     override func initAPI() {
@@ -117,10 +130,10 @@ class OOTWeatherViewCotnroller: BaseVC {
         
         clothView.snp.makeConstraints { make -> Void in
             make.top.equalTo(sceneView.snp.top).offset(28.4)
-            make.right.equalTo(sceneView.snp.right).offset(-7.5)
+            make.right.equalTo(self.view.snp.right)
             
-            make.width.equalTo((self.view.frame.width - 40) * 0.429850746268)
-            make.height.equalTo(((self.view.frame.width - 40) * 0.429850746268) * 2.8888888)
+            make.width.equalTo((self.view.frame.width - 40) * 0.507462686567164)
+            make.height.equalTo(((self.view.frame.width - 40) * 0.507462686567164) * 2.452941176470588)
         }
     
         todatComment.snp.makeConstraints { make -> Void in
@@ -132,9 +145,10 @@ class OOTWeatherViewCotnroller: BaseVC {
             make.centerX.equalToSuperview()
             make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(-8)
             
-            make.height.equalTo(32)
+            make.height.equalTo(44)
             make.width.equalTo(55)
         }
+        
     }
     
     private func sceneRatio() -> CGFloat {
@@ -196,7 +210,6 @@ extension OOTWeatherViewCotnroller {
             }).show(self)
         })
     }
-    
     
 }
 

@@ -24,6 +24,7 @@ class OOTWeatherService {
         case dayTime
         case discomfort
         case humidity
+        case ultra
         
         var description: String {
             switch self {
@@ -39,6 +40,8 @@ class OOTWeatherService {
                     return "\(OOTWeatherService.path.baseURL.description)discomfort"
                 case .humidity:
                     return "\(OOTWeatherService.path.baseURL.description)humidity"
+                case .ultra:
+                    return "\(OOTWeatherService.path.baseURL.description)uvrays"
             }
         }
     }
