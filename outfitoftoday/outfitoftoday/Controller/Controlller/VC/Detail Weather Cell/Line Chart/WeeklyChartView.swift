@@ -15,19 +15,46 @@ struct TempDataEntry {
 	let label: String
 }
 
+/*
+### 1일 단위 (오늘 포함 7일)
+/week
+
+```
+[{
+"month": int,
+"day": int,
+"hour": int,
+"dayOfWeek": string, // MON, TUE, WED, ...
+"max": int,
+"min": int,
+"weather": 0~9
+},
+...
+]
+*/
+struct OneDayData: Codable {
+	let month: Int
+	let day: Int
+	let hour: Int
+	let dayOfWeek: String
+	
+	let max: Int
+	let min: Int
+	let weather: Int
+}
 // 스크롤 없는 버전의 차트
 
 class WeeklyChartView: UIView {
 	
 	
-	var dataEntries: [TempDataEntry]? {
+	var dataEntries: [OneDayData]? {
 		didSet {
 			self.setNeedsLayout()
 		}
 	}
 	
 	
-	let topSpace: CGFloat = 80.0
+	let topSpace: CGFloat = 88.0
 	let bottomSpace: CGFloat = 26.0
 	
 	let maxLayerColor = UIColor.rosyPink.cgColor
@@ -87,7 +114,7 @@ class WeeklyChartView: UIView {
 	/**
 	Convert an array of PointEntry to an array of CGPoint on dataLayer coordinate system [(min, max)]
 	*/
-	private func convertDataEntriesToPoints(_ dataEntries: [TempDataEntry]) -> [(CGPoint, CGPoint)] {
+	private func convertDataEntriesToPoints(_ dataEntries: [OneDayData]) -> [(CGPoint, CGPoint)] {
 		var entries = [Int]()
 		
 		for data in dataEntries {
@@ -224,14 +251,15 @@ class WeeklyChartView: UIView {
 					$0.contentsScale = UIScreen.main.scale
 					$0.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
 					$0.fontSize = 12
-					$0.string = "ㅇ요일"
+					$0.string = dataEntries[i].dayOfWeek
 					
 				}
 				mainLayer.addSublayer(topTextLayer)
 				
 				// draw Image: 윗쪽 이미지
 				let iconImgLayer = CALayer().then {
-					let img = #imageLiteral(resourceName: "sunny").cgImage
+//					let img = #imageLiteral(resourceName: "sunny").cgImage
+					let img = WeatherImage.imgs[dataEntries[i].weather].cgImage
 					$0.frame = CGRect(x: xValue, y: 26, width: lineGap, height: 28)
 					$0.contents = img
 					$0.contentsGravity = kCAGravityResizeAspect
@@ -277,7 +305,7 @@ class WeeklyChartView: UIView {
 	
 	private func clean() {
 		mainLayer.sublayers?.forEach({
-			if $0 is CATextLayer {
+			if $0 is CATextLayer || ($0.contents) != nil {
 				$0.removeFromSuperlayer()
 			}
 		})

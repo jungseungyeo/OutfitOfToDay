@@ -11,6 +11,16 @@ import Then
 import SnapKit
 
 
+struct OneHourData: Codable {
+	let month: Int
+	let day: Int
+	let hour: Int
+	let dayOfWeek: String
+	
+	let temperature: Int
+	let weather: Int
+}
+
 //
 // 출처 : https://github.com/nhatminh12369/LineChart
 //
@@ -44,7 +54,7 @@ class LineChart: UIView {
     
     var isCurved: Bool = false
     
-    var dataEntries: [PointEntry]? {
+    var dataEntries: [OneHourData]? {
         didSet {
             self.setNeedsLayout()
         }
@@ -108,7 +118,7 @@ class LineChart: UIView {
             gridLayer.frame = CGRect(x: 0, y: topSpace, width: self.frame.width, height: mainLayer.frame.height - topSpace - bottomSpace)
             
             clean()
-            drawHorizontalLines()
+//            drawHorizontalLines()
             if isCurved {
                 drawCurvedChart()
             } else {
@@ -122,15 +132,23 @@ class LineChart: UIView {
     /**
      Convert an array of PointEntry to an array of CGPoint on dataLayer coordinate system
      */
-    private func convertDataEntriesToPoints(entries: [PointEntry]) -> [CGPoint] {
-        if let max = entries.max()?.value,
-            let min = entries.min()?.value {
+    private func convertDataEntriesToPoints(entries: [OneHourData]) -> [CGPoint] {
+		var entries = [Int]()
+		guard let dataEntries = dataEntries else { return [] }
+		for data in dataEntries {
+			let temp = data.temperature
+			entries.append(temp)
+			
+		}
+		
+		if let max = entries.max(),
+			let min = entries.min() {
             
             var result: [CGPoint] = []
             let minMaxRange: CGFloat = CGFloat(max - min) * topHorizontalLine
             
             for i in 0..<entries.count {
-                let height = dataLayer.frame.height * (1 - ((CGFloat(entries[i].value) - CGFloat(min)) / minMaxRange))
+                let height = dataLayer.frame.height * (1 - ((CGFloat(entries[i]) - CGFloat(min)) / minMaxRange))
                 let point = CGPoint(x: CGFloat(i)*lineGap + 40, y: height)
                 result.append(point)
             }
@@ -247,33 +265,33 @@ class LineChart: UIView {
 				// draw Text: 아랫쪽 온도표시
                 let textLayer = CATextLayer()
                 textLayer.frame = CGRect(x: xValue, y: mainLayer.frame.size.height - bottomSpace/2 - 8, width: lineGap, height: 16)
-                textLayer.foregroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+                textLayer.foregroundColor = UIColor.gunmetal.cgColor
                 textLayer.backgroundColor = UIColor.clear.cgColor
                 textLayer.alignmentMode = kCAAlignmentCenter
                 textLayer.contentsScale = UIScreen.main.scale
                 textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
                 textLayer.fontSize = 12
-                textLayer.string = dataEntries[i].label
+                textLayer.string = dataEntries[i].temperature.description + " ̊"
                 mainLayer.addSublayer(textLayer)
 				
 				
 				// draw Text: 윗쪽 시간표시
 				let topTextLayer = CATextLayer().then {
 					$0.frame = CGRect(x: xValue, y: 0, width: lineGap, height: 18)
-					$0.foregroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
+					$0.foregroundColor = UIColor.gunmetal.cgColor
 					$0.backgroundColor = UIColor.clear.cgColor
 					$0.alignmentMode = kCAAlignmentCenter
 					$0.contentsScale = UIScreen.main.scale
 					$0.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
 					$0.fontSize = 12
-					$0.string = "00시"
+					$0.string = dataEntries[i].hour.description + "시"
 					
 				}
 				mainLayer.addSublayer(topTextLayer)
 				
 				// draw Image: 윗쪽 이미지
 				let iconImgLayer = CALayer().then {
-					let img = #imageLiteral(resourceName: "sunny").cgImage
+					let img = WeatherImage.imgs[dataEntries[i].weather].cgImage
 					$0.frame = CGRect(x: xValue, y: 26, width: lineGap, height: 28)
 					$0.contents = img
 					$0.contentsGravity = kCAGravityResizeAspect
@@ -287,58 +305,58 @@ class LineChart: UIView {
     /**
      Create horizontal lines (grid lines) and show the value of each line
      */
-    private func drawHorizontalLines() {
-        guard let dataEntries = dataEntries else {
-            return
-        }
-        
-        var gridValues: [CGFloat]? = nil
-        if dataEntries.count < 4 && dataEntries.count > 0 {
-            gridValues = [0, 1]
-        } else if dataEntries.count >= 4 {
-            gridValues = [0, 0.25, 0.5, 0.75, 1]
-        }
-        if let gridValues = gridValues {
-            for value in gridValues {
-                let height = value * gridLayer.frame.size.height
-                
-                let path = UIBezierPath()
-                path.move(to: CGPoint(x: 0, y: height))
-                path.addLine(to: CGPoint(x: gridLayer.frame.size.width, y: height))
-                
-                let lineLayer = CAShapeLayer()
-                lineLayer.path = path.cgPath
-                lineLayer.fillColor = UIColor.clear.cgColor
-                lineLayer.strokeColor = #colorLiteral(red: 0.2784313725, green: 0.5411764706, blue: 0.7333333333, alpha: 1).cgColor
-                lineLayer.lineWidth = 0.5
-                if (value > 0.0 && value < 1.0) {
-                    lineLayer.lineDashPattern = [4, 4]
-                }
-                
-                gridLayer.addSublayer(lineLayer)
-                
-                var minMaxGap:CGFloat = 0
-                var lineValue:Int = 0
-                if let max = dataEntries.max()?.value,
-                    let min = dataEntries.min()?.value {
-                    minMaxGap = CGFloat(max - min) * topHorizontalLine
-                    lineValue = Int((1-value) * minMaxGap) + Int(min)
-                }
-                
-                let textLayer = CATextLayer()
-                textLayer.frame = CGRect(x: 4, y: height, width: 50, height: 16)
-                textLayer.foregroundColor = #colorLiteral(red: 0.5019607843, green: 0.6784313725, blue: 0.8078431373, alpha: 1).cgColor
-                textLayer.backgroundColor = UIColor.clear.cgColor
-                textLayer.contentsScale = UIScreen.main.scale
-                textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
-                textLayer.fontSize = 12
-                textLayer.string = "\(lineValue)"
-                
-                gridLayer.addSublayer(textLayer)
-            }
-        }
-    }
-    
+//    private func drawHorizontalLines() {
+//        guard let dataEntries = dataEntries else {
+//            return
+//        }
+//
+//        var gridValues: [CGFloat]? = nil
+//        if dataEntries.count < 4 && dataEntries.count > 0 {
+//            gridValues = [0, 1]
+//        } else if dataEntries.count >= 4 {
+//            gridValues = [0, 0.25, 0.5, 0.75, 1]
+//        }
+//        if let gridValues = gridValues {
+//            for value in gridValues {
+//                let height = value * gridLayer.frame.size.height
+//
+//                let path = UIBezierPath()
+//                path.move(to: CGPoint(x: 0, y: height))
+//                path.addLine(to: CGPoint(x: gridLayer.frame.size.width, y: height))
+//
+//                let lineLayer = CAShapeLayer()
+//                lineLayer.path = path.cgPath
+//                lineLayer.fillColor = UIColor.clear.cgColor
+//                lineLayer.strokeColor = #colorLiteral(red: 0.2784313725, green: 0.5411764706, blue: 0.7333333333, alpha: 1).cgColor
+//                lineLayer.lineWidth = 0.5
+//                if (value > 0.0 && value < 1.0) {
+//                    lineLayer.lineDashPattern = [4, 4]
+//                }
+//
+//                gridLayer.addSublayer(lineLayer)
+//
+//                var minMaxGap:CGFloat = 0
+//                var lineValue:Int = 0
+//                if let max = dataEntries.max()?.value,
+//                    let min = dataEntries.min()?.value {
+//                    minMaxGap = CGFloat(max - min) * topHorizontalLine
+//                    lineValue = Int((1-value) * minMaxGap) + Int(min)
+//                }
+//
+//                let textLayer = CATextLayer()
+//                textLayer.frame = CGRect(x: 4, y: height, width: 50, height: 16)
+//                textLayer.foregroundColor = #colorLiteral(red: 0.5019607843, green: 0.6784313725, blue: 0.8078431373, alpha: 1).cgColor
+//                textLayer.backgroundColor = UIColor.clear.cgColor
+//                textLayer.contentsScale = UIScreen.main.scale
+//                textLayer.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
+//                textLayer.fontSize = 12
+//                textLayer.string = "\(lineValue)"
+//
+//                gridLayer.addSublayer(textLayer)
+//            }
+//        }
+//    }
+	
     private func clean() {
         mainLayer.sublayers?.forEach({
             if $0 is CATextLayer {
