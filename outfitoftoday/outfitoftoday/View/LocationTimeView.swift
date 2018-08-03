@@ -35,7 +35,7 @@ class LocationTimeView: BaseView {
     
     lazy private var nowTemperature: UILabel = UILabel().then {
         $0.text = ""
-        $0.font = .systemFont(ofSize: 72, weight: .regular)
+        $0.font = .spoqaFont(ofSize: 72, weight: .regular)
         $0.textAlignment = .center
         $0.minimumScaleFactor = 0.5
         $0.numberOfLines = 0
@@ -43,7 +43,7 @@ class LocationTimeView: BaseView {
     
     lazy private var location: UILabel = UILabel().then {
         $0.text = ""
-        $0.font = .systemFont(ofSize: 14, weight: .bold)
+        $0.font = .spoqaFont(ofSize: 14, weight: .bold)
         $0.textAlignment = .left
         $0.minimumScaleFactor = 0.5
         $0.numberOfLines = 0
@@ -52,7 +52,7 @@ class LocationTimeView: BaseView {
     lazy private var nowTime: UILabel = UILabel().then {
         $0.text = ""
         $0.textColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1)
-        $0.font = .systemFont(ofSize: 14, weight: .regular)
+        $0.font = .spoqaFont(ofSize: 14, weight: .regular)
         $0.textAlignment = .left
         $0.minimumScaleFactor = 0.5
         $0.numberOfLines = 0
