@@ -110,7 +110,7 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 	}
 	
 	@objc func didTapGoToTop() {
-		self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+		self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
 		
 		let pageViewController = self.parent as! OOTPageViewController
 		pageViewController.goToTop()
