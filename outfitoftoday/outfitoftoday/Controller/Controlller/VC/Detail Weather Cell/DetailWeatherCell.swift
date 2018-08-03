@@ -12,6 +12,16 @@ import Then
 
 class DetailWeatherCell: UICollectionViewCell {
 	
+	var weather: Weather? {
+		didSet {
+			didSetWeather()
+		}
+	}
+	
+	func didSetWeather() {
+		
+	}
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		

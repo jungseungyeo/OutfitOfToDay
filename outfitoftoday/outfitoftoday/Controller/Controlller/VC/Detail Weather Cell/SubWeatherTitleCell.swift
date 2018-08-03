@@ -38,6 +38,13 @@ class SubWeatherTitleCell: DetailWeatherCell {
 		$0.textAlignment = .center
 	}
 	
+	override func didSetWeather() {
+		super.didSetWeather()
+		
+		timeLabel.text = weather?.currentTime
+		locationLabel.text = weather?.currentLocation
+	}
+	
 	override func setupView() {
 		super.setupView()
 		
