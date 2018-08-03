@@ -17,7 +17,7 @@ class CloudAnimationManager: NSObject {
         var count: Int {
             switch self {
                 case .many:
-                    return 10
+                    return 7
                 case .middle:
                     return 5
                 case .low:
@@ -45,7 +45,7 @@ class CloudAnimationManager: NSObject {
     
     // 구름 크기 생성
     static func getCloundSize() -> Int {
-        let randomSize = Int(arc4random_uniform(UInt32(100)))
+        let randomSize = Int(arc4random_uniform(UInt32(70)))
         guard randomSize > 30 else {
             return 30
         }
@@ -54,12 +54,16 @@ class CloudAnimationManager: NSObject {
     
     // 구름 투명도
     static func getRandAlpha(cloudSize: Int) -> CGFloat {
-        return CGFloat(cloudSize / 10) * 0.1
+        return CGFloat(cloudSize / 7) * 0.1
     }
     
     // 구름의 이동속도
     static func getMoveSpeed() -> Int {
-        return Int((arc4random_uniform(UInt32(50))) + 1)
+        let moveSpeed = Int((arc4random_uniform(UInt32(50))) + 1)
+        if moveSpeed < 20 {
+            return 20
+        }
+        return moveSpeed
     }
     
     // 구름 생성 (x좌표)

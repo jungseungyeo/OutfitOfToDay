@@ -25,6 +25,10 @@ class RootPageViewController: UIPageViewController {
             self.setViewControllers([first], direction: .forward, animated: true, completion: nil)
         }
     }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
 
 extension RootPageViewController: UIPageViewControllerDataSource {
