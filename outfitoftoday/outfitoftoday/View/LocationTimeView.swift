@@ -33,6 +33,16 @@ class LocationTimeView: BaseView {
         }
     }
     
+    public var weatherIconModel: WeatherIconModel? {
+        didSet {
+            guard let weatherIcomModel = weatherIconModel?.iconWeather else {
+                return
+            }
+            sumAndMoon.image = WeatherImage.imgs[weatherIcomModel]
+            sumAndMoon.image = WeatherImage.imgs[1]
+        }
+    }
+    
     lazy private var nowTemperature: UILabel = UILabel().then {
         $0.text = ""
         $0.font = .spoqaFont(ofSize: 72, weight: .regular)
@@ -93,7 +103,7 @@ class LocationTimeView: BaseView {
         }
         
         sumAndMoon.snp.makeConstraints { make -> Void in
-            make.size.equalTo(70)
+            make.size.equalTo(80)
             make.centerY.equalToSuperview()
             make.left.equalToSuperview()
         }

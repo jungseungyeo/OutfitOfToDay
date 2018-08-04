@@ -30,6 +30,40 @@ class ClothView: BaseView {
         }
     }
     
+    public var coordinateModel: CoordinateModel? {
+        didSet {
+            guard let coordinateModel = coordinateModel else {
+                return
+            }
+            print("coordinateModel ::: \(coordinateModel)")
+            
+            bodyIMG.image = ClothManager.getTop(value: coordinateModel.top)
+            legIMG.image = ClothManager.getBottom(value: coordinateModel.bottom)
+            footIMG.image = ClothManager.getShoes(value: coordinateModel.shoese)
+            maskIMG.image = ClothManager.getMask(value: coordinateModel.mask)
+            sunglassIMG.image = ClothManager.getSunglass(value: coordinateModel.sunglasses)
+            
+            switch coordinateModel.umbrella {
+            case 0:
+                closeUmbrell.isHidden = true
+                openUmbrell.isHidden = true
+            case 1:
+                closeUmbrell.isHidden = false
+                closeUmbrell.image = ClothManager.getumbrella(value: 1)
+                openUmbrell.isHidden = true
+            default:
+                closeUmbrell.isHidden = true
+                openUmbrell.image = ClothManager.getumbrella(value: 2)
+                openUmbrell.isHidden = false
+                
+                bodyIMG.image = ClothManager.getUbody(value: coordinateModel.top)
+                legIMG.image = UIImage(named: "leg_2")
+                footIMG.image = UIImage(named: "foot_2")
+            }
+            
+        }
+    }
+    
     lazy private var faceIMG = UIImageView().then {
         $0.image = UIImage(named: "head")
         $0.contentMode = .scaleAspectFit
@@ -37,7 +71,6 @@ class ClothView: BaseView {
     }
     
     lazy private var bodyIMG = UIImageView().then {
-        $0.image = UIImage(named: "body_0")
         $0.contentMode = .scaleAspectFit
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -154,11 +187,11 @@ class ClothView: BaseView {
         }
         
         closeUmbrell.snp.makeConstraints { make -> Void in
-            make.top.equalTo(legIMG).offset(21.6)
-            make.right.equalTo(self)
+            make.top.equalTo(legIMG).offset(ratioTopCloseUmbrell())
+            make.left.equalTo(self)
             
-            make.width.equalTo(self.snp.width).dividedBy(3.41232227488)
-            make.height.equalTo(self.snp.width).dividedBy(0.8085345311622)
+            make.width.equalTo(self.snp.width)
+            make.height.equalTo(self.snp.width).dividedBy(0.876288659793814)
         }
     }
     
@@ -167,7 +200,7 @@ class ClothView: BaseView {
         
         switch ratio {
             case 568.0:
-                return 88.27
+                return 75
             case 736.0:
                 return 98
             default:
@@ -179,23 +212,25 @@ class ClothView: BaseView {
         let ratio = UIScreen.main.bounds.height
         switch ratio {
             case 568.0:
-                return 0.0
+                return 5.0
             case 736.0:
-                return 0.0
+                return 4.0
             default:
                 return 4.0
         }
     }
     
-    private func ratioLeftUmbrell() -> Double {
+    private func ratioTopCloseUmbrell() -> Double {
         let ratio = UIScreen.main.bounds.height
         switch ratio {
             case 568.0:
-                return 0.0
+                return 21.0
+            case 667.0:
+                return 28.0
             case 736.0:
-                return 0.0
+                return 26.0
             default:
-                return 4.0
+                return 21.0
         }
     }
 }

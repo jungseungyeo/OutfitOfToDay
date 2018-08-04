@@ -30,6 +30,24 @@ fileprivate let dailyChartCellID = "dailyChartCellID"
 fileprivate let weeklyCellID = "weeklyCellID"
 fileprivate let gotoTopCellID = "goToTopCellID"
 
+struct Weather {
+	var currentTime: String?
+	var currentLocation: String?
+	
+	var currentTemp: String?
+	var minTemp: String?
+	var maxTemp: String?
+	
+	
+	var descriptionInfo: DescriptionInfo?
+    
+    var weatherIcon: Int?
+	
+	init() {
+		
+	}
+}
+
 class OOTDetailWeatherVC: UIViewController {
 	
 	let collectionView: UICollectionView = {
@@ -39,10 +57,32 @@ class OOTDetailWeatherVC: UIViewController {
 		return cv
 	}()
 	
+	var weather: Weather!
+	
+	// singleTon
+	private let locationManager = LocationManager.shared
+	private let timeManager = TimeManager.shared
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		
+		setupObserver()
+		setupWeather()
 		setupCollectionView()
+	}
+	
+	private func setupObserver() {
+		locationManager.attachObserver(self)
+		timeManager.attachObserver(self)
+	}
+	private func setupWeather() {
+//		weather = Weather(currentTime: "", currentLocation: locationManager.getCityName()
+		weather = Weather()
+		weather.currentLocation = locationManager.getCityName()
+		getTodayTemperature()
+		getCurrentInfo()
+//        getHourInfo()
 	}
 	
 	private func setupCollectionView() {
@@ -78,35 +118,35 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 			return UICollectionViewCell()
 		}
 		
+		var cell: DetailWeatherCell!
 		switch item {
 		case .title:
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: titleCellID, for: indexPath)
+			cell = collectionView.dequeueReusableCell(withReuseIdentifier: titleCellID, for: indexPath) as! SubWeatherTitleCell
 			
-			return cell
+			
 			
 		case .description:
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: descriptCellID, for: indexPath)
+			cell = collectionView.dequeueReusableCell(withReuseIdentifier: descriptCellID, for: indexPath) as! DescriptionWeatherCell
 			
-			return cell
+			
 		case .lifeIndex:
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: lifeIndexCellID, for: indexPath)
+			cell = collectionView.dequeueReusableCell(withReuseIdentifier: lifeIndexCellID, for: indexPath) as! LifeIndexCell
 			
-			return cell
+			
 		case .dailyChart:
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: dailyChartCellID, for: indexPath)
+			cell = collectionView.dequeueReusableCell(withReuseIdentifier: dailyChartCellID, for: indexPath) as! DailyWeatherCell
 			
-			return cell
+			
 		case .weeklyChart:
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: weeklyCellID, for: indexPath)
+			cell = collectionView.dequeueReusableCell(withReuseIdentifier: weeklyCellID, for: indexPath) as! WeeklyWeatherCell
 			
-			return cell
-
 		case .goToTop:
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gotoTopCellID, for: indexPath) as! GoToTopCell
-			cell.goToTopButton.addTarget(self, action: #selector(didTapGoToTop), for: .touchUpInside)
-			return cell
+			cell = collectionView.dequeueReusableCell(withReuseIdentifier: gotoTopCellID, for: indexPath) as! GoToTopCell
+			(cell as! GoToTopCell).goToTopButton.addTarget(self, action: #selector(didTapGoToTop), for: .touchUpInside)
+			
 		}
-		
+		cell.weather = weather
+		return cell
 	}
 	
 	@objc func didTapGoToTop() {
@@ -127,11 +167,11 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 		
 		switch item {
 		case .title:
-			return CGSize(width: cWidth, height: 200)
+			return CGSize(width: cWidth, height: 216)
 		case .description:
-			return CGSize(width: cWidth, height: 116)
+			return CGSize(width: cWidth, height: 120)
 		case .lifeIndex:
-			return CGSize(width: cWidth, height: 172)
+			return CGSize(width: cWidth, height: 186)
 		case .dailyChart:
 			return CGSize(width: cWidth, height: 210)
 		case .weeklyChart:
@@ -148,5 +188,63 @@ extension OOTDetailWeatherVC: UICollectionViewDelegate, UICollectionViewDataSour
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 		return UIEdgeInsetsMake(4, 0, 40, 0)
+	}
+	
+	
+}
+
+// MARK: Get Weather's Info Service
+extension OOTDetailWeatherVC {
+	private func getTodayTemperature() {
+		
+		let parameters = [
+			"type": "today"
+		]
+		OOTWeatherService.shared.get(urlPath: .temperatures,parameters: parameters, handler: {(json) in
+			self.weather.currentTemp = json[kSTRING_TEMPERATURES_API_CURRENT].stringValue
+			self.weather.maxTemp = json[kSTRING_TEMPERATURES_API_MAXIMUM].stringValue
+			self.weather.minTemp = json[kSTRING_TEMPERATURES_API_MINIMUM].stringValue
+			
+			self.collectionView.reloadData()
+		}, errorHandler: { (statusCode, errorMessage) in
+			
+			let errorAlert: UIAlertController = .alert("code: \(statusCode)",errorMessage: errorMessage)
+			errorAlert.add(kSTRING_TITLE_CONFIRM, handler: { (handling) in
+				//				self.errorHandling(statusCode)
+			}).show(self)
+		})
+	}
+	
+	private func getCurrentInfo() {
+		OOTWeatherService.shared.get(urlPath: .current, handler: {(json) in
+			
+			let decoder = JSONDecoder()
+			
+			do {
+				let rawData = try json.rawData()
+				let data = try decoder.decode(DescriptionInfo.self, from: rawData)
+				
+				print(data)
+				self.weather.descriptionInfo = data
+				self.collectionView.reloadData()
+				
+			} catch let err {
+				debugPrint(err)
+			}		}) { (code, err) in
+				print("err Load Weekly Data:", code, err)
+		}
+    }
+	
+}
+
+// MARK: Observer
+extension OOTDetailWeatherVC: LocationObserver, TimeObserver {
+	func updateLocation(_ notyValue: String) {
+		weather.currentLocation = notyValue
+		collectionView.reloadData()
+	}
+	func updateTime(_ notyValue: String) {
+		weather.currentTime = notyValue
+		collectionView.reloadData()
 	}
 }

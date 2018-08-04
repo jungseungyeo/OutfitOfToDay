@@ -29,14 +29,58 @@ class ClothManager {
         }
     }
     
-    static func getFasc(value: Int) -> UIImage? {
+    static func getTop(value: Int) -> UIImage? {
+        switch value {
+            case 0:
+                return UIImage(named: "body_0")
+            case 1:
+                return UIImage(named: "body_1")
+            default:
+                return UIImage(named: "body_2")
+        }
+    }
+    
+    static func getBottom(value: Int) -> UIImage? {
+        switch value {
+            case 0:
+                return UIImage(named: "leg_0")
+            case 1:
+                return UIImage(named: "leg_1")
+            default:
+                return UIImage(named: "leg_1")
+        }
+    }
+    
+    static func getumbrella(value: Int) -> UIImage? {
         switch value {
             case 0:
                 return nil
             case 1:
-                return UIImage(named: "")
+                return UIImage(named: "closeUmbrella")
             default:
-                return UIImage(named: "")
+                return UIImage(named: "unfoldUmbrella")
+        }
+    }
+    
+    static func getShoes(value: Int) -> UIImage? {
+        switch value {
+        case 0:
+            return UIImage(named: "foot_0")
+        case 1:
+            return UIImage(named: "foot_1")
+        default:
+            return UIImage(named: "foot_1")
+        }
+    }
+    
+    static func getUbody(value: Int) -> UIImage? {
+        switch value {
+        case 0:
+            return UIImage(named: "ubody_0")
+        case 1:
+            return UIImage(named: "ubody_1")
+        default:
+            return UIImage(named: "ubody_2")
         }
     }
 }
