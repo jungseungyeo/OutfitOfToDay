@@ -10,14 +10,29 @@ import UIKit
 
 class OOTPageViewController: UIPageViewController {
     
-    private let viewcontrollerList: [UIViewController] = [OOTWeatherViewCotnroller()]
+    private let viewcontrollerList: [UIViewController] = [OOTWeatherViewCotnroller(), OOTDetailWeatherVC()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
         if let first = viewcontrollerList.first {
-            self.setViewControllers([first], direction: .forward, animated: true, completion: nil)
+            self.setViewControllers([first], direction: .forward, animated: false, completion: nil)
         }
+    }
+	
+	func goToTop() {
+		if let first = viewcontrollerList.first {
+			self.setViewControllers([first], direction: .reverse, animated: true, completion: nil)
+		}
+		
+	}
+    
+    func goToBottom() {
+        let second: UIViewController? = viewcontrollerList[1]
+        guard let secondVC = second else {
+            return
+        }
+        self.setViewControllers([secondVC], direction: .forward, animated: true, completion: nil)
     }
 }
 

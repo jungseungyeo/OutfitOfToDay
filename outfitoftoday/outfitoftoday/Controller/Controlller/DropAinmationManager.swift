@@ -10,8 +10,6 @@ import UIKit
 
 class DropAnimationManager: NSObject {
     
-    var dropView: DropAnimationView?
-    
     enum weatherType: String {
         case rain
         case snow
@@ -19,12 +17,12 @@ class DropAnimationManager: NSObject {
         
         var img: UIImage? {
             switch self {
-            case .rain:
-                return UIImage(named: "rainiCon")
-            case .snow:
-                return UIImage(named: "snowiCon")
-            case .none:
-                return nil
+                case .rain:
+                    return UIImage(named: "rainiCon")
+                case .snow:
+                    return UIImage(named: "snowiCon")
+                case .none:
+                    return nil
             }
         }
     }
@@ -37,11 +35,11 @@ class DropAnimationManager: NSObject {
         var createTime: Double {
             switch self {
                 case .many:
-                    return 0.01
-                case .middle:
                     return 0.05
-                case .low:
+                case .middle:
                     return 0.1
+                case .low:
+                    return 0.2
             }
         }
     }
@@ -53,9 +51,9 @@ class DropAnimationManager: NSObject {
         var seep: Double {
             switch self {
                 case .rain:
-                    return 7.0
+                    return 5.0
                 case .snow:
-                    return 10.0
+                    return 7.0
             }
         }
     }
@@ -73,14 +71,5 @@ class DropAnimationManager: NSObject {
     
     static func getStartX() -> Int {
         return Int(arc4random_uniform(UInt32(UIScreen.main.bounds.maxX))) * 2
-    }
-    
-    private func getEndX() -> Int {
-        return (DropAnimationManager.getStartX() - 400)
-    }
-    
-    internal func startAnimation(animationVC: UIViewController, dropSeep: Double) {
-        
-//        animationVC.view.addSubViews(<#T##views: UIView...##UIView#>)
     }
 }

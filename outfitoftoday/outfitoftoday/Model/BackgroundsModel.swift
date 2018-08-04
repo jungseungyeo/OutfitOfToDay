@@ -15,7 +15,7 @@
 
 struct BackgroundsModel: Codable {
     let skyCoverage: Int
-    let precipitation: String
+    var precipitation: String
     let weather: String
     let windSpeed: Int
     

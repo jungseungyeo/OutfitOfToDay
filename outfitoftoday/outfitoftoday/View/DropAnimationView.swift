@@ -24,13 +24,14 @@ class DropAnimationView: BaseView {
     }
     
     lazy private var dropWeather = UIImageView().then {
-        $0.image = UIImage(named: "rain")
+        $0.image = UIImage(named: "rainiCon")
         $0.contentMode = .scaleAspectFill
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func setup() {
         super.setup()
+        initUI()
     }
     
     private func initUI() {
