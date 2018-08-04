@@ -11,6 +11,7 @@ import SwiftyJSON
 import NVActivityIndicatorView
 
 class OOTWeatherService {
+
 	static let shared: OOTWeatherService = OOTWeatherService()
 	
 	private init() { }
@@ -34,6 +35,8 @@ class OOTWeatherService {
 		
 		case hour // 3시간 단위 그래프용
 		case week // 하루 단위 1주일치 그래프용
+        
+        case coordinate
 		
 		var description: String {
 			switch self {
@@ -65,6 +68,8 @@ class OOTWeatherService {
 				return "\(OOTWeatherService.path.baseURL.description)week"
 			case .current:
 				return "\(OOTWeatherService.path.baseURL.description)current"
+            case .coordinate:
+                return "\(OOTWeatherService.path.baseURL.description)coordinate"
 			}
 		}
 	}

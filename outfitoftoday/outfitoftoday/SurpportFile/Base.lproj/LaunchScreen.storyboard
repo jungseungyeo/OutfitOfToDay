@@ -16,7 +16,25 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ootIcon" translatesAutoresizingMaskIntoConstraints="NO" id="y6r-M8-T8v">
+                                <rect key="frame" x="124" y="120" width="126" height="195"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="126" id="7aj-T6-w8V"/>
+                                    <constraint firstAttribute="height" constant="195" id="zoI-BL-rs7"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluepaprikaCorp" translatesAutoresizingMaskIntoConstraints="NO" id="fdv-4E-RYo">
+                                <rect key="frame" x="120" y="551" width="134" height="20"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="y6r-M8-T8v" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="750-Q9-TjP"/>
+                            <constraint firstItem="fdv-4E-RYo" firstAttribute="centerX" secondItem="y6r-M8-T8v" secondAttribute="centerX" id="HuD-wA-FnD"/>
+                            <constraint firstItem="y6r-M8-T8v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="aAN-lH-kwn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fdv-4E-RYo" secondAttribute="bottom" constant="96" id="nIh-2p-WWs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -25,4 +43,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bluepaprikaCorp" width="134" height="20"/>
+        <image name="ootIcon" width="137" height="208"/>
+    </resources>
 </document>

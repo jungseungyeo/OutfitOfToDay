@@ -58,7 +58,7 @@ class DailyWeatherCell: DetailWeatherCell {
 			make.left.right.bottom.equalTo(self)
 		}
 
-//		setDummyData()
+//        setDummyData()
 	
 		
 	}

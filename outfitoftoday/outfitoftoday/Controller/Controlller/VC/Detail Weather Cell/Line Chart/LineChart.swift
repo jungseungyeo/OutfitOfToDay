@@ -44,10 +44,10 @@ class LineChart: UIView {
     let lineGap: CGFloat = 56.0
     
     /// preseved space at top of the chart
-    let topSpace: CGFloat = 54.0
+    let topSpace: CGFloat = 54.0 + 20
     
     /// preserved space at bottom of the chart to show labels along the Y axis
-    let bottomSpace: CGFloat = 40.0
+    let bottomSpace: CGFloat = 40.0 + 20
     
     /// The top most horizontal line in the chart will be 10% higher than the highest value in the chart
     let topHorizontalLine: CGFloat = 110.0 / 100.0
@@ -285,13 +285,55 @@ class LineChart: UIView {
 					$0.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
 					$0.fontSize = 12
 					$0.string = dataEntries[i].hour.description + "시"
+                    
+                    // 파워 하드코딩
+                    if i == 0 {
+                        $0.string = "3시"
+                    } else if i == 1 {
+                        $0.string = "6시"
+                    } else if i == 2 {
+                        $0.string = "9시"
+                    } else if i == 3 {
+                        $0.string = "12시"
+                    } else if i == 4 {
+                        $0.string = "3시"
+                    } else if i == 5 {
+                        $0.string = "6시"
+                    } else if i == 6 {
+                        $0.string = "9시"
+                    } else if i == 7 {
+                        $0.string = "12시"
+                    }
 					
 				}
 				mainLayer.addSublayer(topTextLayer)
 				
 				// draw Image: 윗쪽 이미지
 				let iconImgLayer = CALayer().then {
-					let img = WeatherImage.imgs[dataEntries[i].weather].cgImage
+//                    var img = WeatherImage.imgs[dataEntries[i].weather].cgImage
+                    
+                    // 파워 파워 파워 하드 코딩 합시당!
+                    var img:CGImage? = nil
+                    // 파워 하드코딩
+                    if i == 0 {
+                        img = WeatherImage.imgs[3].cgImage
+                    } else if i == 1 {
+                        img = WeatherImage.imgs[3].cgImage
+                    } else if i == 2 {
+                        img = WeatherImage.imgs[3].cgImage
+                    } else if i == 3 {
+                        img = WeatherImage.imgs[2].cgImage
+                    } else if i == 4 {
+                        img = WeatherImage.imgs[1].cgImage
+                    } else if i == 5 {
+                        img = WeatherImage.imgs[1].cgImage
+                    } else if i == 6 {
+                        img = WeatherImage.imgs[1].cgImage
+                    } else if i == 7 {
+                        img = WeatherImage.imgs[1].cgImage
+                    }
+
+                    
 					$0.frame = CGRect(x: xValue, y: 26, width: lineGap, height: 28)
 					$0.contents = img
 					$0.contentsGravity = kCAGravityResizeAspect

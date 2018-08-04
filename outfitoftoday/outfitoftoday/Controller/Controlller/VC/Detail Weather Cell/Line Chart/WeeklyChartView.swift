@@ -259,7 +259,10 @@ class WeeklyChartView: UIView {
 				// draw Image: 윗쪽 이미지
 				let iconImgLayer = CALayer().then {
 //					let img = #imageLiteral(resourceName: "sunny").cgImage
-					let img = WeatherImage.imgs[dataEntries[i].weather].cgImage
+                    let img = WeatherImage.imgs[dataEntries[i].weather].cgImage
+                    
+                    // 파워 파워 파워 코딩 합시당!
+                    
 					$0.frame = CGRect(x: xValue, y: 26, width: lineGap, height: 28)
 					$0.contents = img
 					$0.contentsGravity = kCAGravityResizeAspect

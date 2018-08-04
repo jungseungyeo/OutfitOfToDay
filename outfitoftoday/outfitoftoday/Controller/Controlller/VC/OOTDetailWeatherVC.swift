@@ -40,6 +40,8 @@ struct Weather {
 	
 	
 	var descriptionInfo: DescriptionInfo?
+    
+    var weatherIcon: Int?
 	
 	init() {
 		
@@ -80,6 +82,7 @@ class OOTDetailWeatherVC: UIViewController {
 		weather.currentLocation = locationManager.getCityName()
 		getTodayTemperature()
 		getCurrentInfo()
+//        getHourInfo()
 	}
 	
 	private func setupCollectionView() {
@@ -230,7 +233,7 @@ extension OOTDetailWeatherVC {
 			}		}) { (code, err) in
 				print("err Load Weekly Data:", code, err)
 		}
-	}
+    }
 	
 }
 

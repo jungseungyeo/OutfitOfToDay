@@ -26,6 +26,14 @@ class OOTPageViewController: UIPageViewController {
 		}
 		
 	}
+    
+    func goToBottom() {
+        let second: UIViewController? = viewcontrollerList[1]
+        guard let secondVC = second else {
+            return
+        }
+        self.setViewControllers([secondVC], direction: .forward, animated: true, completion: nil)
+    }
 }
 
 extension OOTPageViewController: UIPageViewControllerDataSource {
