@@ -16,12 +16,10 @@ class SubWeatherTitleCell: DetailWeatherCell {
 	}
 	
 	let locationLabel = UILabel().then {
-		$0.text = "ㅅㅇㅅ ㄱㄴㄱ"
 		$0.font = .spoqaFont(ofSize: 20, weight: .bold)
 	}
 	
 	let timeLabel = UILabel().then {
-		$0.text = "오전 00시 00분"
 		$0.font = .spoqaFont(ofSize: 14, weight: .light)
 	}
 	

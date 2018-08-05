@@ -12,15 +12,6 @@ struct WeatherImage {
 	static let imgs: [UIImage] = [
 		#imageLiteral(resourceName: "SunnyIcon"), #imageLiteral(resourceName: "SmallCloudyIcon"), #imageLiteral(resourceName: "MediumCloudyIcon"), #imageLiteral(resourceName: "CloudyIcon"), #imageLiteral(resourceName: "RainyIcon"), #imageLiteral(resourceName: "SnowyIcon"), #imageLiteral(resourceName: "SleetIcon"), #imageLiteral(resourceName: "HailIcon"), #imageLiteral(resourceName: "FogIcon"), #imageLiteral(resourceName: "YellowdustIcon")
 	]
-    
-    static let image: [UIImage] = [
-        UIImage(named: "CloudyIcon")!
-        ,UIImage(named: "FogIcon")!
-        ,UIImage(named: "HailIcon")!
-        ,UIImage(named: "MediumCloudyIcon")!
-        ,UIImage(named: "SmallCloudyIcon")!
-        ,UIImage(named: "CloudyIcon")!
-        ,UIImage(named: "CloudyIcon")!
-    ]
+	
 }
 

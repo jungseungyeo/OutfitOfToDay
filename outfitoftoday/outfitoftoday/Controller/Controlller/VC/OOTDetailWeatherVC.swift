@@ -16,7 +16,6 @@ fileprivate enum DetailWeatherType: Int {
 	case dailyChart = 3
 	case weeklyChart = 4
 	case goToTop = 5
-//	case weeklyChart = 4
 	
 	static func count() -> Int {
 		return self.goToTop.rawValue + 1
