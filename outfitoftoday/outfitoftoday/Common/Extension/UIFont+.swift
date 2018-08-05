@@ -27,7 +27,9 @@ extension UIFont {
         }
     }
     
-    
+	static func spoqaFont(ofSize size: CGFloat) -> UIFont {
+		return spoqaFont(ofSize: size, weight: .regular)
+	}
     static func spoqaFont(ofSize: CGFloat, weight: spoqaType) -> UIFont {
         
         guard let customFont = UIFont(name: weight.fontName, size: ofSize) else {

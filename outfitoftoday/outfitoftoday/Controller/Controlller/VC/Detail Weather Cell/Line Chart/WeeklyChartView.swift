@@ -249,7 +249,7 @@ class WeeklyChartView: UIView {
 					$0.backgroundColor = UIColor.clear.cgColor
 					$0.alignmentMode = kCAAlignmentCenter
 					$0.contentsScale = UIScreen.main.scale
-					$0.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0).fontName as CFString, 0, nil)
+					$0.font = CTFontCreateWithName(UIFont.spoqaFont(ofSize: 0).fontName as CFString, 0, nil)
 					$0.fontSize = 12
 					$0.string = dataEntries[i].dayOfWeek
 					
@@ -278,7 +278,7 @@ class WeeklyChartView: UIView {
 						$0.backgroundColor = UIColor.clear.cgColor
 						$0.alignmentMode = kCAAlignmentCenter
 						$0.contentsScale = UIScreen.main.scale
-						$0.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0, weight: .light).fontName as CFString, 0, nil)
+						$0.font = CTFontCreateWithName(UIFont.spoqaFont(ofSize: 0, weight: .light).fontName as CFString, 0, nil)
 						$0.fontSize = 12
 						$0.string = String(dataEntries[i].max)
 						
@@ -293,7 +293,7 @@ class WeeklyChartView: UIView {
 						$0.backgroundColor = UIColor.clear.cgColor
 						$0.alignmentMode = kCAAlignmentCenter
 						$0.contentsScale = UIScreen.main.scale
-						$0.font = CTFontCreateWithName(UIFont.systemFont(ofSize: 0, weight: .light).fontName as CFString, 0, nil)
+						$0.font = CTFontCreateWithName(UIFont.spoqaFont(ofSize: 0, weight: .light).fontName as CFString, 0, nil)
 						$0.fontSize = 12
 						$0.string = String(dataEntries[i].min)
 						
