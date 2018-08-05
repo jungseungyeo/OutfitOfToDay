@@ -37,30 +37,6 @@ class SubWeatherTitleCell: DetailWeatherCell {
 		$0.adjustsFontSizeToFitWidth = true
 		$0.textAlignment = .center
 	}
-    
-    private var tempHightText = UILabel().then {
-        $0.text = "-00 ̊"
-        $0.font = .spoqaFont(ofSize: 16, weight: .bold)
-        $0.textColor = UIColor(red: 255/255, green: 92/255, blue: 92/255, alpha: 1.0)
-        $0.adjustsFontSizeToFitWidth = true
-        $0.textAlignment = .center
-    }
-    
-    private var divisionText = UILabel().then {
-        $0.text = "/"
-        $0.font = .spoqaFont(ofSize: 16, weight: .bold)
-        $0.textColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 1.0)
-        $0.adjustsFontSizeToFitWidth = true
-        $0.textAlignment = .center
-    }
-    
-    private var tempLowText = UILabel().then {
-        $0.text = "-00 ̊"
-        $0.font = .spoqaFont(ofSize: 16, weight: .bold)
-        $0.textColor = UIColor(red: 92/255, green: 173/255, blue: 255/255, alpha: 1.0)
-        $0.adjustsFontSizeToFitWidth = true
-        $0.textAlignment = .center
-    }
 	
 	override func didSetWeather() {
 		super.didSetWeather()
@@ -70,21 +46,41 @@ class SubWeatherTitleCell: DetailWeatherCell {
 		
 		tempLabel.text = "\(weather?.currentTemp ?? "") ̊"
         
-        tempHightText.text = "\(weather?.maxTemp ?? "") ̊"
-        tempLowText.text = "\(weather?.minTemp ?? "") ̊"
-        
-        tempRangeLabel.text = ""
+		
+        tempRangeLabel.attributedText = tempRangeString()
         
         iconImgView.image = WeatherImage.imgs[weather?.weatherIcon ?? 0]
         iconImgView.image = WeatherImage.imgs[1]
 	}
 	
+	private func tempRangeString() -> NSMutableAttributedString {
+		let result = NSMutableAttributedString(string: "")
+		
+		guard let minTemp = weather?.minTemp else { return result }
+		let minString = NSMutableAttributedString(string: minTemp + " ̊", attributes: [
+			NSAttributedStringKey.font: tempRangeLabel.font,
+			NSAttributedStringKey.foregroundColor: UIColor.skyBlue])
+		
+		guard let maxTemp = weather?.maxTemp else { return result }
+		let maxString = NSMutableAttributedString(string: maxTemp + " ̊", attributes: [
+			NSAttributedStringKey.font: tempRangeLabel.font,
+			NSAttributedStringKey.foregroundColor: UIColor.rosyPink])
+		
+		let slashString = NSMutableAttributedString(string: " / ", attributes: [
+			NSAttributedStringKey.font: tempRangeLabel.font,
+			NSAttributedStringKey.foregroundColor: UIColor.warmGrey])
+		
+		result.append(maxString)
+		result.append(slashString)
+		result.append(minString)
+		
+		return result
+	}
+	
 	override func setupView() {
 		super.setupView()
 		
-		addSubViews(iconImgView, locationLabel, timeLabel, tempLabel, tempRangeLabel
-                ,tempHightText, tempLowText, divisionText
-        )
+		addSubViews(iconImgView, locationLabel, timeLabel, tempLabel, tempRangeLabel)
 		
 		iconImgView.snp.remakeConstraints { make -> Void in
 			make.top.equalTo(self.readableContentGuide).inset(49)
@@ -108,25 +104,9 @@ class SubWeatherTitleCell: DetailWeatherCell {
             make.bottom.equalTo(self.readableContentGuide)
             make.left.equalTo(locationLabel).offset(14)
         }
-        
-        tempHightText.snp.makeConstraints { make -> Void in
-            make.bottom.equalTo(self.readableContentGuide)
-            make.left.equalTo(locationLabel).offset(14)
-        }
-        
-        tempLowText.snp.makeConstraints { make -> Void in
-            make.bottom.equalTo(self.readableContentGuide)
-            make.left.equalTo(tempHightText.snp.right).offset(11)
-        }
-        
-        divisionText.snp.makeConstraints { make -> Void in
-            make.bottom.equalTo(self.readableContentGuide)
-            make.left.equalTo(tempHightText.snp.right).offset(0)
-        }
 		
 		tempLabel.snp.remakeConstraints { make -> Void in
-//            make.bottom.equalTo(tempRangeLabel.snp.top).offset(8)
-            make.bottom.equalTo(tempHightText.snp.top).offset(8)
+            make.bottom.equalTo(tempRangeLabel.snp.top).offset(8)
 			make.left.equalTo(locationLabel)
 		}
 	}
