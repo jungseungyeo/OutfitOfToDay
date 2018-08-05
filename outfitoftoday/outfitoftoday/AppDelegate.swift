@@ -16,10 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
-        let orientation: UIPageViewControllerNavigationOrientation = .vertical
-//        let orientation: UIPageViewControllerNavigationOrientation = .horizontal
-//        window?.rootViewController = RootPageViewController(transitionStyle: .scroll, navigationOrientation: orientation, options: nil)
-        window?.rootViewController = OOTPageViewController(transitionStyle: .scroll, navigationOrientation: orientation, options: nil)
+		
+		
+		// 여러 페이지 띄움
+        let orientation: UIPageViewControllerNavigationOrientation = .horizontal
+        window?.rootViewController = RootPageViewController(transitionStyle: .scroll, navigationOrientation: orientation, options: nil)
+
+		
+		// 한 페이지만 띄움 (for test)
+		//        let orientation: UIPageViewControllerNavigationOrientation = .vertical
+//        window?.rootViewController = OOTPageViewController(transitionStyle: .scroll, navigationOrientation: orientation, options: nil)
+		
+		
         window?.makeKeyAndVisible()
         return true
     }
