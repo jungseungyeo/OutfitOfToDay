@@ -31,34 +31,22 @@ class DescriptionView: UIView {
 				valueLabel.text = indexToValue(info.dust)
 			case .wind:
 				valueLabel.text = indexToValue(info.wind)
-                //하드
-                valueLabel.text = "약함"
-                valueLabel.textColor = UIColor(red: 119/255, green: 219/255, blue: 115/255, alpha: 1.0)
+				
 			case .humidity:
 				valueLabel.text = indexToValue(info.humidity)
-                //하드
-                valueLabel.text = "높음"
-                valueLabel.textColor = UIColor(red: 255/255, green: 92/255, blue: 92/255, alpha: 1.0)          
+				
 			case .rain:
 				valueLabel.text = indexToValue(info.rain)
-                // 하드
-                valueLabel.text = "보통"
-                valueLabel.textColor = UIColor(red: 92/255, green: 173/255, blue: 255/255, alpha: 1.0)
+				
 			case .temp:
 				valueLabel.text = indexToValue(info.windChill)
-                //하드
-                valueLabel.text = "높음"
-                valueLabel.textColor = UIColor(red: 255/255, green: 92/255, blue: 92/255, alpha: 1.0)
+				
 			case .uv:
 				valueLabel.text = indexToValue(info.uv)
-                //하드
-                valueLabel.text = "보통"
-                valueLabel.textColor = UIColor(red: 92/255, green: 173/255, blue: 255/255, alpha: 1.0)
+				
 			case .discomfort:
 				valueLabel.text = indexToValue(info.discomfort)
-                // 하드
-                valueLabel.text = "나쁨"
-                valueLabel.textColor = UIColor(red: 255/255, green: 92/255, blue: 92/255, alpha: 1.0)
+                
 			}
 		}
 	}
