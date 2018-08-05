@@ -293,7 +293,7 @@ extension OOTWeatherViewCotnroller {
             default:
                 print("")
         }
-        exit(0)
+//        exit(0)
     }
 }
 
